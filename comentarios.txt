@@ -1,0 +1,352 @@
+<?php
+include_once('php/config.php');
+
+// ID vindo por GET (na tela de edição)
+$id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
+
+// ID vindo por POST (auto-salvamento)
+if (!$id && isset($_POST['id'])) {
+    $id = (int) $_POST['id'];
+}
+
+// Se ainda não houver ID válido, redireciona
+if (!$id) {
+    header("Location: personagens.php");
+    exit;
+}
+
+// Buscar os dados da ficha para preencher o formulário
+$sql = "SELECT * FROM FICHAS WHERE id = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $id);
+$stmt->execute();
+$resultado = $stmt->get_result();
+
+if ($resultado->num_rows === 0) {
+    echo "Ficha não encontrada!";
+    exit;
+}
+
+$dados = $resultado->fetch_assoc(); // Aqui estão todos os dados da ficha!
+$stmt->close();
+
+// Campos permitidos (fixos e dinâmicos)
+$campos_fixos = [
+    'chracter', 'player', 'race', 'origin', 'class', 'level', 'deity',
+    'for', 'dex', 'con', 'int', 'sab', 'car', 'pv', 'pva', 'pm', 'pma',
+    'ableDefAttr', 'defenseSelect', 'defOthers',
+    'armorName', 'armorBonus', 'armorPenality',
+    'shieldName', 'shieldBonus', 'shieldPenality',
+    'proficiencias', 'habilidades', 'magias', 'money', 'maxLoad'
+];
+
+$pericias = [
+    "acrobacia", "adestramento", "atletismo", "atuacao", "cavalgar", "conhecimento", "cura", "diplomacia",
+    "enganacao", "fortitude", "furtividade", "guerra", "iniciativa", "intimidacao", "intuicao", "investigacao",
+    "jogatina", "ladinagem", "luta", "misticismo", "nobreza", "oficio1", "oficio2", "percepcao", "pilotagem",
+    "pontaria", "reflexos", "religiao", "sobrevivencia", "vontade"
+];
+
+$campos_dinamicos = [];
+foreach ($pericias as $p) {
+    $campos_dinamicos[] = "check-$p";
+    $campos_dinamicos[] = "outros-$p";
+}
+
+$permitidos = array_merge($campos_fixos, $campos_dinamicos);
+
+// Debug opcional – você pode remover isso depois de testar
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    echo "<pre>";
+    print_r($_POST);
+    echo "</pre>";
+}
+
+// Se for auto-salvamento de campo único
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['campo'], $_POST['valor'], $_POST['id'])) {
+    $campo = str_replace('_', '-', $_POST['campo']); // <- Aqui converte _ para -
+    $valor = $_POST['valor'];
+    $id = (int) $_POST['id'];
+
+    if (!in_array($campo, $permitidos)) {
+        echo "Campo inválido! Recebido: " . htmlspecialchars($campo);
+        exit;
+    }
+
+    $stmt = $conn->prepare("UPDATE FICHAS SET `$campo` = ? WHERE id = ?");
+    if (!$stmt) {
+        echo "Erro no prepare: " . $conn->error;
+        var_dump($campo);
+        exit;
+    }
+
+    $stmt->bind_param("si", $valor, $id);
+
+    if ($stmt->execute()) {
+        echo "Campo '$campo' atualizado com sucesso.";
+    } else {
+        echo "Erro ao atualizar: " . $stmt->error;
+    }
+
+    $stmt->close();
+    $conn->close();
+    exit;
+}
+?>
+
+
+
+<script>
+const fichaData = <?= json_encode($dados, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP) ?>;
+
+window.addEventListener('DOMContentLoaded', () => {
+  const ataqueCampos = ['ataque', 'test', 'dano', 'critico', 'tipo', 'alcance'];
+  const itemCampos = ['item', 'itemValue', 'itemLoad'];
+
+  // 1. Descompacta os campos especiais antes de preencher os inputs
+  if (fichaData.ataques_compactados) {
+    try {
+      const ataques = JSON.parse(fichaData.ataques_compactados);
+      if (ataques && typeof ataques === 'object') {
+        const quantos = Array.isArray(ataques.ataque) ? ataques.ataque.length : 0;
+        for (let i = 0; i < quantos; i++) {
+          if (typeof adicionarNovaLinhaAtaque === 'function') adicionarNovaLinhaAtaque();
+        }
+
+        ataqueCampos.forEach(nome => {
+          const valores = ataques[nome];
+          if (Array.isArray(valores)) {
+            valores.forEach((val, idx) => {
+              const input = document.querySelectorAll(`[name="${nome}"]`)[idx];
+              if (input) input.value = val;
+            });
+          }
+        });
+      }
+    } catch (e) {
+      console.error('Erro ao parsear ataques_compactados:', e);
+    }
+  }
+
+  if (fichaData.itens_compactados) {
+    try {
+      const itens = JSON.parse(fichaData.itens_compactados);
+      itemCampos.forEach(nome => {
+        const valores = itens[nome];
+        if (Array.isArray(valores)) {
+          valores.forEach((val, idx) => {
+            const input = document.querySelectorAll(`[name="${nome}"]`)[idx];
+            if (input) input.value = val;
+          });
+        }
+      });
+    } catch (e) {
+      console.error('Erro ao parsear itens_compactados:', e);
+    }
+  }
+
+  // 2. Preenche os campos normais
+  for (const [campo, valor] of Object.entries(fichaData)) {
+    if (campo === 'ataques_compactados' || campo === 'itens_compactados') continue;
+
+    const el = document.querySelector(`[name="${campo}"]`);
+    if (el && valor !== null) {
+      if (el.type === 'checkbox') {
+        el.checked = valor == '1' || valor === 1 || valor === true;
+      } else {
+        el.value = valor;
+      }
+    }
+  }
+
+  if (typeof atualizarTudo === 'function') {
+    atualizarTudo();
+  }
+
+  // 3. Auto-salvamento
+  document.querySelectorAll('input, textarea, select, hidden').forEach(input => {
+    input.addEventListener('blur', () => {
+      const fichaId = document.querySelector('#ficha_id')?.value || '';
+      const originalName = input.name;
+
+      const formData = new FormData();
+
+      let campoFinal = originalName;
+      let valorFinal = input.type === 'checkbox' ? (input.checked ? '1' : '0') : input.value;
+
+      if (ataqueCampos.includes(originalName)) {
+        campoFinal = 'ataques_compactados';
+        const ataqueData = {};
+        ataqueCampos.forEach(nome => {
+          ataqueData[nome] = Array.from(document.querySelectorAll(`[name="${nome}"]`)).map(el => el.value);
+        });
+        valorFinal = JSON.stringify(ataqueData);
+      } else if (itemCampos.includes(originalName)) {
+        campoFinal = 'itens_compactados';
+        const itemData = {};
+        itemCampos.forEach(nome => {
+          itemData[nome] = Array.from(document.querySelectorAll(`[name="${nome}"]`)).map(el => el.value);
+        });
+        valorFinal = JSON.stringify(itemData);
+      }
+
+      formData.append('campo', campoFinal);
+      formData.append('valor', valorFinal);
+      formData.append('id', fichaId);
+
+      fetch('ficha.php', {
+        method: 'POST',
+        body: formData
+      })
+      .then(res => res.text())
+      .then(msg => console.log(`Auto-salvo: ${campoFinal} = ${valorFinal} ->`, msg))
+      .catch(err => console.error('Erro ao auto-salvar:', err));
+    });
+  });
+});
+
+
+
+
+
+
+
+
+ const ataqueCampos = ['ataque', 'teste', 'dano', 'critico', 'tipo', 'alcance'];
+  const itemCampos = ['item', 'itemValue', 'itemLoad'];
+
+  // Preenche campos de um grupo a partir de um objeto e de uma linha (tr, div, etc)
+  function preencherGrupo(campos, dados, linha) {
+    campos.forEach(nome => {
+      const el = linha.querySelector([name="${nome}"]);
+      if (el && dados[nome] !== undefined && dados[nome] !== null) {
+        if (el.type === 'checkbox') {
+          el.checked = dados[nome] == '1' || dados[nome] === true;
+        } else {
+          el.value = dados[nome];
+        }
+      }
+    });
+  }
+
+  // --- Preenchimento de dados compactados (ataques e itens) ---
+  for (const [campo, valor] of Object.entries(fichaData)) {
+    if (campo === 'ataques_compactados' && valor) {
+      try {
+  const dadosAtaques = typeof valor === 'string' ? JSON.parse(valor) : valor;
+
+  if (Array.isArray(dadosAtaques)) {
+    // Filtra os objetos que têm pelo menos um campo com valor não vazio
+    const ataquesValidos = dadosAtaques.filter(ataque => {
+      return Object.values(ataque).some(v => (v || "").trim() !== "");
+    });
+
+    // Cria linhas só para os válidos
+    ataquesValidos.forEach(() => adicionarNovaLinhaAtaque());
+
+    // Pega as linhas já criadas
+    const linhas = document.querySelectorAll('.linha-ataque');
+
+    ataquesValidos.forEach((ataque, i) => preencherGrupo(ataqueCampos, ataque, linhas[i]));
+  }
+} catch (err) {
+  console.warn('Erro ao parsear ataques_compactados:', valor, err);
+}
+
+      continue;
+    }
+
+    if (campo === 'itens_compactados' && valor) {
+      try {
+  const dadosItens = typeof valor === 'string' ? JSON.parse(valor) : valor;
+
+  if (Array.isArray(dadosItens)) {
+    const itensValidos = dadosItens.filter(item => {
+      return Object.values(item).some(v => (v || "").trim() !== "");
+    });
+
+    itensValidos.forEach(() => adicionarNovaLinhaEquipamento());
+
+    const linhas = document.querySelectorAll('.linha-item');
+
+    
+    itensValidos.forEach((item, i) => preencherGrupo(itemCampos, item, linhas[i]));
+  }
+} catch (err) {
+  console.warn('Erro ao parsear itens_compactados:', valor, err);
+}
+continue;
+
+    }
+
+    // Preenchimento comum
+    const el = document.querySelector([name="${campo}"]);
+    if (el && valor !== null) {
+      if (el.type === 'checkbox') {
+        el.checked = valor == '1' || valor === true;
+      } else {
+        el.value = valor;
+      }
+    }
+  }
+
+  // Atualiza os valores derivados, se necessário
+  if (typeof atualizarTudo === 'function') {
+    atualizarTudo();
+  }
+
+  // --- Auto-save ao perder foco ---
+  document.querySelectorAll('input, textarea, select').forEach(input => {
+    input.addEventListener('input', () => {
+      const fichaId = document.querySelector('#ficha_id')?.value || '';
+      const originalName = input.name;
+      const formData = new FormData();
+      let campoFinal = originalName;
+      let valorFinal = input.type === 'checkbox' ? (input.checked ? '1' : '0') : input.value;
+
+      // Auto-save para ataques
+      if (ataqueCampos.includes(originalName)) {
+        campoFinal = 'ataques_compactados';
+        const linhas = document.querySelectorAll('.linha-ataque');
+        const dados = [];
+        linhas.forEach(linha => {
+          const ataque = {};
+          ataqueCampos.forEach(nome => {
+            const el = linha.querySelector([name="${nome}"]);
+            ataque[nome] = el?.value || '';
+          });
+          dados.push(ataque);
+        });
+        valorFinal = JSON.stringify(dados);
+      }
+
+      // Auto-save para itens
+      else if (itemCampos.includes(originalName)) {
+        campoFinal = 'itens_compactados';
+        const linhas = document.querySelectorAll('.linha-item');
+        const dados = [];
+        linhas.forEach(linha => {
+          const item = {};
+          itemCampos.forEach(nome => {
+            const el = linha.querySelector([name="${nome}"]);
+            item[nome] = el?.value || '';
+          });
+          dados.push(item);
+        });
+        valorFinal = JSON.stringify(dados);
+      }
+
+      formData.append('campo', campoFinal);
+      formData.append('valor', valorFinal);
+      formData.append('id', fichaId);
+
+      fetch('ficha.php', {
+        method: 'POST',
+        body: formData
+      })
+      .then(res => res.text())
+      .then(msg => console.log(Auto-salvo: ${campoFinal}, msg))
+      .catch(err => console.error('Erro ao auto-salvar:', err));
+    });
+  });
+});

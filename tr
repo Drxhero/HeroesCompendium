@@ -1,0 +1,18 @@
+<tr>
+           <td> <input type="checkbox" name="" id=""></td>
+            <td><p>Acrobacia</p></td>
+            <td><input type="text" readonly id="totalAcrobacia" value="0"></td>
+            <td><input type="text" readonly class="periciaNivel" value="0"></td>
+            <td>
+                <Select> 
+                        <option value="">For</option>
+                        <option value="">Des</option>
+                        <option value="">Con</option>
+                        <option value="">Int</option>
+                        <option value="">Sab</option>
+                        <option value="">Car</option>
+                </Select>
+            </td>
+            <td><input type="text" readonly id="treinoAcrobacia" value="0"></td>
+            <td>+<input type="number"  id="outrosAcrobacia" ></td>
+        </tr>

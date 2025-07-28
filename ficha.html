@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles/main.css">
+    <link rel="stylesheet" href="./styles/global.css">
+</head>
+<body>
+    
+ <form action="salvar.php" method="post">
+
+
+
+  <div class="Cabeçalho">
+    
+  <div class="box box1">
+    <div class="generalInfo" >
+      <input type="text" name="" id="chracter" placeholder="Personagem"> 
+        <input type="text" name="" id="player" placeholder="Jogador(a)">
+        <h1> Tormenta</h1><br>
+    
+        <div class="box1B">
+              <label for="chracter"><strong>Personagem</strong></label>
+        <div class="info1"><input type="text" name="" id="race" placeholder="Raça">
+        <label for="race">Raça</label>
+        </div>
+        <div class="info1"><input type="text" name="" id="origin" placeholder="Origem">
+        <label for="origin">Origem</label>
+        </div>
+        <div class="info1"><input type="text" name="" id="class" placeholder="Classe">
+        <label for="class">Classe</label>
+        </div>
+        <div class="info1"><input type="number" name="" id="level" value="1" max="20">
+        <label for="level">Nivel</label>
+        </div>
+        <div class="info1"><input type="text" name="" id="deity" placeholder="Divindade">
+        <label for="deity">Divindade</label>
+        </div>
+        </div>
+    </div>
+  </div>
+
+  </div>
+
+
+  <div class="grid">
+  
+    <div class="box box2a">
+      <label class="inputLabel" for="for">FOR</label>
+      <input class="squareInput atributo" type="number" id="for" value="0" />
+    </div>
+    <div class="box box2b">
+       <label class="inputLabel" for="dex">DEX</label>
+      <input class="squareInput atributo" type="number" id="dex" value="0" />
+    </div>
+    <div class="box box2c">
+       <label class="inputLabel" for="con">CON</label>
+      <input class="squareInput atributo" type="number" id="con" value="0" />
+    </div>
+    <div class="box box2d">
+       <label class="inputLabel" for="int">INT</label>
+      <input class="squareInput atributo" type="number" id="int" value="0" />
+    </div>
+    <div class="box box2e">
+       <label class="inputLabel" for="sab">SAB</label>
+      <input class="squareInput atributo" type="number" id="sab" value="0" />
+    </div>
+    <div class="box box2f">
+       <label class="inputLabel" for="car">CAR</label>
+      <input class="squareInput atributo" type="number" id="car" value="0"/>
+    </div>
+  <div class="box box3">
+    <div id="hpMp">
+        <fieldset id="hpBlock" style="text-align: center;" >
+        <legend><strong>PONTOS DE VIDA</strong></legend>   
+           <div class="statBlock">
+            <label for="pv">PV</label>
+            <input type="number" id="pv" class="squareInput" />
+            <small>Max.</small>
+          </div>
+        <div class="statBlock" style="margin-top: 40px;">
+          <input type="number" id="pva"  />
+          <small>Atuais.</small>
+        </div>
+        </fieldset>
+        
+        <fieldset id="mpBlock" style="text-align: center;">
+        <legend><strong>PONTOS DE MANA</strong></legend>   
+            <div class="statBlock">
+              <label for="pm">PM</label>
+              <input type="number" id="pm" class="squareInput" />
+              <small>Max.</small>
+            </div>
+            <div class="statBlock" style="margin-top: 40px;">
+              <input type="number" id="pma"  />
+              <small>Atuais.</small>
+            </div>
+        </fieldset>
+    </div>
+  </div>
+  <div class="box box4">
+     <div id="attacks">
+        <table>
+    <thead>
+      <tr>
+        <th><strong>Ataques</strong></th>
+        <th>Teste</th>
+        <th>Dano</th>
+        <th>Crítico</th>
+        <th>Tipo</th>
+        <th>Alcance</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><input placeholder="" /></td>
+        <td><input placeholder="" /></td>
+        <td><input placeholder="" /></td>
+        <td><input placeholder="" /></td>
+        <td><input placeholder="" /></td>
+        <td><input placeholder="" /></td>
+      </tr>
+    </tbody>
+  </table>
+    </div>
+  </div>
+ <div class="box box5A">
+  <label for="def" class="inputLabel">Defesa</label>
+  <input type="number" value="10" id="def" readonly class="squareInput">
+ </div>
+  
+<div class="box box5B">
+
+
+  <table>
+    <thead>
+      <tr>
+        <th>  <input type="checkbox" id="ableDefAttr" /></th>
+        <th>
+         <select id="defenseAttr">
+          <option value="for">For</option>
+          <option value="des" selected>Des</option>
+          <option value="con">Con</option>
+          <option value="int">Int</option>
+          <option value="sab">Sab</option>
+          <option value="car">Car</option>
+        </select>
+        </th>
+        <th>Armadura</th>
+        <th>Escudo</th>
+        <th>Outros</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td><div class="inputWithPlus">+<input type="number" readonly value="0" id="defAttr"/></div></td>
+        <td><div class="inputWithPlus">+<input type="number" readonly value="0" id="defArmor"/></div></td>
+        <td><div class="inputWithPlus">+<input type="number" readonly value="0" id="defShield"/></div></td>
+        <td><div class="inputWithPlus">+<input type="number" value="0" id="defOthers"/></div></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+ <div class="box box5C">
+  <div id="armorShield">
+    <table>
+      <thead>
+        <tr>
+          <th>Armadura & Escudo</th>
+          <th>Defensa</th>
+          <th>Penalidade</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><input type="text" placeholder="Armor"></td>
+          <td><input type="number" value="0" id="armorBonus"></td>
+          <td><input type="number" value="0" id="armorPenality"></td>
+        </tr>
+        <tr>
+          <td><input type="text" placeholder="Shield"></td>
+          <td><input type="number" value="0" id="shieldBonus"></td>
+          <td><input type="number" value="0" id="shieldPenality"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  </div>
+
+
+  <div class="box box6">
+   
+      <div id="effects">
+        <fieldset>
+        <legend><strong>PROFICIÊNCIAS & OUTRAS CARACTERÍSTICAS</strong></legend>
+       <textarea name="proficiencias" id="proficiencias"></textarea>
+        
+        
+
+      </fieldset>
+      </div>
+  </div>
+  <div class="box box7">
+     <div id="skills">
+          <table>
+          <thead>
+              <th></th>
+              <th>Perícias</th>
+              <th>Total</th>
+              <th>1/2</th>
+              <th>Atributo</th>
+              <th>Treino</th>
+              <th>Outros</th>
+          </thead>
+          <tbody id="tabela-pericias">
+          </tbody>
+      </table>
+     <small style="display: block; text-align: center; margin-top: 8px; 
+  text-shadow: #fff 1px 1px 10px; position: relative; top: -1.5%;">
+  ✠ Penalidade de armadura. ✯ Somente treinado.
+</small>
+      </div>
+  </div>
+  <div class="box box8">
+    <fieldset>
+    <legend><strong>Anotações</strong></legend>
+    <div class="box8-content">
+      <textarea placeholder="Anotações do jogador"></textarea>
+      <textarea placeholder="Anotações do mestre"></textarea>
+      <button class="addNoteBtn">+</button>
+    </div>
+  </fieldset>
+  </div>
+  <div class="box box9">
+   <div id="equipment">
+      <fieldset style="margin-top: 20px; text-align: center;">
+        <legend><strong>EQUIPAMENTO</strong></legend>
+        <table>
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Valor</th>
+              <th>Carga</th>
+            </tr>
+          </thead>
+          <tbody>
+          
+              <tr>
+              <td><input type="text"/></td>
+              <td>
+                <div class="moneyInput">
+                  <input type="number" />
+                  <span>T$</span>
+                </div>
+              </td>
+              <td><input type="number"  /></td>
+            </tr>
+              
+          </tbody>
+        </table>
+    
+      </fieldset>
+        <div class="footerBox9">
+        <label for="money">Dinheiro:</label>
+        <input type="number" id="money" />
+
+        <label for="maxLoad">Carga Máxima:</label>
+        <input type="number" id="maxLoad" />
+      </div>
+    </div>
+ </div>
+
+ </form>
+
+
+<script src="scripts/global.js"></script>
+<script src="scripts/tormenta20.js"></script>
+<script>
+document.querySelectorAll('input').forEach(input => {
+  input.addEventListener('change', () => {
+    const formData = new FormData();
+    formData.append('campo', input.name);
+    formData.append('valor', input.value);
+
+    fetch('salvar.php', {
+      method: 'POST',
+      body: formData
+    })
+    .then(res => res.text())
+    .then(msg => console.log(msg));
+  });
+});
+</script>
+
+</body>
+</html>

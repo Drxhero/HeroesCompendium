@@ -1,0 +1,41 @@
+/*#region Reset e base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+/*#endregion*/
+@font-face {
+  font-family: 'Tormenta';
+  src: url('../fonts/Tormenta.ttf') format('truetype');
+}
+
+/*#region NumberInputfix */
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+   margin: 0;
+}
+/*#endregion  */
+
+select {
+  -webkit-appearance: none;  /* Safari/Chrome */
+  -moz-appearance: none;     /* Firefox */
+  appearance: none;          /* padrão */
+  background-color: white;
+  background: url('data:image/svg+xml;utf8,<svg fill="gray" height="10" viewBox="0 0 24 24" width="10" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>') no-repeat right 8px center;
+  background-size: 10px;
+
+  padding-right: 20px; /* espaço para a seta */
+}
+
+input, select {
+  padding: 0.4rem 0.6rem;
+  margin: 0.3rem;
+  padding: -10;
+  border: 1px solid #ccc;
+  text-align: center
+  
+}
