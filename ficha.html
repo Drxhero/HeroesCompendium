@@ -222,14 +222,16 @@
   </div>
   <div class="box box8">
     <fieldset>
-    <legend><strong>Anotações</strong></legend>
+    <legend><strong>HABILIDADES & MAGIAS</strong></legend>
     <div class="box8-content">
-      <textarea placeholder="Anotações do jogador"></textarea>
-      <textarea placeholder="Anotações do mestre"></textarea>
-      <button class="addNoteBtn">+</button>
+      <div>
+      <textarea></textarea>
+      <textarea></textarea>
+      </div>
     </div>
   </fieldset>
   </div>
+
   <div class="box box9">
    <div id="equipment">
       <fieldset style="margin-top: 20px; text-align: center;">
@@ -274,22 +276,6 @@
 
 <script src="scripts/global.js"></script>
 <script src="scripts/tormenta20.js"></script>
-<script>
-document.querySelectorAll('input').forEach(input => {
-  input.addEventListener('change', () => {
-    const formData = new FormData();
-    formData.append('campo', input.name);
-    formData.append('valor', input.value);
-
-    fetch('salvar.php', {
-      method: 'POST',
-      body: formData
-    })
-    .then(res => res.text())
-    .then(msg => console.log(msg));
-  });
-});
-</script>
 
 </body>
 </html>
