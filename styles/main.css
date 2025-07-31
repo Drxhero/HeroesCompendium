@@ -10,8 +10,10 @@ body{
 label, h1, legend, strong{
     font-family: 'Tormenta.ttf', serif;
     font-weight: bold;
-    box-shadow: inset 0 0 0 20px #fff; 
+   
 }
+
+legend{text-align: center}
 h1{
   display: inline-block;
 }
@@ -25,13 +27,24 @@ h1{
 }
 fieldset{
     border: none;
+    width: 100%;
 }
 input[readonly] {
   background-color: #fff;
 }
-input, textarea{
+input, textarea, select{
   background-color: #dde4ff;
 }
+input:focus, textarea:focus, select:focus{
+    outline: none;
+  box-shadow: none;
+  background-color: #fff;
+}
+
+select, input{
+  border-bottom: 2px solid black;
+}
+
 textarea{
   width: 100%;
   resize: none;
@@ -45,26 +58,54 @@ textarea{
   border: none;
    box-sizing:content-box;
 }
+/*#region Multiple boxes effect*/
+.box4, .box6 fieldset,box8 fieldset, .box9 fieldset{
+  overflow-y: auto;
+}
+.box4 thead th, .box9 thead th {
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+}
+.box4 thead th{
+top: -6%;
+}
+
+#equipment, #effects {
+  display: flex;
+  flex-direction: column; 
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 100%;
+  width: 100%;
+  gap: 10px;
+}
+
+#equipment fieldset,
+#effects fieldset {
+  position: relative;
+  top: -10%;
+}
+/*#endregion Multiple boxes effect*/
 
 /*#region grid organization*/
 .cabeçalho{
   display: grid;
   grid-template-columns: repeat(10, 1fr);
   grid-auto-rows: 100px;
-  width: 80%;
+   width: max-content;
 
-  margin: 0 auto;
+  margin:  auto;
 }
 
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(10, (min-content, 1fr));
+  grid-template-columns: repeat(10, 100px); /* 10 colunas fixas de 100px */
   grid-auto-rows: 100px;
   gap: 10px;
-  max-width: 80%;
-
-  margin:  auto;
+  width: max-content;  /* Garante que o grid só ocupe o espaço necessário */
+  margin: auto;
 }
 
 
@@ -116,21 +157,37 @@ textarea{
 /*#endregion*/
 
 /*#region Box1*/
-.box1{
-  margin: auto;
+.box1 {
+  margin: 0 auto;
   background-color: transparent;
   border: none;
   box-shadow: none;
-  width: 1000px;
- align-items: center; 
+  max-width: 1000px;
+  width: 100%;
+  box-sizing: border-box;
 }
+
+
 .box1 input{
   border: 2px solid black;
   box-shadow: 5px 5px 0px #b62a2a;
+
+}
+#chracter{
+  height: 56px;
+  font-size: 1.3em;
+
+}
+#player{
+  height: 40px;
 }
 .box1B{
   display: flex;
 }
+.info1 label{
+  position: relative;
+}
+
 .info1{
   display: flex;
   flex-direction: column;
@@ -144,18 +201,6 @@ textarea{
 }
 
 /*#endregion*/
-
-.box4, .box6 fieldset, .box8, .box9 fieldset{
-  overflow-y: auto;
-}
-.box4 thead th, .box9 thead th {
-  position: sticky;
-  top: 0;
-  background-color: #fff;
-}
-.box4 thead th{
-top: -6%;
-}
 
 /*#region box4*/
 
@@ -191,6 +236,10 @@ top: -6%;
   align-items: center;
   margin: 10px 0;
   text-align: center;
+}
+
+#pva, #pma{
+   border: 1px solid #ccc;
 }
 
 #attacks table td:not(:first-child) input {
@@ -280,10 +329,9 @@ top: -6%;
   padding: 0;
 }
 .box5B select {
-  margin: 0;         /* remove margem */
+  margin: 0;      
   padding: 2px 4px;  
   font-size: 12px;   
-  height: 30px;      /* altura menor */
   width: 100%;       
   box-sizing: border-box;
 }
@@ -322,11 +370,12 @@ top: -6%;
   top: -3%;
 }
 .box6 legend{
-  font-size: .8em;
+  font-size: .75em;
+  margin-bottom: 2px;
 }
 .box6 textarea{
     height: 190px;
-    margin-top: 0px;
+ 
 }
 /*#endregion box6*/
 
@@ -439,22 +488,24 @@ p.treinada::after, p.penalidade::after {
 
 /*#endregion*/
 
+/*#region box8*/
 
-#equipment, #effects {
+.box8-content{
   display: flex;
-  flex-direction: column; 
-  justify-content: flex-start;
-  align-items: flex-start;
+  flex-direction: row;
+  gap: 10px;
+  padding-bottom: 18px;
+}
+.box8 fieldset{
   height: 100%;
   width: 100%;
-  gap: 10px;
+}
+.box8 textarea{
+  height: 410px;
+  width: 310px;
 }
 
-#equipment fieldset,
-#effects fieldset {
-  position: relative;
-  top: -10%;
-}
+/*#endregion box8*/
 
 /*#region box9*/
 .box9{
