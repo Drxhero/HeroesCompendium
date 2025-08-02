@@ -6,6 +6,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="./styles/main.css">
     <link rel="stylesheet" href="./styles/global.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
     
@@ -13,33 +14,33 @@
 
 
 
-  <div class="Cabeçalho">
+  <div class="cabecalho">
     
   <div class="box box1">
     <div class="generalInfo" >
       <div class="box1B">
-        <input type="text" name="" id="chracter" placeholder="Personagem"> 
-       <div class="info1">
-         <label style="left: 4%;"  for="player">Jogador(a)</label>
-        <input type="text" name="" id="player" placeholder="Jogador(a)">
+        <input type="text" name="" id="chracter" > 
+       <div style="margin-top: 8px;" class="info1" >
+         <label style="left: 4%; width: max-content;"  for="player">Jogador(a)</label>
+        <input type="text" name="" id="player" >
        </div>
-        <h1> Tormenta</h1><br>
+        <img class="logo" src="src/tormentaLogo.png" alt="Tormenta"><br>
       </div>
         <div class="box1B">
-              <label style="left: 0%;" for="chracter"><strong>Personagem</strong></label>
-        <div class="info1"><input type="text" name="" id="race" placeholder="Raça">
+              <label style="font-size: 1.3em; margin-left: 25px;" for="chracter"><strong>Personagem</strong></label>
+        <div class="info1"><input type="text" name="" id="race" >
         <label style="left: 5%;" for="race">Raça</label>
         </div>
-        <div class="info1"><input type="text" name="" id="origin" placeholder="Origem">
+        <div class="info1"><input type="text" name="" id="origin" >
         <label style="left: 3%;" for="origin">Origem</label>
         </div>
-        <div class="info1"><input type="text" name="" id="class" placeholder="Classe">
+        <div class="info1"><input type="text" name="" id="class">
         <label style="left: 3%;" for="class">Classe</label>
         </div>
         <div class="info1"><input type="number" name="" id="level" value="1" max="20">
         <label style="text-align: center;" for="level">Nivel</label>
         </div>
-        <div class="info1"><input type="text" name="" id="deity" placeholder="Divindade">
+        <div class="info1"><input type="text" name="" id="deity" >
         <label style="left: 5%;" for="deity">Divindade</label>
         </div>
         </div>
@@ -51,27 +52,27 @@
 
   <div class="grid">
   
-    <div class="box box2a">
+    <div class="box box2A">
       <label class="inputLabel" for="for">FOR</label>
       <input class="squareInput atributo" type="number" id="for" value="0" />
     </div>
-    <div class="box box2b">
+    <div class="box box2B">
        <label class="inputLabel" for="dex">DEX</label>
       <input class="squareInput atributo" type="number" id="dex" value="0" />
     </div>
-    <div class="box box2c">
+    <div class="box box2C">
        <label class="inputLabel" for="con">CON</label>
       <input class="squareInput atributo" type="number" id="con" value="0" />
     </div>
-    <div class="box box2d">
+    <div class="box box2D">
        <label class="inputLabel" for="int">INT</label>
       <input class="squareInput atributo" type="number" id="int" value="0" />
     </div>
-    <div class="box box2e">
+    <div class="box box2E">
        <label class="inputLabel" for="sab">SAB</label>
       <input class="squareInput atributo" type="number" id="sab" value="0" />
     </div>
-    <div class="box box2f">
+    <div class="box box2F">
        <label class="inputLabel" for="car">CAR</label>
       <input class="squareInput atributo" type="number" id="car" value="0"/>
     </div>
@@ -80,7 +81,7 @@
         <fieldset id="hpBlock" style="text-align: center;" >
         <legend><strong>PONTOS DE VIDA</strong></legend>   
            <div class="statBlock">
-            <label for="pv">PV</label>
+            <label for="pv"><strong>PV</strong></label>
             <input type="number" id="pv" class="squareInput" />
             <small>Max.</small>
           </div>
@@ -93,7 +94,7 @@
         <fieldset id="mpBlock" style="text-align: center;">
         <legend><strong>PONTOS DE MANA</strong></legend>   
             <div class="statBlock">
-              <label for="pm">PM</label>
+              <label for="pm"><strong>PM</strong></label>
               <input type="number" id="pm" class="squareInput" />
               <small>Max.</small>
             </div>
@@ -208,8 +209,8 @@
           <table>
           <thead>
               <th></th>
-              <th>Perícias</th>
-              <th>Total</th>
+              <th><strong>Perícias</strong></th>
+              <th><strong>Total</strong></th>
               <th>1/2</th>
               <th>Atributo</th>
               <th>Treino</th>
@@ -218,11 +219,9 @@
           <tbody id="tabela-pericias">
           </tbody>
       </table>
-     <small style="display: block; text-align: center; margin-top: 8px; 
-  text-shadow: #fff 1px 1px 10px; position: relative; top: -1.5%;">
-  ✠ Penalidade de armadura. ✯ Somente treinado.
-</small>
+          
       </div>
+      <small>✠ Penalidade de armadura. ✯ Somente treinado.</small>
   </div>
   <div class="box box8">
     <div>
@@ -255,10 +254,10 @@
               <td>
                 <div class="moneyInput">
                   <input type="number" />
-                  <span>T$</span>
+                  <span><p>T$</p></span>
                 </div>
               </td>
-              <td><input type="number"  /></td>
+              <td><input type="number"/></td>
             </tr>
               
           </tbody>
@@ -268,7 +267,7 @@
         <div class="footerBox9">
         <label for="money">Dinheiro:</label>
         <input type="number" id="money" />
-
+        <span style="margin-right: 5px; margin-left: -5px;"><p>T$</p></span>
         <label for="maxLoad">Carga Máxima:</label>
         <input type="number" id="maxLoad" />
       </div>
@@ -277,9 +276,9 @@
 
  </form>
 
-
-<script src="scripts/global.js"></script>
 <script src="scripts/tormenta20.js"></script>
+<script src="scripts/fichaGlobal.js"></script>
+
 
 </body>
 </html>

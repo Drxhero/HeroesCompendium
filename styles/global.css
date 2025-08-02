@@ -8,7 +8,7 @@
 /*#endregion*/
 @font-face {
   font-family: 'Tormenta';
-  src: url('../fonts/Tormenta.ttf') format('truetype');
+  src: url('../src/fonts/Tormenta.ttf') format('truetype');
 }
 
 /*#region NumberInputfix */

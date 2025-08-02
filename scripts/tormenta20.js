@@ -1,192 +1,50 @@
-// tormenta.js
-
-document.addEventListener("DOMContentLoaded", () => {
-  const pericias = [/* sua lista aqui, igual */];
-
-  const tbody = document.getElementById("tabela-pericias");
-
-  const somenteTreinado = [/* ... */];
-  const penalidade = [/* ... */];
-  const idCount = {};
-
-  const fragment = document.createDocumentFragment(); // melhora performance
-
-  pericias.forEach(p => {
-    let nomeIDBase = p.nome.toLowerCase().replace(/\s+/g, "");
-    if (!idCount[nomeIDBase]) {
-      idCount[nomeIDBase] = 1;
-    } else {
-      idCount[nomeIDBase]++;
-    }
-    const nomeID = idCount[nomeIDBase] === 1 ? nomeIDBase : `${nomeIDBase}${idCount[nomeIDBase]}`;
-    const linha = document.createElement("tr");
-
-    // Checkbox
-    const tdCheck = document.createElement("td");
-    const check = document.createElement("input");
-    check.type = "checkbox";
-    check.id = `check-${nomeID}`;
-    check.name = `check-${nomeID}`;
-    tdCheck.appendChild(check);
-    linha.appendChild(tdCheck);
-
-    // Nome com símbolos
-    const tdNome = document.createElement("td");
-    const nomeP = document.createElement("p");
-    let classes = [];
-    if (somenteTreinado.includes(nomeID)) classes.push("treinada");
-    if (penalidade.includes(nomeID)) classes.push("penalidade");
-    nomeP.className = classes.join(" ");
-    nomeP.textContent = p.nome;
-    if (classes.includes("treinada")) nomeP.setAttribute("data-symbol", "✯");
-    else if (classes.includes("penalidade")) nomeP.setAttribute("data-symbol", "✠");
-
-    if (p.nome.toLowerCase() === "ofício") {
-      const input = document.createElement("input");
-      input.type = "text";
-      input.id = `oficio-sub-${nomeID}`;
-      input.style.cssText = "display:inline-block;width:80px;font-size:0.75rem;margin-left:4px;";
-      nomeP.appendChild(document.createTextNode(" "));
-      nomeP.appendChild(input);
-    }
-
-    tdNome.appendChild(nomeP);
-    linha.appendChild(tdNome);
-
-    linha.innerHTML += `
-      <td class="totalIgual"><input type="text" readonly id="total-${nomeID}" value="0"></td>
-      <td><input type="text" readonly class="periciaNivel" id="nivel-${nomeID}" value="0"></td>
-      <td>
-        <select id="atributo-${nomeID}">
-          <option value="For" ${p.atributo === "For" ? "selected" : ""}>For</option>
-          <option value="Des" ${p.atributo === "Des" ? "selected" : ""}>Des</option>
-          <option value="Con" ${p.atributo === "Con" ? "selected" : ""}>Con</option>
-          <option value="Int" ${p.atributo === "Int" ? "selected" : ""}>Int</option>
-          <option value="Sab" ${p.atributo === "Sab" ? "selected" : ""}>Sab</option>
-          <option value="Car" ${p.atributo === "Car" ? "selected" : ""}>Car</option>
-        </select>
-      </td>
-      <td><input type="text" readonly id="treino-${nomeID}" value="0"></td>
-      <td class="maisOutros"><input type="number" id="outros-${nomeID}" name="outros-${nomeID}"></td>
-    `;
-
-    fragment.appendChild(linha);
-  });
-
-  tbody.appendChild(fragment); // insere tudo de uma vez
-
-  // Agora sim, só 1x após tudo estar no DOM
-  ligarListenersCheckboxPericias(); 
-  ligarListeners();
+const nivelInput = document.getElementById("level");
+nivelInput.addEventListener('input', () => {
+  let valor = parseInt(nivelInput.value);
+  if (valor > 20) {
+    nivelInput.value = 20;
+  } else if (valor < 1) {
+    nivelInput.value = 1;
+  }
 });
+// Atributos principais
+const forInput = document.getElementById("for");
+const dexInput = document.getElementById("dex");
+const conInput = document.getElementById("con");
+const intInput = document.getElementById("int");
+const sabInput = document.getElementById("sab");
+const carInput = document.getElementById("car");
+
+// Pontos de Vida e Mana
+const pvMaxInput = document.getElementById("pv");
+const pvAtualInput = document.getElementById("pva");
+const pmMaxInput = document.getElementById("pm");
+const pmAtualInput = document.getElementById("pma");
+
+// Defesa
+const defenseAttr = document.getElementById("defenseAttr");
+const defArmor = document.getElementById('defArmor');
+const defShield = document.getElementById('defShield');
+const defOthers = document.getElementById("defOthers");
+const ableDefAttr = document.querySelectorAll('input[type="checkbox"]');
+
+const defAttr = document.getElementById('defAttr');
+const defInput = document.getElementById("def");
+
+// Armadura e Escudo
+const armorBonus = document.getElementById("armorBonus");
+const shieldBonus = document.getElementById("shieldBonus");
+const armorPenality = document.getElementById("armorPenality");
+const shieldPenality = document.getElementById("shieldPenality");
+// Carga e Dinheiro
+const dinheiroInput = document.getElementById("money");
+const cargaMaxInput = document.getElementById("maxLoad");
 
 
-
-function atualizarTotalPericia(nomeID) {
-  const nivelInput = document.getElementById(`nivel-${nomeID}`);
-  const treinoInput = document.getElementById(`treino-${nomeID}`);
-  const outrosInput = document.getElementById(`outros-${nomeID}`);
-  const atributoSelect = document.getElementById(`atributo-${nomeID}`);
-  const totalInput = document.getElementById(`total-${nomeID}`);
-  const check = document.getElementById(`check-${nomeID}`);
-
-  if (!nivelInput || !treinoInput || !outrosInput || !atributoSelect || !totalInput || !check) return;
-
-  const nivel = parseInt(nivelInput.value) || 0;
-  const treino = parseInt(treinoInput.value) || 0;
-  const outros = parseInt(outrosInput.value) || 0;
-  const armorPen = parseInt(armorPenality.value) || 0;
-  const shieldPen = parseInt(shieldPenality.value) || 0;
-
-  const atributo = atributoSelect.value.toLowerCase();
-  
-  let valorAtributo = 0;
-  switch (atributo) {
-    case "for": valorAtributo = parseInt(forInput.value) || 0; break;
-    case "des": valorAtributo = parseInt(dexInput.value) || 0; break;
-    case "con": valorAtributo = parseInt(conInput.value) || 0; break;
-    case "int": valorAtributo = parseInt(intInput.value) || 0; break;
-    case "sab": valorAtributo = parseInt(sabInput.value) || 0; break;
-    case "car": valorAtributo = parseInt(carInput.value) || 0; break;
-  }
-
-  // Verifica se a perícia é "somente treinada"
-  const pElemento = check.closest("tr")?.querySelector("p");
-  const isSomenteTreinado = pElemento?.classList.contains("treinada");
-  const isPenalized = pElemento?.classList.contains("penalidade");
-  const isTreinado = check.checked;
-
-  // Se for somente treinada e não estiver treinada, travar valores
-  if (isSomenteTreinado && !isTreinado) {
-    nivelInput.value = 0;
-    treinoInput.value = 0;
-    totalInput.value = 0;
-    return;
-  }
-   const totalBase = nivel + treino + valorAtributo + outros;
-
-let total = totalBase;
-
-if (isPenalized) {
-  total -= (armorPen + shieldPen);
-}
-
-totalInput.value = total;
-}
-
-// Listner para a box2
-document.querySelectorAll(".atributo").forEach(input => {
-  input.addEventListener("input", () => {
-    atualizarTudo(); 
-        
-  });
-});
-
-function defCalc() {
-  defArmor.value = armorBonus.value;
-  defShield.value = shieldBonus.value;
-
-  const valArmor = Number(defArmor.value) || 0;
-  const valShield = Number(defShield.value) || 0;
-  const valOthers = Number(defOthers.value) || 0;
-
-  let valAttr = 0;
-
-  // Verifica se a checkbox está ativa
-  const ableDefAttrChecked = document.getElementById('ableDefAttr').checked;
-
-  if (!ableDefAttrChecked) {
-    // Só calcula o atributo se a checkbox NÃO estiver marcada
-    switch (defenseAttr.value) {
-      case "for": valAttr = parseInt(forInput.value) || 0; break;
-      case "des": valAttr = parseInt(dexInput.value) || 0; break;
-      case "con": valAttr = parseInt(conInput.value) || 0; break;
-      case "int": valAttr = parseInt(intInput.value) || 0; break;
-      case "sab": valAttr = parseInt(sabInput.value) || 0; break;
-      case "car": valAttr = parseInt(carInput.value) || 0; break;
-    }
-  } else {
-    // Checkbox ativa => valAttr fica 0 (já está no início)
-    valAttr = 0;
-  }
-
-  defAttr.value = valAttr;
-
-  const defBase = 10;
-  const total = defBase + valAttr + valArmor + valShield + valOthers;
-
-  defInput.value = total;
-}
-
-
-
-
-function atualizarTudo(nomeID) {
-   document.querySelectorAll(".periciaNivel").forEach(el => {
-    const nomeID = el.id.replace("nivel-", "");
-    atualizarNivelPericia(nomeID);
-    atualizarTotalPericia(nomeID);
-    defCalc();  
-  });
-}
-
+const pericias = ["Acrobacia","Adestramento","Atletismo","Atuação","Cavalgar","Conhecimento","Cura","Diplomacia","Enganação","Fortitude","Furtividade","Guerra","Iniciativa","Intimidação","Investigação","Intuição","Jogatina","Ladinagem","Luta","Misticismo","Nobreza","Ofício","Ofício","Percepção","Pilotagem","Pontaria","Reflexos","Religião","Sobrevivência","Vontade"
+];
+  const somenteTreinado = [
+  "Adestramento","Conhecimento","Guerra","Jogatina","Ladinagem",
+  "Misticismo","Nobreza","Ofício","Pilotagem","Religião"
+];
+  const penalidade = ["Acrobacia","Furtividade","Ladinagem"];
