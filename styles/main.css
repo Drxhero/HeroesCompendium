@@ -2,7 +2,7 @@
   --inputs: #dde4ff;
   --shadow:  #b62a2a;
 }
-
+/* #region General Elements */
 body{
     overflow-y: auto;
     align-items: center;
@@ -14,6 +14,7 @@ label, h1, legend, strong{
   background: url(../src/whiteLine.png) no-repeat center center;
   background-size: 98% 4px ;
 }
+
 legend{text-align: center}
 .logo{
   width: 370px;
@@ -21,6 +22,21 @@ legend{text-align: center}
 
 }
 
+thead{
+  position: sticky;
+  top: 0;
+}
+
+fieldset{
+    border: none;
+    width: 100%;
+}
+
+textarea{
+  width: 100%;
+  resize: none;
+}
+/* #endregion General Elements */
 .inputLabel {
   position: absolute;
   top: -10%;
@@ -29,10 +45,7 @@ legend{text-align: center}
  
   padding: 2px 6px;
 }
-fieldset{
-    border: none;
-    width: 100%;
-}
+
 input[readonly] {
   background-color: #fff;
 }
@@ -46,11 +59,6 @@ input:focus, textarea:focus, select:focus{
   background-color: #fff;
 }
   
-textarea{
-  width: 100%;
-  resize: none;
-}
-
 .squareInput {
   width: 68.5px;
   height: 50px;
@@ -264,6 +272,8 @@ top: -6%;
 /*#endregion box3*/
 
 /*#region box4*/
+
+
 #attacks table td:not(:first-child) input {
   width: 90%;
 }
@@ -422,6 +432,7 @@ top: -6%;
   height: 100%;
   padding: 0;
   overflow-y: auto;
+  overflow-x: hidden;
 }
 #skills input, #skills select{
   width: 30px;
@@ -429,34 +440,22 @@ top: -6%;
   padding: 0px;
   margin: -10px;
 }
-#skills p { font-size: 1.2em; }
+#skills p { font-size: 1.08em; }
 /*Adiciona efeites pontuais nas skills + =*/
-.totalIgual::after {
-  content: " =";
-  margin-left: 8px;
-  color: black;
-  font-weight: bold;
-}
 
-.maisOutros::before {
-  content: "+";
-  margin-right: 8px;
-  color: black;
-  font-weight: bold;
-}
 #skills table {
   width: 100%;
   table-layout: fixed;
   border-collapse: collapse;
-  font-size: 13px
+  font-size: 13px;
+  transform: translateX(3px);
 }
-#skills th{
+#skills thead{
   background-color: white;
+  z-index: 1;
   font-size: 12px;
   white-space: nowrap;
   font-weight: bold;
-  position: sticky;
-  top: 0;
 }
 #skills th,
 #skills td {
@@ -482,11 +481,11 @@ top: -6%;
 .box7 th:nth-child(5){ transform: translateX(-22px);}
 /* Treino */
 .box7 th:nth-child(6){transform: translateX(-13px);}
-
-.box7 th:nth-child(7){transform: translateX(-13px); z-index: 1;}
+/* outros */
+.box7 th:nth-child(7){transform: translateX(-13px);}
 
 /*Ajuste no corpo das pericias*/
-.box7 th:nth-child(1){ z-index: 1; }
+
 .box7 td:nth-child(7){transform: translateX(-15px);}
 
 .totalIgual input{
@@ -495,12 +494,26 @@ font-weight: bold;
 font-size: 12px;
 }
 
+.totalIgual::after {
+  content: " =";
+  margin-left: 8px;
+  color: black;
+  font-weight: bold;
+}
+
+.maisOutros::before {
+  content: "+";
+  margin-right: 8px;
+  color: black;
+  font-weight: bold;
+}
+
 .box7 small{
   width: 100%;
   display: block; 
   text-align: center; 
   margin-top: 8px; 
- background-color: white;
+  background-color: white;
   position: sticky;
   bottom: 0;
 }
@@ -592,18 +605,19 @@ p.treinada::after, p.penalidade::after {
 .moneyInput span{
   margin-left: -10px;
 }
-.moneyInput input{   border-right: none;}
+.moneyInput input, #money{ border-right: none;}
 
-#equipment input[type="number"] {
+.carga {
   width: 40px;
   height: 40px;
   box-sizing: border-box;
   text-align: center;
 }
 
-#equipment .moneyInput input,
-#money input {
-  width: 60px;
+.moneyInput input,
+#money{
+  height: 40px;
+  width: 65px;
 }
 
 

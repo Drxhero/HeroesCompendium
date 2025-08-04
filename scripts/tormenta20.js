@@ -41,7 +41,37 @@ const dinheiroInput = document.getElementById("money");
 const cargaMaxInput = document.getElementById("maxLoad");
 
 
-const pericias = ["Acrobacia","Adestramento","Atletismo","Atuação","Cavalgar","Conhecimento","Cura","Diplomacia","Enganação","Fortitude","Furtividade","Guerra","Iniciativa","Intimidação","Investigação","Intuição","Jogatina","Ladinagem","Luta","Misticismo","Nobreza","Ofício","Ofício","Percepção","Pilotagem","Pontaria","Reflexos","Religião","Sobrevivência","Vontade"
+const pericias = [
+  { nome: "Acrobacia", atributo: "Des" },
+  { nome: "Adestramento", atributo: "Car" },
+  { nome: "Atletismo", atributo: "For" },
+  { nome: "Atuação", atributo: "Car" },
+  { nome: "Cavalgar", atributo: "Des" },
+  { nome: "Conhecimento", atributo: "Int" },
+  { nome: "Cura", atributo: "Sab" },
+  { nome: "Diplomacia", atributo: "Car" },
+  { nome: "Enganação", atributo: "Car" },
+  { nome: "Fortitude", atributo: "Con" },
+  { nome: "Furtividade", atributo: "Des" },
+  { nome: "Guerra", atributo: "Int" },
+  { nome: "Iniciativa", atributo: "Des" },
+  { nome: "Intimidação", atributo: "Car" },
+  { nome: "Investigação", atributo: "Int" },
+  { nome: "Intuição", atributo: "Sab" },
+  { nome: "Jogatina", atributo: "Car" },
+  { nome: "Ladinagem", atributo: "Des" },
+  { nome: "Luta", atributo: "For" },
+  { nome: "Misticismo", atributo: "Int" },
+  { nome: "Nobreza", atributo: "Int" },
+  { nome: "Ofício", atributo: "Int" },
+  { nome: "Ofício", atributo: "Int" }, // 2x, com nomes iguais, id será numerado
+  { nome: "Percepção", atributo: "Sab" },
+  { nome: "Pilotagem", atributo: "Des" },
+  { nome: "Pontaria", atributo: "Des" },
+  { nome: "Reflexos", atributo: "Des" },
+  { nome: "Religião", atributo: "Sab" },
+  { nome: "Sobrevivência", atributo: "Sab" },
+  { nome: "Vontade", atributo: "Sab" }
 ];
   const somenteTreinado = [
   "Adestramento","Conhecimento","Guerra","Jogatina","Ladinagem",

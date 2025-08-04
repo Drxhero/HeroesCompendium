@@ -350,3 +350,28 @@ continue;
     });
   });
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ok certo 
+
+quero criar uma função 
+
+atualizarNivelPericia(nomeID);
+
+1° quando check-{nomeID} is checked treino-{nomeID} += x
