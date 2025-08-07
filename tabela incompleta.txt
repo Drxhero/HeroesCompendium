@@ -1,0 +1,259 @@
+USE heroesCompendiumdata;
+
+DROP TABLE IF EXISTS ITENS;
+DROP TABLE IF EXISTS ATAQUES;
+DROP TABLE IF EXISTS FICHAS;
+
+CREATE TABLE FICHAS (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  chracter VARCHAR(100),
+  player VARCHAR(100),
+  race VARCHAR(50),
+  origin VARCHAR(50),
+  class VARCHAR(50),
+  level INT,
+  deity VARCHAR(100),
+  `for` INT,
+  dex INT,
+  con INT,
+  `int` INT,
+  sab INT,
+  car INT,
+  pv INT,
+  pva INT,
+  pm INT,
+  pma INT,
+  ableDefAttr BOOLEAN,
+  defenseSelect TINYINT,
+  defOthers INT,
+  armorName VARCHAR(50),
+  armorBonus INT,
+  armorPenality INT,
+  shieldName VARCHAR(50),
+  shieldBonus INT,
+  shieldPenality INT,
+  proficiencias TEXT,
+  habilidades TEXT,
+  magias TEXT,
+  money INT,
+  maxLoad INT,
+  
+treinado_1 BOOLEAN,
+atributo_1 TINYINT,
+outros_1 INT,
+
+treinado_2 BOOLEAN,
+atributo_2 TINYINT,
+outros_2 INT,
+
+treinado_3 BOOLEAN,
+atributo_3 TINYINT,
+outros_3 INT,
+
+treinado_4 BOOLEAN,
+atributo_4 TINYINT,
+outros_4 INT,
+
+treinado_5 BOOLEAN,
+atributo_5 TINYINT,
+outros_5 INT,
+
+treinado_6 BOOLEAN,
+atributo_6 TINYINT,
+outros_6 INT,
+
+treinado_7 BOOLEAN,
+atributo_7 TINYINT,
+outros_7 INT,
+
+treinado_8 BOOLEAN,
+atributo_8 TINYINT,
+outros_8 INT,
+
+treinado_9 BOOLEAN,
+atributo_9 TINYINT,
+outros_9 INT,
+
+treinado_10 BOOLEAN,
+atributo_10 TINYINT,
+outros_10 INT,
+
+treinado_11 BOOLEAN,
+atributo_11 TINYINT,
+outros_11 INT,
+
+treinado_12 BOOLEAN,
+atributo_12 TINYINT,
+outros_12 INT,
+
+treinado_13 BOOLEAN,
+atributo_13 TINYINT,
+outros_13 INT,
+
+treinado_14 BOOLEAN,
+atributo_14 TINYINT,
+outros_14 INT,
+
+treinado_15 BOOLEAN,
+atributo_15 TINYINT,
+outros_15 INT,
+
+treinado_16 BOOLEAN,
+atributo_16 TINYINT,
+outros_16 INT,
+
+treinado_17 BOOLEAN,
+atributo_17 TINYINT,
+outros_17 INT,
+
+treinado_18 BOOLEAN,
+atributo_18 TINYINT,
+outros_18 INT,
+
+treinado_19 BOOLEAN,
+atributo_19 TINYINT,
+outros_19 INT,
+
+treinado_20 BOOLEAN,
+atributo_20 TINYINT,
+outros_20 INT,
+
+treinado_21 BOOLEAN,
+atributo_21 TINYINT,
+outros_21 INT,
+
+treinado_22 BOOLEAN,
+atributo_22 TINYINT,
+outros_22 INT,
+
+treinado_23 BOOLEAN,
+atributo_23 TINYINT,
+outros_23 INT,
+
+treinado_24 BOOLEAN,
+atributo_24 TINYINT,
+outros_24 INT,
+
+treinado_25 BOOLEAN,
+atributo_25 TINYINT,
+outros_25 INT,
+
+treinado_26 BOOLEAN,
+atributo_26 TINYINT,
+outros_26 INT,
+
+treinado_27 BOOLEAN,
+atributo_27 TINYINT,
+outros_27 INT,
+
+treinado_28 BOOLEAN,
+atributo_28 TINYINT,
+outros_28 INT,
+
+treinado_29 BOOLEAN,
+atributo_29 TINYINT,
+outros_29 INT,
+
+treinado_30 BOOLEAN,
+atributo_30 TINYINT,
+outros_30 INT,
+
+treinado_31 BOOLEAN,
+atributo_31 TINYINT,
+outros_31 INT,
+
+treinado_32 BOOLEAN,
+atributo_32 TINYINT,
+outros_32 INT,
+
+treinado_33 BOOLEAN,
+atributo_33 TINYINT,
+outros_33 INT,
+
+treinado_34 BOOLEAN,
+atributo_34 TINYINT,
+outros_34 INT,
+
+treinado_35 BOOLEAN,
+atributo_35 TINYINT,
+outros_35 INT,
+
+treinado_36 BOOLEAN,
+atributo_36 TINYINT,
+outros_36 INT,
+
+treinado_37 BOOLEAN,
+atributo_37 TINYINT,
+outros_37 INT,
+
+treinado_38 BOOLEAN,
+atributo_38 TINYINT,
+outros_38 INT,
+
+treinado_39 BOOLEAN,
+atributo_39 TINYINT,
+outros_39 INT,
+
+treinado_40 BOOLEAN,
+atributo_40 TINYINT,
+outros_40 INT
+
+
+
+
+
+tabela de pericias de tormenta20
+
+
+    { nome: "Acrobacia", atributo: "Des" },
+    { nome: "Adestramento", atributo: "Car" },
+    { nome: "Atletismo", atributo: "For" },
+    { nome: "Atuação", atributo: "Car" },
+    { nome: "Cavalgar", atributo: "Des" },
+    { nome: "Conhecimento", atributo: "Int" },
+    { nome: "Cura", atributo: "Sab" },
+    { nome: "Diplomacia", atributo: "Car" },
+    { nome: "Enganação", atributo: "Car" },
+    { nome: "Fortitude", atributo: "Con" },
+    { nome: "Furtividade", atributo: "Des" },
+    { nome: "Guerra", atributo: "Int" },
+    { nome: "Iniciativa", atributo: "Des" },
+    { nome: "Intimidação", atributo: "Car" },
+    { nome: "Intuição", atributo: "Sab" },
+    { nome: "Investigação", atributo: "Int" },
+    { nome: "Jogatina", atributo: "Int" },
+    { nome: "Ladinagem", atributo: "Des" },
+    { nome: "Luta", atributo: "For" },
+    { nome: "Misticismo", atributo: "Int" },
+    { nome: "Nobreza", atributo: "Int" },
+    { nome: "Ofício", atributo: "Int" },
+    { nome: "Ofício", atributo: "Int" },
+    { nome: "Percepção", atributo: "Sab" },
+    { nome: "Pilotagem", atributo: "Des" },
+    { nome: "Pontaria", atributo: "Des" },
+    { nome: "Reflexos", atributo: "Des" },
+    { nome: "Religião", atributo: "Int" },
+    { nome: "Sobrevivência", atributo: "Sab" },
+    { nome: "Vontade", atributo: "Sab" }
+
+  Treinadas
+    "adestramento", "atuação", "conhecimento", "guerra", "jogatina",
+    "ladinagem", "misticismo", "nobreza", "ofício", "ofício2", "ofício3", "ofício4", "ofício5", "pilotagem", "religião"
+
+
+
+    $campos_fixos = [
+    'chracter', 'player', 'race', 'origin', 'class', 'level', 'deity',
+    'for', 'dex', 'con', 'int', 'sab', 'car', 'pv', 'pva', 'pm', 'pma',
+    'ableDefAttr', 'defenseSelect', 'defOthers',
+    'armorName', 'armorBonus', 'armorPenality',
+    'shieldName', 'shieldBonus', 'shieldPenality',
+    'proficiencias', 'habilidades', 'magias', 'money', 'maxLoad'
+];
+
+$pericias = [
+    "acrobacia", "adestramento", "atletismo", "atuacao", "cavalgar", "conhecimento", "cura", "diplomacia",
+    "enganacao", "fortitude", "furtividade", "guerra", "iniciativa", "intimidacao", "intuicao", "investigacao",
+    "jogatina", "ladinagem", "luta", "misticismo", "nobreza", "oficio1", "oficio2", "percepcao", "pilotagem",
+    "pontaria", "reflexos", "religiao", "sobrevivencia", "vontade"
+];

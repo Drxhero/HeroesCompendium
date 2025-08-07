@@ -1,85 +1,127 @@
-// tormenta.js
+// fichaGlobal.js
 document.addEventListener("DOMContentLoaded", () => {
-
   const tbody = document.getElementById("tabela-pericias");
-  const idCount = {};
-  const fragment = document.createDocumentFragment(); // melhora performance
+  const fragment = document.createDocumentFragment();
 
-  pericias.forEach(p => {
-    let nomeIDBase = p.nome.toLowerCase().replace(/\s+/g, "");
-    if (!idCount[nomeIDBase]) {
-      idCount[nomeIDBase] = 1;
-    } else {
-      idCount[nomeIDBase]++;
-    }
-    const nomeID = idCount[nomeIDBase] === 1 ? nomeIDBase : `${nomeIDBase}${idCount[nomeIDBase]}`;
+  pericias.forEach((p, index) => {
+    const nomeID = p.nome.toLowerCase().replace(/\s+/g, "");
+    const numeroID = index + 1;
+
     const linha = document.createElement("tr");
 
-    // Checkbox
+    // CHECKBOX
     const tdCheck = document.createElement("td");
-    const check = document.createElement("input");
-    check.type = "checkbox";
-    check.id = `check-${nomeID}`;
-    check.name = `check-${nomeID}`;
-    tdCheck.appendChild(check);
+    const inputCheck = document.createElement("input");
+    inputCheck.type = "checkbox";
+    inputCheck.id = `check-${nomeID}`;
+    inputCheck.name = `check-${numeroID}`;
+    tdCheck.appendChild(inputCheck);
     linha.appendChild(tdCheck);
 
-    // Nome com símbolos
+    // NOME COM CLASSES E SÍMBOLOS
     const tdNome = document.createElement("td");
     const nomeP = document.createElement("p");
     let classes = [];
+
     if (somenteTreinado.includes(p.nome)) classes.push("treinada");
     if (penalidade.includes(p.nome)) classes.push("penalidade");
 
     nomeP.className = classes.join(" ");
     nomeP.textContent = p.nome;
 
-    // símbolo compatível com múltiplas classes
     let simbolo = "";
     if (classes.includes("treinada")) simbolo += "✯";
     if (classes.includes("penalidade")) simbolo += " ✠";
-if (simbolo) nomeP.setAttribute("data-symbol", simbolo.trim());
+    if (simbolo) nomeP.setAttribute("data-symbol", simbolo.trim());
 
+    // CAMPO ESPECIAL PARA OFÍCIO
     if (p.nome.toLowerCase() === "ofício") {
-      const input = document.createElement("input");
-      input.type = "text";
-      input.id = `oficio-sub-${nomeID}`;
-      input.style.cssText = "display:inline-block;width:80px;font-size:0.75rem;margin-left:4px;";
+      const oficioInput = document.createElement("input");
+      oficioInput.type = "text";
+      oficioInput.id = `oficio-sub-${nomeID}`;
+      oficioInput.style.cssText = "display:inline-block;width:80px;font-size:0.75rem;margin-left:4px;";
       nomeP.appendChild(document.createTextNode(" "));
-      nomeP.appendChild(input);
+      nomeP.appendChild(oficioInput);
     }
 
     tdNome.appendChild(nomeP);
     linha.appendChild(tdNome);
 
-    linha.innerHTML += `
-      <td class="totalIgual"><input type="text" readonly id="total-${nomeID}" value="0"></td>
-      <td><input type="text" readonly class="periciaNivel" id="nivel-${nomeID}" value="0"></td>
-      <td>
-        <select class="atributoSkill" id="atributo-${nomeID}">
-          <option value="For" ${p.atributo === "For" ? "selected" : ""}>For</option>
-          <option value="Des" ${p.atributo === "Des" ? "selected" : ""}>Des</option>
-          <option value="Con" ${p.atributo === "Con" ? "selected" : ""}>Con</option>
-          <option value="Int" ${p.atributo === "Int" ? "selected" : ""}>Int</option>
-          <option value="Sab" ${p.atributo === "Sab" ? "selected" : ""}>Sab</option>
-          <option value="Car" ${p.atributo === "Car" ? "selected" : ""}>Car</option>
-        </select>
-      </td>
-      <td><input type="text" readonly id="treino-${nomeID}" value="0"></td>
-      <td class="maisOutros"><input type="number" class="outrosSkill" id="outros-${nomeID}" name="outros-${nomeID}"></td>
-    `;
+    // TOTAL
+    const tdTotal = document.createElement("td");
+    tdTotal.className = "totalIgual";
+    const inputTotal = document.createElement("input");
+    inputTotal.type = "text";
+    inputTotal.readOnly = true;
+    inputTotal.id = `total_${nomeID}`;
+    inputTotal.value = "0";
+    tdTotal.appendChild(inputTotal);
+    linha.appendChild(tdTotal);
 
+    // NÍVEL DA PERÍCIA
+    const tdNivel = document.createElement("td");
+    const inputNivel = document.createElement("input");
+    inputNivel.type = "text";
+    inputNivel.readOnly = true;
+    inputNivel.className = "periciaNivel";
+    inputNivel.id = `nivel_${nomeID}`;
+    inputNivel.value = "0";
+    tdNivel.appendChild(inputNivel);
+    linha.appendChild(tdNivel);
+
+    // SELECT DE ATRIBUTO
+    const tdAttr = document.createElement("td");
+    const select = document.createElement("select");
+    select.className = "atributoSkill";
+    select.id = `atributo_${nomeID}`;
+    select.name = `atributo_${numeroID}`;
+
+    const atributos = ["For", "Des", "Con", "Int", "Sab", "Car"];
+    atributos.forEach(attr => {
+      const option = document.createElement("option");
+      option.value = attr;
+      option.textContent = attr;
+      if (p.atributo === attr) option.selected = true;
+      select.appendChild(option);
+    });
+
+    tdAttr.appendChild(select);
+    linha.appendChild(tdAttr);
+
+    // TREINO
+    const tdTreino = document.createElement("td");
+    const inputTreino = document.createElement("input");
+    inputTreino.type = "text";
+    inputTreino.readOnly = true;
+    inputTreino.id = `treino_${nomeID}`;
+    inputTreino.value = "0";
+    tdTreino.appendChild(inputTreino);
+    linha.appendChild(tdTreino);
+
+    // OUTROS (usa ID por nome, NAME por número)
+    const tdOutros = document.createElement("td");
+    tdOutros.className = "maisOutros";
+    const inputOutros = document.createElement("input");
+    inputOutros.type = "number";
+    inputOutros.className = "outrosSkill";
+    inputOutros.id = `outros_${nomeID}`;
+    inputOutros.name = `outros_${numeroID}`;
+    tdOutros.appendChild(inputOutros);
+    linha.appendChild(tdOutros);
+
+    // Adiciona a linha ao fragmento
     fragment.appendChild(linha);
   });
-  tbody.appendChild(fragment); 
-  });
+
+  tbody.appendChild(fragment);
+});
 
 function atualizarNivelPericia(nomeID) {
   const nivelGeral = parseInt(nivelInput.value) || 0;
 
-  // 1. Atualizar o valor de treino-${nomeID}
-  const checkbox = document.getElementById(`check-${nomeID}`);
-  const treino = document.getElementById(`treino-${nomeID}`);
+  // 1. Atualizar o valor de treino_${nomeID}
+  const checkbox = document.getElementById(`check_${nomeID}`);
+  const treino = document.getElementById(`treino_${nomeID}`);
 
   if (checkbox && treino) {
     let bonusTreino = 0;
@@ -97,8 +139,8 @@ function atualizarNivelPericia(nomeID) {
     treino.value = bonusTreino;
   }
 
-  // 2. Atualizar o valor de nivel-${nomeID}
-  const nivelPericia = document.getElementById(`nivel-${nomeID}`);
+  // 2. Atualizar o valor de nivel_${nomeID}
+  const nivelPericia = document.getElementById(`nivel_${nomeID}`);
   if (nivelPericia) {
     nivelPericia.value = Math.floor(nivelGeral / 2);
   }
@@ -106,12 +148,12 @@ function atualizarNivelPericia(nomeID) {
 
 
 function atualizarTotalPericia(nomeID) {
-  const nivelInputLocal = document.getElementById(`nivel-${nomeID}`);
-  const treinoInput = document.getElementById(`treino-${nomeID}`);
-  const outrosInput = document.getElementById(`outros-${nomeID}`);
-  const atributoSelect = document.getElementById(`atributo-${nomeID}`);
-  const totalInput = document.getElementById(`total-${nomeID}`);
-  const check = document.getElementById(`check-${nomeID}`);
+  const nivelInputLocal = document.getElementById(`nivel_${nomeID}`);
+  const treinoInput = document.getElementById(`treino_${nomeID}`);
+  const outrosInput = document.getElementById(`outros_${nomeID}`);
+  const atributoSelect = document.getElementById(`atributo_${nomeID}`);
+  const totalInput = document.getElementById(`total_${nomeID}`);
+  const check = document.getElementById(`check_${nomeID}`);
 
   if (
     !nivelInputLocal || !check || !totalInput || 

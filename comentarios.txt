@@ -94,7 +94,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['campo'], $_POST['valor
 }
 ?>
 
-
+// Divisão--------------------------------------------------------------------------------------------------
 
 <script>
 const fichaData = <?= json_encode($dados, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP) ?>;
@@ -209,7 +209,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
 
-
+//divisão -------------------------------------------------------------------------
 
 
  const ataqueCampos = ['ataque', 'teste', 'dano', 'critico', 'tipo', 'alcance'];
@@ -350,28 +350,75 @@ continue;
     });
   });
 });
+//divisão--------------------------------------------------------------------
 
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['campo'], $_POST['valor'], $_POST['id'])) {
+    $campo = $_POST['campo']; // exemplo: "check_1", "atributo_2", "outros_3"
+    $valor = $_POST['valor'];
+    $id = (int) $_POST['id'];
 
+    // Mapeia nomes do formulário para colunas do banco
+    if (preg_match('/^(check|atributo|outros)_(\d+)$/', $campo, $matches)) {
+        $tipo = $matches[1];
+        $num = $matches[2];
 
+        switch ($tipo) {
+            case 'check':
+                $coluna = "treinado_" . $num;
+                // Checkbox vira boolean
+                $valor = ($valor === 'on' || $valor === '1') ? 1 : 0;
+                break;
+            case 'atributo':
+                $coluna = "atributo_" . $num;
+                $valor = (int)$valor;
+                break;
+            case 'outros':
+                $coluna = "outros_" . $num;
+                $valor = (int)$valor;
+                break;
+        }
+    } else {
+        // Campos fixos
+        $coluna = $campo;
 
+        $permitidos = [
+            'chracter', 'player', 'race', 'origin', 'class', 'level', 'deity',
+            'for', 'dex', 'con', 'int', 'sab', 'car', 'pv', 'pva', 'pm', 'pma',
+            'ableDefAttr', 'defenseSelect', 'defOthers',
+            'armorName', 'armorBonus', 'armorPenality',
+            'shieldName', 'shieldBonus', 'shieldPenality',
+            'proficiencias', 'habilidades', 'magias', 'money', 'maxLoad'
+        ];
+        if (!in_array($coluna, $permitidos)) {
+            echo "Campo inválido! Recebido: " . htmlspecialchars($campo);
+            exit;
+        }
+    }
 
+    $stmt = $conn->prepare("UPDATE FICHAS SET `$coluna` = ? WHERE id = ?");
+    if (!$stmt) {
+        echo "Erro no prepare: " . $conn->error;
+        exit;
+    }
 
+    // Bind por tipo
+    if (in_array($coluna, ['chracter', 'player', 'race', 'origin', 'class', 'deity', 'armorName', 'shieldName', 'proficiencias', 'habilidades', 'magias'])) {
+        $stmt->bind_param("si", $valor, $id);
+    } elseif ($coluna === 'ableDefAttr') {
+        $valInt = $valor ? 1 : 0;
+        $stmt->bind_param("ii", $valInt, $id);
+    } else {
+        $valInt = (int)$valor;
+        $stmt->bind_param("ii", $valInt, $id);
+    }
 
+    if ($stmt->execute()) {
+        echo "Campo '$coluna' atualizado com sucesso.";
+    } else {
+        echo "Erro ao atualizar: " . $stmt->error;
+    }
 
-
-
-
-
-
-
-
-
-
-
-ok certo 
-
-quero criar uma função 
-
-atualizarNivelPericia(nomeID);
-
-1° quando check-{nomeID} is checked treino-{nomeID} += x
+    $stmt->close();
+    $conn->close();
+    exit;
+}
