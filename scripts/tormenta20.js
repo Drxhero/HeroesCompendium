@@ -66,7 +66,7 @@ const pericias = [
   { nome: "Misticismo", atributo: "Int" },
   { nome: "Nobreza", atributo: "Int" },
   { nome: "Ofício", atributo: "Int" },
-  { nome: "Ofício", atributo: "Int" }, // 2x, com nomes iguais, id será numerado
+  { nome: "Ofício", atributo: "Int" },
   { nome: "Percepção", atributo: "Sab" },
   { nome: "Pilotagem", atributo: "Des" },
   { nome: "Pontaria", atributo: "Des" },

@@ -13,8 +13,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const tdCheck = document.createElement("td");
     const inputCheck = document.createElement("input");
     inputCheck.type = "checkbox";
-    inputCheck.id = `check-${nomeID}`;
-    inputCheck.name = `check-${numeroID}`;
+    inputCheck.id = `check_${nomeID}`;
+    inputCheck.name = `check_${numeroID}`;
     tdCheck.appendChild(inputCheck);
     linha.appendChild(tdCheck);
 
@@ -38,8 +38,9 @@ document.addEventListener("DOMContentLoaded", () => {
     if (p.nome.toLowerCase() === "ofício") {
       const oficioInput = document.createElement("input");
       oficioInput.type = "text";
-      oficioInput.id = `oficio-sub-${nomeID}`;
-      oficioInput.style.cssText = "display:inline-block;width:80px;font-size:0.75rem;margin-left:4px;";
+      oficioInput.id = `oficio_sub_${nomeID}`;
+      oficioInput.style.cssText =
+        "display:inline-block;width:80px;font-size:0.75rem;margin-left:4px;";
       nomeP.appendChild(document.createTextNode(" "));
       nomeP.appendChild(oficioInput);
     }
@@ -77,7 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
     select.name = `atributo_${numeroID}`;
 
     const atributos = ["For", "Des", "Con", "Int", "Sab", "Car"];
-    atributos.forEach(attr => {
+    atributos.forEach((attr) => {
       const option = document.createElement("option");
       option.value = attr;
       option.textContent = attr;
@@ -116,36 +117,29 @@ document.addEventListener("DOMContentLoaded", () => {
   tbody.appendChild(fragment);
 });
 
+// === Funções de atualização ===
 function atualizarNivelPericia(nomeID) {
   const nivelGeral = parseInt(nivelInput.value) || 0;
 
-  // 1. Atualizar o valor de treino_${nomeID}
   const checkbox = document.getElementById(`check_${nomeID}`);
   const treino = document.getElementById(`treino_${nomeID}`);
+  const nivelPericia = document.getElementById(`nivel_${nomeID}`);
 
   if (checkbox && treino) {
     let bonusTreino = 0;
-
     if (checkbox.checked) {
-      if (nivelGeral < 7) {
-        bonusTreino = 2;
-      } else if (nivelGeral < 15) {
-        bonusTreino = 4;
-      } else {
-        bonusTreino = 6;
-      }
+      if (nivelGeral < 7) bonusTreino = 2;
+      else if (nivelGeral < 15) bonusTreino = 4;
+      else bonusTreino = 6;
     }
-
-    treino.value = bonusTreino;
+    if (treino.value != bonusTreino) treino.value = bonusTreino;
   }
 
-  // 2. Atualizar o valor de nivel_${nomeID}
-  const nivelPericia = document.getElementById(`nivel_${nomeID}`);
   if (nivelPericia) {
-    nivelPericia.value = Math.floor(nivelGeral / 2);
+    const novoNivel = Math.floor(nivelGeral / 2);
+    if (nivelPericia.value != novoNivel) nivelPericia.value = novoNivel;
   }
 }
-
 
 function atualizarTotalPericia(nomeID) {
   const nivelInputLocal = document.getElementById(`nivel_${nomeID}`);
@@ -155,10 +149,7 @@ function atualizarTotalPericia(nomeID) {
   const totalInput = document.getElementById(`total_${nomeID}`);
   const check = document.getElementById(`check_${nomeID}`);
 
-  if (
-    !nivelInputLocal || !check || !totalInput || 
-    !atributoSelect || !treinoInput || !outrosInput
-  ) return;
+  if (!nivelInputLocal || !treinoInput || !outrosInput || !atributoSelect || !totalInput || !check) return;
 
   const nivel = parseInt(nivelInputLocal.value) || 0;
   const treino = parseInt(treinoInput.value) || 0;
@@ -190,31 +181,21 @@ function atualizarTotalPericia(nomeID) {
     return;
   }
 
-  const totalBase = nivel + treino + valorAtributo + outros;
-  let total = totalBase;
-
-  if (isPenalized) {
-    total -= (armorPen + shieldPen);
-  }
+  let total = nivel + treino + valorAtributo + outros;
+  if (isPenalized) total -= (armorPen + shieldPen);
 
   totalInput.value = total;
 }
 
 function defCalc() {
-  defArmor.value = armorBonus.value;
-  defShield.value = shieldBonus.value;
-
-  const valArmor = Number(defArmor.value) || 0;
-  const valShield = Number(defShield.value) || 0;
+  const valArmor = Number(armorBonus.value) || 0;
+  const valShield = Number(shieldBonus.value) || 0;
   const valOthers = Number(defOthers.value) || 0;
 
   let valAttr = 0;
-
-  // Verifica se a checkbox está ativa
-  const ableDefAttrChecked = document.getElementById('ableDefAttr').checked;
+  const ableDefAttrChecked = document.getElementById("ableDefAttr").checked;
 
   if (!ableDefAttrChecked) {
-    // Só calcula o atributo se a checkbox NÃO estiver marcada
     switch (defenseAttr.value) {
       case "for": valAttr = parseInt(forInput.value) || 0; break;
       case "des": valAttr = parseInt(dexInput.value) || 0; break;
@@ -223,66 +204,41 @@ function defCalc() {
       case "sab": valAttr = parseInt(sabInput.value) || 0; break;
       case "car": valAttr = parseInt(carInput.value) || 0; break;
     }
-  } else {
-    // Checkbox ativa => valAttr fica 0 (já está no início)
-    valAttr = 0;
   }
 
   defAttr.value = valAttr;
-
-  const defBase = 10;
-  const total = defBase + valAttr + valArmor + valShield + valOthers;
-
-  defInput.value = total;
+  defInput.value = 10 + valAttr + valArmor + valShield + valOthers;
 }
 
-
-
-
-// Adiciona o listener para cada input
+// === Listeners ===
 const inputs = [
   nivelInput, forInput, dexInput, conInput, intInput, sabInput, carInput,
-  defOthers, defenseAttr, armorBonus, shieldBonus, armorPenality, 
-  shieldPenality
+  defOthers, defenseAttr, armorBonus, shieldBonus, armorPenality, shieldPenality
 ];
 
-
 inputs.forEach(input => {
-  if (input) {
-    input.addEventListener("input", atualizarTudo);
-  }
+  if (input) input.addEventListener("input", atualizarTudo);
 });
 
-// 2. Listeners globais para inputs e selects dinâmicos
-document.addEventListener("input", function (e) {
+document.addEventListener("input", (e) => {
   const el = e.target;
+  if (el.id?.startsWith("outros_")) atualizarTudo();
+});
 
-  // Só dispara atualizarTudo se for input criado dinamicamente
-  if (el.id?.startsWith("outros-")) {
+document.addEventListener("change", (e) => {
+  const el = e.target;
+  if ((el.tagName === "SELECT" && el.id.startsWith("atributo_")) || 
+      (el.type === "checkbox" && el.id.startsWith("check_"))) {
     atualizarTudo();
   }
 });
 
-document.addEventListener("change", function (e) {
-  const el = e.target;
-
-  // Dispara atualizarTudo para selects e checkboxes criados dinamicamente
-  if (
-    (el.tagName === "SELECT" && el.id.startsWith("atributo-")) ||
-    (el.type === "checkbox" && el.id.startsWith("check-"))
-  ) {
-    atualizarTudo();
-  }
-});
-
-
-
+// Atualiza tudo
 function atualizarTudo() {
   document.querySelectorAll(".periciaNivel").forEach(el => {
-    const nomeID = el.id.replace("nivel-", "");
+    const nomeID = el.id.replace("nivel_", "");
     atualizarNivelPericia(nomeID);
     atualizarTotalPericia(nomeID);
   });
   defCalc();
 }
-
