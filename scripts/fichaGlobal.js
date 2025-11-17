@@ -140,7 +140,145 @@ function atualizarNivelPericia(nomeID) {
     if (nivelPericia.value != novoNivel) nivelPericia.value = novoNivel;
   }
 }
+//AUTOCOMPLETAR
+fetch("./data/tormenta20.json")
+  .then(r => r.json())
+  .then(data => {
+    createAutocomplete("race", data.races);
+    createAutocomplete("class", data.classes);
+    createAutocomplete("origin", data.origins);
+    createAutocomplete("deity", data.deities);
+  });
 
+function createAutocomplete(inputId, list) {
+  const input = document.getElementById(inputId);
+  const box = document.getElementById(inputId + "-list");
+  const desc = document.getElementById(inputId + "-description");
+  const dropBtn = document.querySelector(`[data-target="${inputId}"]`);
+  box.setAttribute("data-autolist", "");
+
+  function updateList() {
+    const text = input.value.toLowerCase();
+
+    // se tem texto → botão vira "✖"
+    if (input.value.trim() !== "") {
+      dropBtn.textContent = "✖";
+    }
+
+    box.innerHTML = "";
+    box.style.display = "block";
+
+    const filtered = list.filter(el =>
+      el.name.toLowerCase().includes(text)
+    );
+
+    filtered.forEach(el => {
+      const item = document.createElement("div");
+      item.className = "item";
+      item.textContent = el.name;
+
+      item.addEventListener("mouseenter", () => {
+        desc.style.display = "block";
+        desc.textContent = el.description || "Sem descrição.";
+      });
+
+      item.addEventListener("mouseleave", () => {
+        desc.style.display = "none";
+      });
+
+      item.addEventListener("click", () => {
+        input.value = el.name;
+        box.style.display = "none";
+        desc.style.display = "none";
+        dropBtn.textContent = "▼";
+      });
+
+      box.appendChild(item);
+    });
+  }
+
+  // botão ▼ / ▲ / X
+  if (dropBtn) {
+    dropBtn.addEventListener("click", () => {
+
+      // se o botão está em modo X (limpar)
+      if (dropBtn.textContent === "✖") {
+        input.value = "";
+        box.style.display = "none";
+        desc.style.display = "none";
+        dropBtn.textContent = "▼";
+        return;
+      }
+
+      // alternar visibilidade da lista
+      closeAllAutocompleteLists(inputId);
+
+      if (box.style.display === "block") {
+        box.style.display = "none";
+        desc.style.display = "none";
+        dropBtn.textContent = "▼";
+      } else {
+        updateList();
+        box.style.display = "block";
+        dropBtn.textContent = "▲";
+      }
+    });
+  }
+
+  // abre quando foca
+  input.addEventListener("focus", () => {
+    if (input.value.trim() === "") {
+      dropBtn.textContent = "▲";
+    }
+    closeAllAutocompleteLists(inputId);
+    updateList();
+  });
+
+  // atualiza enquanto digita
+  input.addEventListener("input", updateList);
+
+  // esconde ao perder foco
+  input.addEventListener("blur", () => {
+    setTimeout(() => {
+      box.style.display = "none";
+      desc.style.display = "none";
+
+      // troca o botão de volta
+      if (input.value.trim() === "") {
+        dropBtn.textContent = "▼";
+      }else{
+          dropBtn.textContent = "✖";
+      }
+    }, 150);
+  });
+
+  function closeAllAutocompleteLists(exceptId = null) {
+    document.querySelectorAll("[data-autolist]").forEach(otherBox => {
+      if (otherBox.id !== exceptId + "-list") {
+        otherBox.style.display = "none";
+      }
+    });
+
+ function updateButtonIcon(input, box, button) {
+  if (input.value.trim() !== "") {
+    button.textContent = "✖"; // campo preenchido = clear
+  } else {
+    if (box.style.display === "block") {
+      button.textContent = "▲"; // aberto
+    } else {
+      button.textContent = "▼"; // fechado
+    }
+  }
+}
+  }
+  
+}
+
+
+
+
+
+//Atualizar
 function atualizarTotalPericia(nomeID) {
   const nivelInputLocal = document.getElementById(`nivel_${nomeID}`);
   const treinoInput = document.getElementById(`treino_${nomeID}`);
@@ -242,3 +380,5 @@ function atualizarTudo() {
   });
   defCalc();
 }
+
+

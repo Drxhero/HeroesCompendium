@@ -7,10 +7,9 @@
     <link rel="stylesheet" href="./styles/main.css">
     <link rel="stylesheet" href="./styles/global.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
 </head>
 <body>
-    
- <form action="salvar.php" method="post">
 
 
 
@@ -21,29 +20,57 @@
       <div class="box1B">
         <input type="text" name="" id="chracter" > 
        <div style="margin-top: 8px;" class="info1" >
-         <label style="left: 4%; width: max-content;"  for="player">Jogador(a)</label>
+         <label style="left: 4%; width: max-content;"  for="player" class="inputTag">Jogador(a)</label>
         <input type="text" name="" id="player" >
        </div>
         <img class="logo" src="src/tormentaLogo.png" alt="Tormenta"><br>
       </div>
-        <div class="box1B">
-              <label style="font-size: 1.3em; margin-left: 25px;" for="chracter"><strong>Personagem</strong></label>
-        <div class="info1"><input type="text" name="" id="race" >
-        <label style="left: 5%;" for="race">Raça</label>
-        </div>
-        <div class="info1"><input type="text" name="" id="origin" >
-        <label style="left: 3%;" for="origin">Origem</label>
-        </div>
-        <div class="info1"><input type="text" name="" id="class">
-        <label style="left: 3%;" for="class">Classe</label>
-        </div>
-        <div class="info1"><input type="number" name="" id="level" value="1" max="20">
-        <label style="text-align: center;" for="level">Nivel</label>
-        </div>
-        <div class="info1"><input type="text" name="" id="deity" >
-        <label style="left: 5%;" for="deity">Divindade</label>
-        </div>
-        </div>
+       <div class="box1B">
+  <label style="font-size: 1.3em; margin-left: 25px;" for="chracter" class="inputTag"><strong>Personagem</strong></label>
+
+  <div class="info1">
+    <input type="text" id="race">
+     <label for="race"><button class="drop-btn" data-target="race">▼</button> </label>
+    <label style="left: 5%;" for="race" class="inputTag">Raça</label>
+
+    <!-- lista e descrição -->
+    <div id="race-list" class="list"></div>
+    <div id="race-description" class="description"></div>
+  </div>
+
+  <div class="info1">
+    <input type="text" id="origin">
+     <label for="origin"><button class="drop-btn" data-target="origin">▼</button></label>
+    <label style="left: 3%;" for="origin" class="inputTag">Origem</label>
+
+    <div id="origin-list" class="list"></div>
+    <div id="origin-description" class="description"></div>
+  </div>
+
+  <div class="info1">
+    <input type="text" id="class">
+      <label for="class"><button class="drop-btn" data-target="class">▼</button> <label>
+    <label style="left: 3%;" for="class" class="inputTag">Classe</label>
+
+    <div id="class-list" class="list"></div>
+    <div id="class-description" class="description"></div>
+  </div>
+
+  <div class="info1">
+    <input type="number" id="level" value="1" max="20">
+    <label style="text-align: center;" for="level" class="inputTag">Nivel</label>
+  </div>
+
+  <div class="info1">
+    <input type="text" id="deity">
+    <label for="deity"><button class="drop-btn" data-target="deity">▼</button></label>
+    <label style="left: 5%;" for="deity" class="inputTag">Divindade</label>
+    
+    <div id="deity-list" class="list"></div>
+    <div id="deity-description" class="description"></div>
+  </div>
+</div>
+
     </div>
   </div>
 

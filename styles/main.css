@@ -180,17 +180,72 @@ top: -6%;
 /*#endregion Multiple boxes effect*/
 
 /*#region Box1*/
-.box1 {
-  margin: 0 auto;
-  background-color: transparent;
-  border: none;
-  box-shadow: none;
-  max-width: 1000px;
-  width: 100%;
-  box-sizing: border-box;
+/*#region*/
+.info1 {
+  position: relative;
 }
 
+.list {
+  border: 2px solid black;
+  padding: 10px;
+  box-shadow: 5px 5px 0px #b62a2a;
+  background: #fff;
+  display: none;
+  max-height: 150px;
+  overflow-y: auto;
+  position: absolute;
+  width: 100%;
+  top: 100%;
+  left: 0;
+  z-index: 50;
+}
 
+.item {
+  padding: 4px 6px;
+  cursor: pointer;
+}
+
+.item:hover {
+  background: #dde4ff;
+}
+
+.description {
+  margin-top: 4px;
+  border: 2px solid black;
+  padding: 10px;
+  box-shadow: 5px 5px 0px #b62a2a;
+  background: #fff;
+  display: none;
+  position: absolute;
+  top: calc(100% + 155px);
+  width: 100%;
+  z-index: 40;
+}
+
+.input-wrapper {
+  position: relative;
+}
+
+.drop-btn {
+  position: absolute;
+  right: 8px;
+  top: 25%;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 2px;
+  color: #000000; /* ajuste conforme seu tema */
+}
+
+.drop-btn:hover {
+  opacity: 0.6;
+}
+
+/*#endregion*/
+.box1{
+  margin-bottom: 15px;
+}
 .box1 input{
   border: 2px solid black;
   box-shadow: 5px 5px 0px #b62a2a;
@@ -218,7 +273,7 @@ top: -6%;
 .box1B{
   display: flex;
 }
-.info1 label{
+.info1 .inputTag{
   position: relative;
 }
 

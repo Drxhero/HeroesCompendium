@@ -80,3 +80,6 @@ const pericias = [
   "Misticismo","Nobreza","Ofício","Pilotagem","Religião"
 ];
   const penalidade = ["Acrobacia","Furtividade","Ladinagem"];
+
+
+  

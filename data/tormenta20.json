@@ -1,0 +1,204 @@
+
+
+{
+  "metadata": {
+    "project": "Heroes Compendium",
+    "version": "0.1"
+  },
+
+   "races": [
+      {
+      "name": "Humano",
+      "description":"O povo mais numeroso em Arton, humanos são considerados os escolhidos dos deuses, aqueles que governam o mundo. Em sua variedade e adaptabilidade, são encontrados em quase todos os pontos do continente — dos vales férteis do Reinado às vastidões áridas do Deserto da Perdição. São exploradores e desbravadores ambiciosos, sempre buscando algo além.",
+      "ability_bonuses": {
+        "fixed": { "str": 0, "dex": 0, "con": 0, "int": 0, "wis": 0, "cha": 0 },
+        "choices": [
+          {
+            "id": "human_variant_3x+1",
+            "type": "choose",         
+            "count": 3,              
+            "amount": 1,             
+            "from": "any",            
+            "unique": true,        
+            "note": "Escolha +1 em 3 atributos diferentes"
+          }
+        ]
+      }
+    },
+
+    {
+      "name": "Anão",
+      "description":"B",
+      "ability_bonuses": {
+      "fixed": { "str": 0, "dex": 0, "con": 0, "int": 0, "wis": 0, "cha": 0 },
+        "choices": []
+      }
+    }
+  ],
+"classes": [
+  {
+    "name": "Arcanista",
+    "description":""
+  }
+],
+"origins": [
+{ "name": "Acólito", "description": "" },
+  { "name": "Amigo dos Animais", "description": "" },
+  { "name": "Amnésico", "description": "" },
+  { "name": "Aristocrata", "description": "" },
+  { "name": "Artesão", "description": "" },
+  { "name": "Artista", "description": "" },
+  { "name": "Assistente de Laboratório", "description": "" },
+  { "name": "Batedor", "description": "" },
+  { "name": "Capanga", "description": "" },
+  { "name": "Charlatão", "description": "" },
+  { "name": "Circense", "description": "" },
+  { "name": "Criminoso", "description": "" },
+  { "name": "Curandeiro", "description": "" },
+  { "name": "Eremita", "description": "" },
+  { "name": "Escravo", "description": "" },
+  { "name": "Estudioso", "description": "" },
+  { "name": "Fazendeiro", "description": "" },
+  { "name": "Forasteiro", "description": "" },
+  { "name": "Gladiador", "description": "" },
+  { "name": "Guarda", "description": "" },
+  { "name": "Herdeiro", "description": "" },
+  { "name": "Herói Camponês", "description": "" },
+  { "name": "Marujo", "description": "" },
+  { "name": "Mateiro", "description": "" },
+  { "name": "Membro de Guilda", "description": "" },
+  { "name": "Mercador", "description": "" },
+  { "name": "Minerador", "description": "" },
+  { "name": "Nômade", "description": "" },
+  { "name": "Pivete", "description": "" },
+  { "name": "Refugiado", "description": "" },
+  { "name": "Seguidor", "description": "" },
+  { "name": "Selvagem", "description": "" },
+  { "name": "Soldado", "description": "" },
+  { "name": "Taverneiro", "description": "" },
+  { "name": "Trabalhador", "description": "" }
+],
+"deities": [
+  {
+    "name": "Aharadak",
+    "energy": "Negativa",
+    "powers": ["Afinidade com a Tormenta", "Êxtase da Loucura", "Percepção Temporal", "Rejeição Divina"],
+    "description": ""
+  },
+  {
+    "name": "Allihanna",
+    "energy": "Positiva",
+    "powers": ["Compreender os Ermos", "Dedo Verde", "Descanso Natural", "Voz da Natureza"],
+    "description": ""
+  },
+  {
+    "name": "Arsenal",
+    "energy": "Qualquer",
+    "powers": ["Conjurar Arma", "Coragem Total", "Fé Guerreira", "Sangue de Ferro"],
+    "description": ""
+  },
+  {
+    "name": "Azgher",
+    "energy": "Positiva",
+    "powers": ["Espada Solar", "Fulgor Solar", "Habitante do Deserto", "Inimigo de Tenebra"],
+    "description": ""
+  },
+  {
+    "name": "Hyninn",
+    "energy": "Qualquer",
+    "powers": ["Apostar com o Trapaceiro", "Farsa do Fingidor", "Forma de Macaco", "Golpista Divino"],
+    "description": ""
+  },
+  {
+    "name": "Kallyadranoch",
+    "energy": "Negativa",
+    "powers": ["Aura de Medo", "Escamas Dracônicas", "Presas Primordiais", "Servos do Dragão"],
+    "description": ""
+  },
+  {
+    "name": "Khalmyr",
+    "energy": "Positiva",
+    "powers": ["Coragem Total", "Dom da Verdade", "Espada Justiceira", "Reparar Injustiça"],
+    "description": ""
+  },
+  {
+    "name": "Lena",
+    "energy": "Positiva",
+    "powers": ["Ataque Piedoso", "Aura Restauradora", "Cura Gentil", "Curandeira Perfeita"],
+    "description": ""
+  },
+  {
+    "name": "Lin-Wu",
+    "energy": "Qualquer",
+    "powers": ["Coragem Total", "Kiai Divino", "Mente Vazia", "Tradição de Lin-Wu"],
+    "description": ""
+  },
+  {
+    "name": "Marah",
+    "energy": "Positiva",
+    "powers": ["Aura de Paz", "Dom da Esperança", "Palavras de Bondade", "Talento Artístico"],
+    "description": ""
+  },
+  {
+    "name": "Megalokk",
+    "energy": "Negativa",
+    "powers": ["Olhar Amedrontador", "Presas Primordiais", "Urro Divino", "Voz dos Monstros"],
+    "description": ""
+  },
+  {
+    "name": "Nimb",
+    "energy": "Qualquer",
+    "powers": ["Êxtase da Loucura", "Poder Oculto", "Sorte dos Loucos", "Transmissão da Loucura"],
+    "description": ""
+  },
+  {
+    "name": "Oceano",
+    "energy": "Qualquer",
+    "powers": ["Anfíbio", "Arsenal das Profundezas", "Mestre dos Mares", "Sopro do Mar"],
+    "description": ""
+  },
+  {
+    "name": "Sszzaas",
+    "energy": "Negativa",
+    "powers": ["Astúcia da Serpente", "Familiar Ofídico", "Presas Venenosas", "Sangue Ofídico"],
+    "description": ""
+  },
+  {
+    "name": "Tanna-Toh",
+    "energy": "Positiva",
+    "powers": ["Conhecimento Enciclopédico", "Mente Analítica", "Pesquisa Abençoada", "Voz da Civilização"],
+    "description": ""
+  },
+  {
+    "name": "Tenebra",
+    "energy": "Negativa",
+    "powers": ["Carícia Sombria", "Manto da Penumbra", "Visão nas Trevas", "Zumbificar"],
+    "description": ""
+  },
+  {
+    "name": "Thwor",
+    "energy": "Qualquer",
+    "powers": ["Almejar o Impossível", "Fúria Divina", "Olhar Amedrontador", "Tropas Duyshidakk"],
+    "description": ""
+  },
+  {
+    "name": "Thyatis",
+    "energy": "Positiva",
+    "powers": ["Ataque Piedoso", "Dom da Imortalidade", "Dom da Profecia", "Dom da Ressurreição"],
+    "description": ""
+  },
+  {
+    "name": "Valkaria",
+    "energy": "Positiva",
+    "powers": ["Almejar o Impossível", "Armas da Ambição", "Coragem Total", "Liberdade Divina"],
+    "description": ""
+  },
+  {
+    "name": "Wynna",
+    "energy": "Positiva",
+    "powers": ["Bênção do Mana", "Centelha Mágica", "Escudo Mágico", "Teurgista Místico"],
+    "description": ""
+  }
+]
+
+}
