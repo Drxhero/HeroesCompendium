@@ -201,6 +201,7 @@ top: -6%;
 }
 
 .item {
+  font-weight: bolder;
   padding: 4px 6px;
   cursor: pointer;
 }
@@ -210,16 +211,47 @@ top: -6%;
 }
 
 .description {
-  margin-top: 4px;
+  font-weight: bold;
   border: 2px solid black;
   padding: 10px;
   box-shadow: 5px 5px 0px #b62a2a;
   background: #fff;
   display: none;
   position: absolute;
-  top: calc(100% + 155px);
-  width: 100%;
+  top: 100%; /* será ajustado pelo JS */
+  left: 103%; /* default = direita */
+  width: 300px; /* limite de largura */
   z-index: 40;
+}
+.description {
+  cursor: default;
+}
+.description.left {
+  left: auto;
+  right: 100%; /* aparece à esquerda */
+}
+
+.race-desc-main {
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.desc1 {
+  color: #b62a2a;
+  font-weight: bold;
+  font-family:'Tormenta.ttf' ;
+}
+
+.desc2 {
+  color:  #833421;
+  font-weight: bold;
+  cursor: pointer;
+  font-family:'Tormenta.ttf' ;
+  cursor: help;
+}
+
+.hab-item {
+  margin-top: 5px;
 }
 
 .input-wrapper {
@@ -705,3 +737,4 @@ p.treinada::after, p.penalidade::after {
     margin-left: 20px;
   }
 }
+
