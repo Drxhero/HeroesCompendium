@@ -6,198 +6,453 @@
     "version": "0.1"
   },
 
-   "races": [
-      {
-      "name": "Humano",
-      "description":"O povo mais numeroso em Arton, humanos são considerados os escolhidos dos deuses, aqueles que governam o mundo. Em sua variedade e adaptabilidade, são encontrados em quase todos os pontos do continente — dos vales férteis do Reinado às vastidões áridas do Deserto da Perdição. São exploradores e desbravadores ambiciosos, sempre buscando algo além.",
-      "ability_bonuses": {
-        "fixed": { "str": 0, "dex": 0, "con": 0, "int": 0, "wis": 0, "cha": 0 },
-        "choices": [
-          {
-            "id": "human_variant_3x+1",
-            "type": "choose",         
-            "count": 3,              
-            "amount": 1,             
-            "from": "any",            
-            "unique": true,        
-            "note": "Escolha +1 em 3 atributos diferentes"
-          }
-        ]
-      }
-    },
-
-    {
-      "name": "Anão",
-      "description":"B",
-      "ability_bonuses": {
-      "fixed": { "str": 0, "dex": 0, "con": 0, "int": 0, "wis": 0, "cha": 0 },
-        "choices": []
-      }
-    }
-  ],
-"classes": [
+   
+  "races": [
   {
-    "name": "Arcanista",
-    "description":""
+    "name": "Humano",
+    "description": "Adaptáveis e ambiciosos, humanos se moldam ao que o mundo pede — e ao que desejam conquistar.",
+    "desc1": "+1 em três atributos diferentes.",
+    "habilities": {
+      "Versátil": "Duas perícias à escolha (pode trocar uma por 1 poder geral)."
+    },
+    "ability_bonuses": {
+      "fixed": { "str": 0, "dex": 0, "con": 0, "int": 0, "wis": 0, "cha": 0 },
+      "choices": [
+        {
+          "id": "human_variant_3x+1",
+          "type": "choose",
+          "count": 3,
+          "amount": 1,
+          "from": "any",
+          "unique": true,
+          "note": "Escolha +1 em 3 atributos diferentes"
+        }
+      ]
+    }
+  },
+
+  {
+    "name": "Anão",
+    "description": "Teimosos como pedra viva, anões avançam com calma, força e honra inabalável.",
+    "desc1": "+2 Con, +1 Sab, -1 Des.",
+    "habilities": {
+      "Conhecimento das Rochas": "Permite notar armadilhas e irregularidades subterrâneas com facilidade.",
+      "Devagar e Sempre": "Reduz as penalidades de movimento impostas por armaduras pesadas.",
+      "Forja Ancestral": "+2 em testes de Ofício envolvendo metais."
+    },
+    "ability_bonuses": {
+      "fixed": { "str": 0, "dex": -1, "con": 2, "int": 0, "wis": 1, "cha": 0 },
+      "choices": []
+    }
+  },
+
+  {
+    "name": "Dahllan",
+    "description": "Marcados pela natureza, dahllan enxergam o mundo com calma profunda e passos leves.",
+    "desc1": "+2 Sab, +1 Des, -1 Int.",
+    "habilities": {
+      "Empatia Selvagem": "Afinidade natural com animais e espíritos silvestres.",
+      "Linhagem Verde": "Resistência a venenos e doenças.",
+      "Passos Silvestres": "Ignora terreno difícil natural."
+    },
+    "ability_bonuses": {
+      "fixed": { "str": 0, "dex": 1, "con": 0, "int": -1, "wis": 2, "cha": 0 },
+      "choices": []
+    }
+  },
+
+  {
+    "name": "Elfo",
+    "description": "Elegantes e meticulosos, elfos tratam magia e arco como extensões naturais de si mesmos.",
+    "desc1": "+2 Int, +1 Des, -1 Con.",
+    "habilities": {
+      "Visão Élfica": "Enxerga melhor em ambientes de penumbra.",
+      "Foco Mágico": "+2 em testes relacionados a identificar ou resistir a magia.",
+      "Graça Ancestral": "+2 em Acrobacia."
+    },
+    "ability_bonuses": {
+      "fixed": { "str": 0, "dex": 1, "con": -1, "int": 2, "wis": 0, "cha": 0 },
+      "choices": []
+    }
+  },
+
+  {
+    "name": "Goblin",
+    "description": "Ariscos e criativos, goblins vencem com velocidade, esperteza e pura imprevisibilidade.",
+    "desc1": "+2 Des, +1 Int, -1 Car.",
+    "habilities": {
+      "Esperteza Goblin": "+2 em Furtividade e Ladinagem.",
+      "Tamanho Pequeno": "+1 na Defesa, -1 em testes de força física.",
+      "Metabolismo Rápido": "Melhor resistência a venenos fracos."
+    },
+    "ability_bonuses": {
+      "fixed": { "str": 0, "dex": 2, "con": 0, "int": 1, "wis": 0, "cha": -1 },
+      "choices": []
+    }
+  },
+
+  {
+    "name": "Lefou",
+    "description": "Marcados pelo caos da Tormenta, lefou vivem entre medo e poder, carregando a marca de sua mutação.",
+    "desc1": "+1 em três atributos diferentes (exceto Carisma), -1 Car.",
+    "habilities": {
+      "Mácula": "Resistência natural aos efeitos da Tormenta.",
+      "Adaptação Profana": "Concede uma mutação benéfica a escolha do jogador."
+    },
+    "ability_bonuses": {
+      "fixed": { "str": 0, "dex": 0, "con": 0, "int": 0, "wis": 0, "cha": -1 },
+      "choices": [
+        {
+          "id": "lefou_3x+1",
+          "type": "choose",
+          "count": 3,
+          "amount": 1,
+          "from": ["str", "dex", "con", "int", "wis"],
+          "unique": true,
+          "note": "+1 em três atributos diferentes (exceto Carisma)"
+        }
+      ]
+    }
+  },
+
+  {
+    "name": "Meio-Elfo",
+    "description": "Filhos de dois mundos, meio-elfos equilibram a graça élfica e a determinação humana.",
+    "desc1": "+1 em dois atributos diferentes.",
+    "habilities": {
+      "Adaptabilidade": "Recebe uma perícia treinada.",
+      "Sentidos Místicos": "Possui visão na penumbra."
+    },
+    "ability_bonuses": {
+      "fixed": { "str": 0, "dex": 0, "con": 0, "int": 0, "wis": 0, "cha": 0 },
+      "choices": [
+        {
+          "id": "halfelf_2x+1",
+          "type": "choose",
+          "count": 2,
+          "amount": 1,
+          "from": "any",
+          "unique": true,
+          "note": "+1 em dois atributos diferentes"
+        }
+      ]
+    }
+  },
+
+  {
+    "name": "Minotauro",
+    "description": "Fortes e honrados, minotauros enfrentam desafios com bravura feroz e determinação inflexível.",
+    "desc1": "+2 For, +1 Con, -1 Int.",
+    "habilities": {
+      "Chifres": "Possui um ataque natural com os chifres.",
+      "Coragem Taurina": "Resistência a efeitos de medo.",
+      "Força Bruta": "Capacidade elevada de empurrar, erguer e carregar."
+    },
+    "ability_bonuses": {
+      "fixed": { "str": 2, "dex": 0, "con": 1, "int": -1, "wis": 0, "cha": 0 },
+      "choices": []
+    }
+  },
+
+  {
+    "name": "Qareen",
+    "description": "Seres mágicos e exuberantes, qareen canalizam encanto natural e poder elemental.",
+    "desc1": "+2 Car, +1 Int, -1 Sab.",
+    "habilities": {
+      "Magia Inata": "Consegue lançar truques ligados ao seu elemento.",
+      "Ancestral Elemental": "Possui resistência a um tipo de dano."
+    },
+    "ability_bonuses": {
+      "fixed": { "str": 0, "dex": 0, "con": 0, "int": 1, "wis": -1, "cha": 2 },
+      "choices": []
+    }
+  },
+
+  {
+    "name": "Trog",
+    "description": "Criados para sobreviver, trogs carregam a brutalidade e tenacidade das regiões mais hostis de Arton.",
+    "desc1": "+2 For, +1 Con, -1 Car.",
+    "habilities": {
+      "Pele Resistente": "Recebe redução leve de dano.",
+      "Mandíbulas": "Possui um ataque natural com mordida.",
+      "Ferocidade": "Pode permanecer consciente mesmo ao chegar em 0 PV."
+    },
+    "ability_bonuses": {
+      "fixed": { "str": 2, "dex": 0, "con": 1, "int": 0, "wis": 0, "cha": -1 },
+      "choices": []
+    }
   }
 ],
-"origins": [
-{ "name": "Acólito", "description": "" },
-  { "name": "Amigo dos Animais", "description": "" },
-  { "name": "Amnésico", "description": "" },
-  { "name": "Aristocrata", "description": "" },
-  { "name": "Artesão", "description": "" },
-  { "name": "Artista", "description": "" },
-  { "name": "Assistente de Laboratório", "description": "" },
-  { "name": "Batedor", "description": "" },
-  { "name": "Capanga", "description": "" },
-  { "name": "Charlatão", "description": "" },
-  { "name": "Circense", "description": "" },
-  { "name": "Criminoso", "description": "" },
-  { "name": "Curandeiro", "description": "" },
-  { "name": "Eremita", "description": "" },
-  { "name": "Escravo", "description": "" },
-  { "name": "Estudioso", "description": "" },
-  { "name": "Fazendeiro", "description": "" },
-  { "name": "Forasteiro", "description": "" },
-  { "name": "Gladiador", "description": "" },
-  { "name": "Guarda", "description": "" },
-  { "name": "Herdeiro", "description": "" },
-  { "name": "Herói Camponês", "description": "" },
-  { "name": "Marujo", "description": "" },
-  { "name": "Mateiro", "description": "" },
-  { "name": "Membro de Guilda", "description": "" },
-  { "name": "Mercador", "description": "" },
-  { "name": "Minerador", "description": "" },
-  { "name": "Nômade", "description": "" },
-  { "name": "Pivete", "description": "" },
-  { "name": "Refugiado", "description": "" },
-  { "name": "Seguidor", "description": "" },
-  { "name": "Selvagem", "description": "" },
-  { "name": "Soldado", "description": "" },
-  { "name": "Taverneiro", "description": "" },
-  { "name": "Trabalhador", "description": "" }
-],
-"deities": [
+
+
+    
+
+
+"classes":[
   {
-    "name": "Aharadak",
-    "energy": "Negativa",
-    "powers": ["Afinidade com a Tormenta", "Êxtase da Loucura", "Percepção Temporal", "Rejeição Divina"],
-    "description": ""
+    "name": "Arcanista",
+    "description": "Estudioso das artes arcanas, domina feitiços com método e precisão intelectual.",
+    "desc1": "12 Pontos de Vida. 6 Pontos de Mana.",
+    "habilities": {
+      "Vontade (Sab)": "",
+      "Conhecimento (Int) +4": "Escolha entre Diplomacia(Car), Enganação(Car), Iniciativa(Des), Intuição(Sab), Investigação(Int), Misticismo(Int), Ofício(Int), Percepção(Sab) e Vontade(Sab)."
+    }
   },
   {
+    "name": "Bárbaro",
+    "description": "Fera de fúria e instinto, converte ímpeto bruto em força destruidora no campo de batalha.",
+    "desc1": "24 Pontos de Vida. 3 Pontos de Mana.",
+    "habilities": {
+      "Fortitude (Con)": "",
+      "Luta (For) +4": "Escolha entre Adestramento(Car), Atletismo(For), Cavalgar(Des), Iniciativa(Des), Intimidação(Car), Ofício(Int), Percepção(Sab), Pontaria(Des), Sobrevivência(Sab) e Vontade(Sab)."
+    }
+  },
+  {
+    "name": "Bardo",
+    "description": "Artista encantador e versátil, usa música e magia para inspirar, iludir ou confundir.",
+    "desc1": "16 Pontos de Vida. 4 Pontos de Mana.",
+    "habilities": {
+      "Vontade (Sab)": "",
+      "Atuação (Car) +4": "Escolha entre Acrobacia(Des), Atletismo(For), Diplomacia(Car), Enganação(Car), Furtividade(Des), Investigação(Int), Intuição(Sab), Ladinagem(Des), Percepção(Sab), Pontaria(Des) e Reflexos(Des)."
+    }
+  },
+  {
+    "name": "Bucaneiro",
+    "description": "Aventureiro audaz dos mares, mestre em acrobacias, truques e táticas nada honradas.",
+    "desc1": "20 Pontos de Vida. 2 Pontos de Mana.",
+    "habilities": {
+      "Reflexos (Des)": "",
+      "Acrobacia (Des) +4": "Escolha entre Atletismo(For), Diplomacia(Car), Enganação(Car), Furtividade(Des), Iniciativa(Des), Intimidação(Car), Ladinagem(Des), Percepção(Sab), Pontaria(Des) e Sobrevivência(Sab)."
+    }
+  },
+  {
+    "name": "Caçador",
+    "description": "Especialista em sobreviver na selva e rastrear presas, preciso e silencioso.",
+    "desc1": "20 Pontos de Vida. 3 Pontos de Mana.",
+    "habilities": {
+      "Percepção (Sab)": "",
+      "Sobrevivência (Sab) +4": "Escolha entre Acrobacia(Des), Atletismo(For), Cavalgar(Des), Furtividade(Des), Iniciativa(Des), Intuição(Sab), Luta(For), Ofício(Int), Pontaria(Des) e Reflexos(Des)."
+    }
+  },
+  {
+    "name": "Cavaleiro",
+    "description": "Combatente disciplinado que luta montado e serve como protetor leal.",
+    "desc1": "24 Pontos de Vida. 2 Pontos de Mana.",
+    "habilities": {
+      "Fortitude (Con)": "",
+      "Cavalgar (Des) +4": "Escolha entre Atletismo(For), Diplomacia(Car), Iniciativa(Des), Intimidação(Car), Luta(For), Ofício(Int), Percepção(Sab), Pontaria(Des), Sobrevivência(Sab) e Vontade(Sab)."
+    }
+  },
+  {
+    "name": "Clérigo",
+    "description": "Canal do divino, cura e invoca poder sagrado para proteger ou punir.",
+    "desc1": "20 Pontos de Vida. 6 Pontos de Mana.",
+    "habilities": {
+      "Vontade (Sab)": "",
+      "Religião (Sab) +4": "Escolha entre Diplomacia(Car), Iniciativa(Des), Intuição(Sab), Investigação(Int), Luta(For), Ofício(Int), Percepção(Sab), Pontaria(Des), Vontade(Sab) e Cura(Sab)."
+    }
+  },
+  {
+    "name": "Druida",
+    "description": "Guardião da natureza, manipula forças naturais e assume formas bestiais.",
+    "desc1": "20 Pontos de Vida. 6 Pontos de Mana.",
+    "habilities": {
+      "Vontade (Sab)": "",
+      "Natureza (Sab) +4": "Escolha entre Adestramento(Car), Atletismo(For), Cavalgar(Des), Furtividade(Des), Intuição(Sab), Ofício(Int), Percepção(Sab), Sobrevivência(Sab) e Vontade(Sab)."
+    }
+  },
+  {
+    "name": "Guerreiro",
+    "description": "Mestre das armas e da técnica marcial, versátil em estilos de combate.",
+    "desc1": "24 Pontos de Vida. 2 Pontos de Mana.",
+    "habilities": {
+      "Fortitude (Con)": "",
+      "Luta (For) +4": "Escolha entre Atletismo(For), Cavalgar(Des), Iniciativa(Des), Intimidação(Car), Ladinagem(Des), Ofício(Int), Percepção(Sab), Pontaria(Des) e Reflexos(Des)."
+    }
+  },
+  {
+    "name": "Inventor",
+    "description": "Engenhoqueiro criativo, combina ciência, magia e caos em invenções explosivas.",
+    "desc1": "16 Pontos de Vida. 4 Pontos de Mana.",
+    "habilities": {
+      "Misticismo (Int)": "",
+      "Ofício (Int) +4": "Escolha entre Atletismo(For), Diplomacia(Car), Enganação(Car), Furtividade(Des), Iniciativa(Des), Intuição(Sab), Investigação(Int), Percepção(Sab), Pontaria(Des) e Reflexos(Des)."
+    }
+  },
+  {
+    "name": "Ladino",
+    "description": "Especialista em furtividade, truques e golpes precisos, vence pela astúcia.",
+    "desc1": "16 Pontos de Vida. 2 Pontos de Mana.",
+    "habilities": {
+      "Reflexos (Des)": "",
+      "Ladinagem (Des) +4": "Escolha entre Acrobacia(Des), Atletismo(For), Enganação(Car), Furtividade(Des), Iniciativa(Des), Intimidação(Car), Investigação(Int), Percepção(Sab), Pontaria(Des) e Reflexos(Des)."
+    }
+  },
+  {
+    "name": "Lutador",
+    "description": "Especialista em combate corpo a corpo, dominando técnicas marciais.",
+    "desc1": "20 Pontos de Vida. 2 Pontos de Mana.",
+    "habilities": {
+      "Fortitude (Con)": "",
+      "Atletismo (For) +4": "Escolha entre Acrobacia(Des), Cavalgar(Des), Intimidacão(Car), Luta(For), Percepção(Sab), Pontaria(Des), Reflexos(Des) e Sobrevivência(Sab)."
+    }
+  },
+  {
+    "name": "Nobre",
+    "description": "Líder nato, usa influência, diplomacia e presença para comandar e inspirar.",
+    "desc1": "16 Pontos de Vida. 3 Pontos de Mana.",
+    "habilities": {
+      "Vontade (Sab)": "",
+      "Diplomacia (Car) +4": "Escolha entre Cavalgar(Des), Conhecimento(Int), Enganação(Car), Intuição(Sab), Luta(For), Ofício(Int), Percepção(Sab) e Vontade(Sab)."
+    }
+  },
+  {
+    "name": "Paladino",
+    "description": "Guerreiro sagrado que combina fé e arma para proteger inocentes e punir o mal.",
+    "desc1": "24 Pontos de Vida. 5 Pontos de Mana.",
+    "habilities": {
+      "Vontade (Sab)": "",
+      "Religião (Sab) +4": "Escolha entre Atletismo(For), Cavalgar(Des), Diplomacia(Car), Iniciativa(Des), Intuição(Sab), Intimidação(Car), Luta(For), Ofício(Int), Percepção(Sab) e Vontade(Sab)."
+    }
+  }
+],
+
+
+"origins": [
+  {
+    "name": "Acadêmico",
+    "description": "Treinado entre livros e mestres, transforma estudo em vantagem prática."
+  },
+  {
+    "name": "Acólito",
+    "description": "Criado entre preces e rituais, carrega fé como guia e fundamento."
+  },
+  {
+    "name": "Amaldiçoado",
+    "description": "Marcado por forças obscuras, vive entre temor, mistério e poder indomado."
+  },
+  {
+    "name": "Artesão",
+    "description": "Mestre de ferramentas e materiais, cria valor com mãos experientes."
+  },
+  {
+    "name": "Artista",
+    "description": "Movido por inspiração, encanta, provoca e emociona com talento nato."
+  },
+  {
+    "name": "Assistente",
+    "description": "Acostumado a servir e aprender rápido; flexível e atento ao detalhe."
+  },
+  {
+    "name": "Camponês",
+    "description": "Forjado na vida simples e árdua, forte e esperto pela rotina do campo."
+  },
+  {
+    "name": "Criminoso",
+    "description": "Habituado às sombras, truques e alianças perigosas — mas sempre escapa."
+  },
+  {
+    "name": "Curandeiro",
+    "description": "Devotado a aliviar dor; domina ervas, remédios e as linguagens do corpo."
+  },
+  {
+    "name": "Erudito",
+    "description": "Mergulhado no conhecimento, enxerga o mundo como um enigma a decifrar."
+  },
+  {
+    "name": "Forasteiro",
+    "description": "Vindo de terras distantes, carrega hábitos, histórias e olhar diferente."
+  },
+  {
+    "name": "Herdeiro",
+    "description": "Nascido em berço privilegiado, domina etiqueta, influência e ambição."
+  },
+  {
+    "name": "Marujo",
+    "description": "Filho do vento e do sal, acostumado a viver onde o mar dita as regras."
+  }
+],
+
+"deities": [
+  {
     "name": "Allihanna",
-    "energy": "Positiva",
-    "powers": ["Compreender os Ermos", "Dedo Verde", "Descanso Natural", "Voz da Natureza"],
-    "description": ""
+    "description": "Deusa da natureza selvagem; protege vida, paz e harmonia entre seres."
   },
   {
     "name": "Arsenal",
-    "energy": "Qualquer",
-    "powers": ["Conjurar Arma", "Coragem Total", "Fé Guerreira", "Sangue de Ferro"],
-    "description": ""
+    "description": "Senhor da guerra e do sangue; honra força, combate e conquista."
   },
   {
     "name": "Azgher",
-    "energy": "Positiva",
-    "powers": ["Espada Solar", "Fulgor Solar", "Habitante do Deserto", "Inimigo de Tenebra"],
-    "description": ""
+    "description": "Sol radiante; patrono da luz, ordem e civilização."
   },
   {
-    "name": "Hyninn",
-    "energy": "Qualquer",
-    "powers": ["Apostar com o Trapaceiro", "Farsa do Fingidor", "Forma de Macaco", "Golpista Divino"],
-    "description": ""
+    "name": "Hynnin",
+    "description": "Deus-trapaceiro; celebra sorte, travessuras e esperteza acima da força."
   },
   {
     "name": "Kallyadranoch",
-    "energy": "Negativa",
-    "powers": ["Aura de Medo", "Escamas Dracônicas", "Presas Primordiais", "Servos do Dragão"],
-    "description": ""
+    "description": "Antigo deus dos dragões; símbolo de poder perdido e glória renascida."
   },
   {
     "name": "Khalmyr",
-    "energy": "Positiva",
-    "powers": ["Coragem Total", "Dom da Verdade", "Espada Justiceira", "Reparar Injustiça"],
-    "description": ""
+    "description": "O Juiz Supremo; defensor da lei, justiça e retidão inabalável."
   },
   {
     "name": "Lena",
-    "energy": "Positiva",
-    "powers": ["Ataque Piedoso", "Aura Restauradora", "Cura Gentil", "Curandeira Perfeita"],
-    "description": ""
+    "description": "Senhora da cura, bondade e compaixão; luz suave entre feridas."
   },
   {
     "name": "Lin-Wu",
-    "energy": "Qualquer",
-    "powers": ["Coragem Total", "Kiai Divino", "Mente Vazia", "Tradição de Lin-Wu"],
-    "description": ""
+    "description": "Espírito da honra oriental; disciplina, respeito e coragem interior."
   },
   {
     "name": "Marah",
-    "energy": "Positiva",
-    "powers": ["Aura de Paz", "Dom da Esperança", "Palavras de Bondade", "Talento Artístico"],
-    "description": ""
+    "description": "Deusa do amor, paz e beleza; inspira união e harmonia."
   },
   {
     "name": "Megalokk",
-    "energy": "Negativa",
-    "powers": ["Olhar Amedrontador", "Presas Primordiais", "Urro Divino", "Voz dos Monstros"],
-    "description": ""
+    "description": "Senhor dos monstros; exalta força bruta, selvageria e domínio."
   },
   {
     "name": "Nimb",
-    "energy": "Qualquer",
-    "powers": ["Êxtase da Loucura", "Poder Oculto", "Sorte dos Loucos", "Transmissão da Loucura"],
-    "description": ""
+    "description": "O Deus Louco; caos vivo, imprevisível e absurdamente criativo."
   },
   {
     "name": "Oceano",
-    "energy": "Qualquer",
-    "powers": ["Anfíbio", "Arsenal das Profundezas", "Mestre dos Mares", "Sopro do Mar"],
-    "description": ""
+    "description": "Guardião das marés profundas; vasto, tempestuoso e insondável."
   },
   {
-    "name": "Sszzaas",
-    "energy": "Negativa",
-    "powers": ["Astúcia da Serpente", "Familiar Ofídico", "Presas Venenosas", "Sangue Ofídico"],
-    "description": ""
+    "name": "Ragnar",
+    "description": "Deus da força e do combate direto; honra valentia sobre astúcia."
   },
   {
-    "name": "Tanna-Toh",
-    "energy": "Positiva",
-    "powers": ["Conhecimento Enciclopédico", "Mente Analítica", "Pesquisa Abençoada", "Voz da Civilização"],
-    "description": ""
+    "name": "Sallim",
+    "description": "Patrono da magia arcana; busca conhecimento, mistério e poder."
+  },
+  {
+    "name": "Tannah-Toh",
+    "description": "Deusa da sabedoria e do conhecimento; valoriza ordem e aprendizado."
   },
   {
     "name": "Tenebra",
-    "energy": "Negativa",
-    "powers": ["Carícia Sombria", "Manto da Penumbra", "Visão nas Trevas", "Zumbificar"],
-    "description": ""
+    "description": "Senhora da noite e dos mortos; enigmática, silenciosa e inevitável."
   },
   {
     "name": "Thwor",
-    "energy": "Qualquer",
-    "powers": ["Almejar o Impossível", "Fúria Divina", "Olhar Amedrontador", "Tropas Duyshidakk"],
-    "description": ""
+    "description": "Deus dos minotauros; honra força, disciplina e orgulho tribal."
   },
   {
     "name": "Thyatis",
-    "energy": "Positiva",
-    "powers": ["Ataque Piedoso", "Dom da Imortalidade", "Dom da Profecia", "Dom da Ressurreição"],
-    "description": ""
+    "description": "Deusa da vitória; guia campeões, glória e força disciplinada."
   },
   {
     "name": "Valkaria",
-    "energy": "Positiva",
-    "powers": ["Almejar o Impossível", "Armas da Ambição", "Coragem Total", "Liberdade Divina"],
-    "description": ""
+    "description": "Deusa da humanidade e ambição; inspira ascensão, mudança e desafio."
   },
   {
     "name": "Wynna",
-    "energy": "Positiva",
-    "powers": ["Bênção do Mana", "Centelha Mágica", "Escudo Mágico", "Teurgista Místico"],
-    "description": ""
+    "description": "Deusa da magia pura; livre, fluida e presente em todas as coisas."
   }
 ]
 

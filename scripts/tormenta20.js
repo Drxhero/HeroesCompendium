@@ -28,7 +28,7 @@ const defenseAttr = document.getElementById("defenseAttr");
 const defArmor = document.getElementById('defArmor');
 const defShield = document.getElementById('defShield');
 const defOthers = document.getElementById("defOthers");
-const ableDefAttr = document.querySelectorAll('input[type="checkbox"]');
+const DefAablettr = document.querySelectorAll('input[type="checkbox"]');
 
 const defAttr = document.getElementById('defAttr');
 const defInput = document.getElementById("def");
@@ -74,6 +74,7 @@ const pericias = [
   { nome: "Religião", atributo: "Sab" },
   { nome: "Sobrevivência", atributo: "Sab" },
   { nome: "Vontade", atributo: "Sab" }
+  
 ];
   const somenteTreinado = [
   "Adestramento","Conhecimento","Guerra","Jogatina","Ladinagem",

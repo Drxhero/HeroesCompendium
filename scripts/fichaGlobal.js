@@ -117,30 +117,130 @@ document.addEventListener("DOMContentLoaded", () => {
   tbody.appendChild(fragment);
 });
 
-// === Funções de atualização ===
-function atualizarNivelPericia(nomeID) {
-  const nivelGeral = parseInt(nivelInput.value) || 0;
+// ===ATAQUES EXTRAS===
+document.addEventListener("DOMContentLoaded", () => {
+  const attacksTableBody = document.querySelector("#attacks tbody");
 
-  const checkbox = document.getElementById(`check_${nomeID}`);
-  const treino = document.getElementById(`treino_${nomeID}`);
-  const nivelPericia = document.getElementById(`nivel_${nomeID}`);
+  // Função para criar nova linha de ataque
+  function criarLinhaAtaque(numero) {
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td><input placeholder="" name="ataque${numero}"/></td>
+      <td><input placeholder="" name="teste${numero}"/></td>
+      <td><input placeholder="" name="dano${numero}"/></td>
+      <td><input placeholder="" name="crit${numero}"/></td>
+      <td><input placeholder="" name="tipo${numero}"/></td>
+      <td><input placeholder="" name="alcance${numero}"/></td>
+    `;
+    attacksTableBody.appendChild(tr);
+    
 
-  if (checkbox && treino) {
-    let bonusTreino = 0;
-    if (checkbox.checked) {
-      if (nivelGeral < 7) bonusTreino = 2;
-      else if (nivelGeral < 15) bonusTreino = 4;
-      else bonusTreino = 6;
+    // Listener para detectar mudanças
+    tr.querySelectorAll("input").forEach(input => {
+      input.addEventListener("input", atualizarLinhas);
+    });
+  }
+
+  // Cria a primeira linha se não existir
+  if (attacksTableBody.querySelectorAll("tr").length === 0) {
+    criarLinhaAtaque(1);
+  }
+
+  // Função que atualiza as linhas da tabela
+  function atualizarLinhas() {
+    const linhas = Array.from(attacksTableBody.querySelectorAll("tr"));
+
+    linhas.forEach((linha, index) => {
+      const inputs = linha.querySelectorAll("input");
+      const todosVazios = Array.from(inputs).every(input => input.value.trim() === "");
+
+      // Remove linha se vazia e não for a primeira (sempre mantém ao menos 1)
+      if (todosVazios && linhas.length > 1 && index !== 0) {
+        linha.remove();
+      }
+    });
+
+    // Garante que sempre tenha uma linha vazia no final
+    const linhasAtual = attacksTableBody.querySelectorAll("tr");
+    const ultimaLinha = linhasAtual[linhasAtual.length - 1];
+    const inputsUltima = ultimaLinha.querySelectorAll("input");
+    const ultimaVazia = Array.from(inputsUltima).every(input => input.value.trim() === "");
+
+    if (!ultimaVazia) {
+      criarLinhaAtaque(linhasAtual.length + 1);
     }
-    if (treino.value != bonusTreino) treino.value = bonusTreino;
   }
 
-  if (nivelPericia) {
-    const novoNivel = Math.floor(nivelGeral / 2);
-    if (nivelPericia.value != novoNivel) nivelPericia.value = novoNivel;
+  // Adiciona listener na primeira linha existente
+  attacksTableBody.querySelectorAll("input").forEach(input => {
+    input.addEventListener("input", atualizarLinhas);
+  });
+});
+
+  //====EQUIPAMENT======
+document.addEventListener("DOMContentLoaded", () => {
+  const equipmentTableBody = document.querySelector("#equipment tbody");
+
+  // Função para criar nova linha de equipamento
+  function criarLinhaEquipamento(numero) {
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td><input type="text" name="item${numero}"/></td>
+      <td>
+        <div class="moneyInput">
+          <input type="number" name="valor${numero}" />
+          <span><p>T$</p></span>
+        </div>
+      </td>
+      <td><input type="number" class="carga" name="carga${numero}"/></td>
+    `;
+    equipmentTableBody.appendChild(tr);
+
+    // Adiciona listener em todos inputs da linha
+    tr.querySelectorAll("input").forEach(input => {
+      input.addEventListener("input", atualizarLinhasEquipamento);
+    });
   }
-}
-//AUTOCOMPLETAR
+
+  // Cria a primeira linha se não houver
+  if (equipmentTableBody.querySelectorAll("tr").length === 0) {
+    criarLinhaEquipamento(1);
+  }
+
+  // Atualiza linhas: adiciona ou remove se necessário
+  function atualizarLinhasEquipamento() {
+    const linhas = Array.from(equipmentTableBody.querySelectorAll("tr"));
+
+    linhas.forEach((linha, index) => {
+      const inputs = linha.querySelectorAll("input");
+      const todosVazios = Array.from(inputs).every(input => input.value.trim() === "");
+
+      // Remove linha se vazia e não for a primeira
+      if (todosVazios && linhas.length > 1 && index !== 0) {
+        linha.remove();
+      }
+    });
+
+    // Garante que sempre haja uma linha vazia no final
+    const linhasAtual = equipmentTableBody.querySelectorAll("tr");
+    const ultimaLinha = linhasAtual[linhasAtual.length - 1];
+    const inputsUltima = ultimaLinha.querySelectorAll("input");
+    const ultimaVazia = Array.from(inputsUltima).every(input => input.value.trim() === "");
+
+    if (!ultimaVazia) {
+      criarLinhaEquipamento(linhasAtual.length + 1);
+    }
+  }
+
+  // Adiciona listener inicial em todos inputs existentes
+  equipmentTableBody.querySelectorAll("input").forEach(input => {
+    input.addEventListener("input", atualizarLinhasEquipamento);
+  });
+});
+
+
+
+//====AUTOCOMPLETAR=====
 fetch("./data/tormenta20.json")
   .then(r => r.json())
   .then(data => {
@@ -176,22 +276,90 @@ function createAutocomplete(inputId, list) {
       const item = document.createElement("div");
       item.className = "item";
       item.textContent = el.name;
+      //Description
+      let hideTimeout;
 
-      item.addEventListener("mouseenter", () => {
-        desc.style.display = "block";
-        desc.textContent = el.description || "Sem descrição.";
-      });
+      // FUNÇÕES DE OCULTAR
+      function startHideTimer() {
+        hideTimeout = setTimeout(() => {
+          desc.style.display = "none";
+        }, 150);
+      }
 
-      item.addEventListener("mouseleave", () => {
-        desc.style.display = "none";
-      });
+      function cancelHideTimer() {
+        if (hideTimeout) {
+          clearTimeout(hideTimeout);
+          hideTimeout = null;
+        }
+      }
+
+      box.addEventListener("mouseleave", startHideTimer);
+      box.addEventListener("mouseenter", cancelHideTimer);
+      desc.addEventListener("mouseleave", startHideTimer);
+      desc.addEventListener("mouseenter", cancelHideTimer);
 
       item.addEventListener("click", () => {
         input.value = el.name;
         box.style.display = "none";
         desc.style.display = "none";
-        dropBtn.textContent = "▼";
+        dropBtn.textContent = "✖";
       });
+          
+            item.addEventListener("mouseenter", () => {
+            desc.style.display = "block";
+            desc.innerHTML = formatRaceDescription(el);
+
+        function formatRaceDescription(el) {
+          let html = "";
+          // atributos em vermelho
+          if (el.desc1) {
+            html += `<p class="race-desc-attr"><span class="desc1">${el.desc1}</span></p>`;
+          }
+
+          // frase principal
+          if (el.description) {
+            html += `<p class="race-desc-main">${el.description}</p>`;
+          }
+
+        
+
+          // habilidades
+                    if (el.habilities) {
+            html += `<ul class="race-desc-habs">`;
+
+            for (const [habName, habText] of Object.entries(el.habilities)) {
+              html += `
+                <li>
+                  <span class="desc2" title="${habText}">
+                    ${habName}
+                  </span>
+                </li>
+              `;
+            }
+
+            html += `</ul>`;
+          }
+
+          return html;
+        }
+
+        // pegar espaço disponível
+        const rectInput = input.getBoundingClientRect();
+        const rectDesc = desc.getBoundingClientRect();
+        const spaceRight = window.innerWidth - rectInput.right;
+        const spaceLeft = rectInput.left;
+
+        if (spaceRight < rectDesc.width && spaceLeft > rectDesc.width) {
+          // pouco espaço à direita, suficiente à esquerda
+          desc.classList.add("left");
+        } else {
+          desc.classList.remove("left");
+        }
+
+        // alinhar verticalmente com o item
+        const rectItem = item.getBoundingClientRect();
+      });
+
 
       box.appendChild(item);
     });
@@ -233,24 +401,30 @@ function createAutocomplete(inputId, list) {
     closeAllAutocompleteLists(inputId);
     updateList();
   });
-
+  desc.addEventListener("mousedown", e => e.preventDefault());
   // atualiza enquanto digita
   input.addEventListener("input", updateList);
 
   // esconde ao perder foco
   input.addEventListener("blur", () => {
-    setTimeout(() => {
-      box.style.display = "none";
-      desc.style.display = "none";
+  setTimeout(() => {
 
-      // troca o botão de volta
-      if (input.value.trim() === "") {
-        dropBtn.textContent = "▼";
-      }else{
-          dropBtn.textContent = "✖";
-      }
-    }, 150);
-  });
+    // se o foco foi para um elemento dentro da box ou desc, não fecha
+    const active = document.activeElement;
+    if (box.contains(active) || desc.contains(active)) {
+      return;
+    }
+
+    box.style.display = "none";
+    desc.style.display = "none";
+
+    if (input.value.trim() === "") {
+      dropBtn.textContent = "▼";
+    } else {
+      dropBtn.textContent = "✖";
+    }
+  }, 150);
+});
 
   function closeAllAutocompleteLists(exceptId = null) {
     document.querySelectorAll("[data-autolist]").forEach(otherBox => {
@@ -275,10 +449,30 @@ function createAutocomplete(inputId, list) {
 }
 
 
+// === Funções de atualização ===
+function atualizarNivelPericia(nomeID) {
+  const nivelGeral = parseInt(nivelInput.value) || 0;
 
+  const checkbox = document.getElementById(`check_${nomeID}`);
+  const treino = document.getElementById(`treino_${nomeID}`);
+  const nivelPericia = document.getElementById(`nivel_${nomeID}`);
 
+  if (checkbox && treino) {
+    let bonusTreino = 0;
+    if (checkbox.checked) {
+      if (nivelGeral < 7) bonusTreino = 2;
+      else if (nivelGeral < 15) bonusTreino = 4;
+      else bonusTreino = 6;
+    }
+    if (treino.value != bonusTreino) treino.value = bonusTreino;
+  }
 
-//Atualizar
+  if (nivelPericia) {
+    const novoNivel = Math.floor(nivelGeral / 2);
+    if (nivelPericia.value != novoNivel) nivelPericia.value = novoNivel;
+  }
+}
+
 function atualizarTotalPericia(nomeID) {
   const nivelInputLocal = document.getElementById(`nivel_${nomeID}`);
   const treinoInput = document.getElementById(`treino_${nomeID}`);
@@ -329,12 +523,12 @@ function defCalc() {
   const valArmor = Number(armorBonus.value) || 0;
   const valShield = Number(shieldBonus.value) || 0;
   const valOthers = Number(defOthers.value) || 0;
-
-  let valAttr = 0;
   const ableDefAttrChecked = document.getElementById("ableDefAttr").checked;
 
+  // Se não estiver marcado, pega o valor do atributo
+  let valAttr = 0;
   if (!ableDefAttrChecked) {
-    switch (defenseAttr.value) {
+    switch (defenseAttr.value.toLowerCase()) {
       case "for": valAttr = parseInt(forInput.value) || 0; break;
       case "des": valAttr = parseInt(dexInput.value) || 0; break;
       case "con": valAttr = parseInt(conInput.value) || 0; break;
@@ -344,19 +538,26 @@ function defCalc() {
     }
   }
 
-  defAttr.value = valAttr;
-  defInput.value = 10 + valAttr + valArmor + valShield + valOthers;
+  defAttr.value = valAttr;  
+  defInput.value = 10 + valArmor + valShield + valOthers + valAttr;
 }
+
 
 // === Listeners ===
 const inputs = [
   nivelInput, forInput, dexInput, conInput, intInput, sabInput, carInput,
-  defOthers, defenseAttr, armorBonus, shieldBonus, armorPenality, shieldPenality
+  defOthers, defenseAttr, armorBonus, shieldBonus, armorPenality, shieldPenality,
 ];
 
 inputs.forEach(input => {
   if (input) input.addEventListener("input", atualizarTudo);
 });
+
+// Listener específico para checkbox
+const ableDefAttrCheckbox = document.getElementById("ableDefAttr");
+if (ableDefAttrCheckbox) {
+  ableDefAttrCheckbox.addEventListener("change", atualizarTudo);
+}
 
 document.addEventListener("input", (e) => {
   const el = e.target;
