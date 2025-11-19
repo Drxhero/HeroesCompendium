@@ -3,18 +3,27 @@
 {
   "metadata": {
     "project": "Heroes Compendium",
-    "version": "0.1"
+    "version": "0.2"
   },
 
-   
-  "races": [
+"races": [
   {
     "name": "Humano",
     "description": "Adaptáveis e ambiciosos, humanos se moldam ao que o mundo pede — e ao que desejam conquistar.",
-    "desc1": "+1 em três atributos diferentes.",
-    "habilities": {
-      "Versátil": "Duas perícias à escolha (pode trocar uma por 1 poder geral)."
-    },
+    "highlights": [
+      {
+        "name": "+1 em três atributos diferentes.",
+        "text": "Atributos base influenciam todas suas rolagens de dados."
+      }
+    ],
+    "details": [
+      {
+        "title": "Traços Raciais",
+        "items": [
+          { "name": "Versátil", "text": "Duas perícias à escolha (pode trocar uma por 1 poder geral)." }
+        ]
+      }
+    ],
     "ability_bonuses": {
       "fixed": { "str": 0, "dex": 0, "con": 0, "int": 0, "wis": 0, "cha": 0 },
       "choices": [
@@ -34,12 +43,22 @@
   {
     "name": "Anão",
     "description": "Teimosos como pedra viva, anões avançam com calma, força e honra inabalável.",
-    "desc1": "+2 Con, +1 Sab, -1 Des.",
-    "habilities": {
-      "Conhecimento das Rochas": "Permite notar armadilhas e irregularidades subterrâneas com facilidade.",
-      "Devagar e Sempre": "Reduz as penalidades de movimento impostas por armaduras pesadas.",
-      "Forja Ancestral": "+2 em testes de Ofício envolvendo metais."
-    },
+    "highlights": [
+      {
+        "name": "+2 Con, +1 Sab, -1 Des.",
+        "text": "Atributos base influenciam todas suas rolagens de dados."
+      }
+    ],
+    "details": [
+      {
+        "title": "Traços Raciais",
+        "items": [
+          { "name": "Conhecimento das Rochas", "text": "Permite notar armadilhas e irregularidades subterrâneas com facilidade." },
+          { "name": "Devagar e Sempre", "text": "Reduz as penalidades de movimento impostas por armaduras pesadas." },
+          { "name": "Forja Ancestral", "text": "+2 em testes de Ofício envolvendo metais." }
+        ]
+      }
+    ],
     "ability_bonuses": {
       "fixed": { "str": 0, "dex": -1, "con": 2, "int": 0, "wis": 1, "cha": 0 },
       "choices": []
@@ -49,12 +68,22 @@
   {
     "name": "Dahllan",
     "description": "Marcados pela natureza, dahllan enxergam o mundo com calma profunda e passos leves.",
-    "desc1": "+2 Sab, +1 Des, -1 Int.",
-    "habilities": {
-      "Empatia Selvagem": "Afinidade natural com animais e espíritos silvestres.",
-      "Linhagem Verde": "Resistência a venenos e doenças.",
-      "Passos Silvestres": "Ignora terreno difícil natural."
-    },
+    "highlights": [
+      {
+        "name": "+2 Sab, +1 Des, -1 Int.",
+        "text": "Atributos base influenciam todas suas rolagens de dados."
+      }
+    ],
+    "details": [
+      {
+        "title": "Traços Raciais",
+        "items": [
+          { "name": "Empatia Selvagem", "text": "Afinidade natural com animais e espíritos silvestres." },
+          { "name": "Linhagem Verde", "text": "Resistência a venenos e doenças." },
+          { "name": "Passos Silvestres", "text": "Ignora terreno difícil natural." }
+        ]
+      }
+    ],
     "ability_bonuses": {
       "fixed": { "str": 0, "dex": 1, "con": 0, "int": -1, "wis": 2, "cha": 0 },
       "choices": []
@@ -64,12 +93,22 @@
   {
     "name": "Elfo",
     "description": "Elegantes e meticulosos, elfos tratam magia e arco como extensões naturais de si mesmos.",
-    "desc1": "+2 Int, +1 Des, -1 Con.",
-    "habilities": {
-      "Visão Élfica": "Enxerga melhor em ambientes de penumbra.",
-      "Foco Mágico": "+2 em testes relacionados a identificar ou resistir a magia.",
-      "Graça Ancestral": "+2 em Acrobacia."
-    },
+    "highlights": [
+      {
+        "name": "+2 Int, +1 Des, -1 Con.",
+        "text": "Atributos base influenciam todas suas rolagens de dados."
+      }
+    ],
+    "details": [
+      {
+        "title": "Traços Raciais",
+        "items": [
+          { "name": "Visão Élfica", "text": "Enxerga melhor em ambientes de penumbra." },
+          { "name": "Foco Mágico", "text": "+2 em testes relacionados a identificar ou resistir a magia." },
+          { "name": "Graça Ancestral", "text": "+2 em Acrobacia." }
+        ]
+      }
+    ],
     "ability_bonuses": {
       "fixed": { "str": 0, "dex": 1, "con": -1, "int": 2, "wis": 0, "cha": 0 },
       "choices": []
@@ -79,12 +118,22 @@
   {
     "name": "Goblin",
     "description": "Ariscos e criativos, goblins vencem com velocidade, esperteza e pura imprevisibilidade.",
-    "desc1": "+2 Des, +1 Int, -1 Car.",
-    "habilities": {
-      "Esperteza Goblin": "+2 em Furtividade e Ladinagem.",
-      "Tamanho Pequeno": "+1 na Defesa, -1 em testes de força física.",
-      "Metabolismo Rápido": "Melhor resistência a venenos fracos."
-    },
+    "highlights": [
+      {
+        "name": "+2 Des, +1 Int, -1 Car.",
+        "text": "Atributos base influenciam todas suas rolagens de dados."
+      }
+    ],
+    "details": [
+      {
+        "title": "Traços Raciais",
+        "items": [
+          { "name": "Esperteza Goblin", "text": "+2 em Furtividade e Ladinagem." },
+          { "name": "Tamanho Pequeno", "text": "+1 na Defesa, -1 em testes de força física." },
+          { "name": "Metabolismo Rápido", "text": "Melhor resistência a venenos fracos." }
+        ]
+      }
+    ],
     "ability_bonuses": {
       "fixed": { "str": 0, "dex": 2, "con": 0, "int": 1, "wis": 0, "cha": -1 },
       "choices": []
@@ -94,11 +143,21 @@
   {
     "name": "Lefou",
     "description": "Marcados pelo caos da Tormenta, lefou vivem entre medo e poder, carregando a marca de sua mutação.",
-    "desc1": "+1 em três atributos diferentes (exceto Carisma), -1 Car.",
-    "habilities": {
-      "Mácula": "Resistência natural aos efeitos da Tormenta.",
-      "Adaptação Profana": "Concede uma mutação benéfica a escolha do jogador."
-    },
+    "highlights": [
+      {
+        "name": "+1 em três atributos diferentes (exceto Carisma), -1 Car.",
+        "text": "Atributos base influenciam todas suas rolagens de dados."
+      }
+    ],
+    "details": [
+      {
+        "title": "Traços Raciais",
+        "items": [
+          { "name": "Mácula", "text": "Resistência natural aos efeitos da Tormenta." },
+          { "name": "Adaptação Profana", "text": "Concede uma mutação benéfica a escolha do jogador." }
+        ]
+      }
+    ],
     "ability_bonuses": {
       "fixed": { "str": 0, "dex": 0, "con": 0, "int": 0, "wis": 0, "cha": -1 },
       "choices": [
@@ -118,11 +177,21 @@
   {
     "name": "Meio-Elfo",
     "description": "Filhos de dois mundos, meio-elfos equilibram a graça élfica e a determinação humana.",
-    "desc1": "+1 em dois atributos diferentes.",
-    "habilities": {
-      "Adaptabilidade": "Recebe uma perícia treinada.",
-      "Sentidos Místicos": "Possui visão na penumbra."
-    },
+    "highlights": [
+      {
+        "name": "+1 em dois atributos diferentes.",
+        "text": "Atributos base influenciam todas suas rolagens de dados."
+      }
+    ],
+    "details": [
+      {
+        "title": "Traços Raciais",
+        "items": [
+          { "name": "Adaptabilidade", "text": "Recebe uma perícia treinada." },
+          { "name": "Sentidos Místicos", "text": "Possui visão na penumbra." }
+        ]
+      }
+    ],
     "ability_bonuses": {
       "fixed": { "str": 0, "dex": 0, "con": 0, "int": 0, "wis": 0, "cha": 0 },
       "choices": [
@@ -142,12 +211,22 @@
   {
     "name": "Minotauro",
     "description": "Fortes e honrados, minotauros enfrentam desafios com bravura feroz e determinação inflexível.",
-    "desc1": "+2 For, +1 Con, -1 Int.",
-    "habilities": {
-      "Chifres": "Possui um ataque natural com os chifres.",
-      "Coragem Taurina": "Resistência a efeitos de medo.",
-      "Força Bruta": "Capacidade elevada de empurrar, erguer e carregar."
-    },
+    "highlights": [
+      {
+        "name": "+2 For, +1 Con, -1 Int.",
+        "text": "Atributos base influenciam todas suas rolagens de dados."
+      }
+    ],
+    "details": [
+      {
+        "title": "Traços Raciais",
+        "items": [
+          { "name": "Chifres", "text": "Possui um ataque natural com os chifres." },
+          { "name": "Coragem Taurina", "text": "Resistência a efeitos de medo." },
+          { "name": "Força Bruta", "text": "Capacidade elevada de empurrar, erguer e carregar." }
+        ]
+      }
+    ],
     "ability_bonuses": {
       "fixed": { "str": 2, "dex": 0, "con": 1, "int": -1, "wis": 0, "cha": 0 },
       "choices": []
@@ -157,11 +236,21 @@
   {
     "name": "Qareen",
     "description": "Seres mágicos e exuberantes, qareen canalizam encanto natural e poder elemental.",
-    "desc1": "+2 Car, +1 Int, -1 Sab.",
-    "habilities": {
-      "Magia Inata": "Consegue lançar truques ligados ao seu elemento.",
-      "Ancestral Elemental": "Possui resistência a um tipo de dano."
-    },
+    "highlights": [
+      {
+        "name": "+2 Car, +1 Int, -1 Sab.",
+        "text": "Atributos base influenciam todas suas rolagens de dados."
+      }
+    ],
+    "details": [
+      {
+        "title": "Traços Raciais",
+        "items": [
+          { "name": "Magia Inata", "text": "Consegue lançar truques ligados ao seu elemento." },
+          { "name": "Ancestral Elemental", "text": "Possui resistência a um tipo de dano." }
+        ]
+      }
+    ],
     "ability_bonuses": {
       "fixed": { "str": 0, "dex": 0, "con": 0, "int": 1, "wis": -1, "cha": 2 },
       "choices": []
@@ -171,12 +260,22 @@
   {
     "name": "Trog",
     "description": "Criados para sobreviver, trogs carregam a brutalidade e tenacidade das regiões mais hostis de Arton.",
-    "desc1": "+2 For, +1 Con, -1 Car.",
-    "habilities": {
-      "Pele Resistente": "Recebe redução leve de dano.",
-      "Mandíbulas": "Possui um ataque natural com mordida.",
-      "Ferocidade": "Pode permanecer consciente mesmo ao chegar em 0 PV."
-    },
+    "highlights": [
+      {
+        "name": "+2 For, +1 Con, -1 Car.",
+        "text": "Atributos base influenciam todas suas rolagens de dados."
+      }
+    ],
+    "details": [
+      {
+        "title": "Traços Raciais",
+        "items": [
+          { "name": "Pele Resistente", "text": "Recebe redução leve de dano." },
+          { "name": "Mandíbulas", "text": "Possui um ataque natural com mordida." },
+          { "name": "Ferocidade", "text": "Pode permanecer consciente mesmo ao chegar em 0 PV." }
+        ]
+      }
+    ],
     "ability_bonuses": {
       "fixed": { "str": 2, "dex": 0, "con": 1, "int": 0, "wis": 0, "cha": -1 },
       "choices": []
@@ -185,274 +284,1641 @@
 ],
 
 
-    
 
 
-"classes":[
+  "classes": [
   {
     "name": "Arcanista",
     "description": "Estudioso das artes arcanas, domina feitiços com método e precisão intelectual.",
-    "desc1": "12 Pontos de Vida. 6 Pontos de Mana.",
-    "habilities": {
-      "Vontade (Sab)": "",
-      "Conhecimento (Int) +4": "Escolha entre Diplomacia(Car), Enganação(Car), Iniciativa(Des), Intuição(Sab), Investigação(Int), Misticismo(Int), Ofício(Int), Percepção(Sab) e Vontade(Sab)."
-    }
+    "highlights": [
+      { "name": "12 Pontos de Vida", "text": "" },
+      { "name": "6 Pontos de Mana", "text": "" }
+    ],
+    "details": [
+      {
+        "title": "Perícias da Classe",
+        "items": [
+          { "name": "Vontade (Sab)", "text": "" },
+          {
+            "name": "Conhecimento (Int) +4",
+            "text": "Escolha entre Diplomacia (Car), Enganação (Car), Iniciativa (Des), Intuição (Sab), Investigação (Int), Misticismo (Int), Ofício (Int), Percepção (Sab) e Vontade (Sab)."
+          }
+        ]
+      }
+    ]
   },
+
   {
     "name": "Bárbaro",
     "description": "Fera de fúria e instinto, converte ímpeto bruto em força destruidora no campo de batalha.",
-    "desc1": "24 Pontos de Vida. 3 Pontos de Mana.",
-    "habilities": {
-      "Fortitude (Con)": "",
-      "Luta (For) +4": "Escolha entre Adestramento(Car), Atletismo(For), Cavalgar(Des), Iniciativa(Des), Intimidação(Car), Ofício(Int), Percepção(Sab), Pontaria(Des), Sobrevivência(Sab) e Vontade(Sab)."
-    }
+    "highlights": [
+      { "name": "24 Pontos de Vida", "text": "" },
+      { "name": "3 Pontos de Mana", "text": "" }
+    ],
+    "details": [
+      {
+        "title": "Perícias da Classe",
+        "items": [
+          { "name": "Fortitude (Con)", "text": "" },
+          {
+            "name": "Luta (For) +4",
+            "text": "Escolha entre Adestramento (Car), Atletismo (For), Cavalgar (Des), Iniciativa (Des), Intimidação (Car), Ofício (Int), Percepção (Sab), Pontaria (Des), Sobrevivência (Sab) e Vontade (Sab)."
+          }
+        ]
+      }
+    ]
   },
+
   {
     "name": "Bardo",
     "description": "Artista encantador e versátil, usa música e magia para inspirar, iludir ou confundir.",
-    "desc1": "16 Pontos de Vida. 4 Pontos de Mana.",
-    "habilities": {
-      "Vontade (Sab)": "",
-      "Atuação (Car) +4": "Escolha entre Acrobacia(Des), Atletismo(For), Diplomacia(Car), Enganação(Car), Furtividade(Des), Investigação(Int), Intuição(Sab), Ladinagem(Des), Percepção(Sab), Pontaria(Des) e Reflexos(Des)."
-    }
+    "highlights": [
+      { "name": "16 Pontos de Vida", "text": "" },
+      { "name": "4 Pontos de Mana", "text": "" }
+    ],
+    "details": [
+      {
+        "title": "Perícias da Classe",
+        "items": [
+          { "name": "Atuação (Car)", "text": "" },
+          {
+            "name": "Reflexos (Des) +6",
+            "text": "Escolha entre Acrobacia (Des), Cavalgar (Des), Conhecimento (Int), Diplomacia (Car), Enganação (Car), Furtividade (Des), Iniciativa (Des), Intuição (Sab), Investigação (Int), Jogatina (Car), Ladinagem (Des), Luta (For), Misticismo (Int), Nobreza (Int), Percepção (Sab), Pontaria (Des) e Vontade (Sab)."
+          }
+        ]
+      }
+    ]
   },
+
   {
     "name": "Bucaneiro",
     "description": "Aventureiro audaz dos mares, mestre em acrobacias, truques e táticas nada honradas.",
-    "desc1": "20 Pontos de Vida. 2 Pontos de Mana.",
-    "habilities": {
-      "Reflexos (Des)": "",
-      "Acrobacia (Des) +4": "Escolha entre Atletismo(For), Diplomacia(Car), Enganação(Car), Furtividade(Des), Iniciativa(Des), Intimidação(Car), Ladinagem(Des), Percepção(Sab), Pontaria(Des) e Sobrevivência(Sab)."
-    }
+    "highlights": [
+      { "name": "20 Pontos de Vida", "text": "" },
+      { "name": "2 Pontos de Mana", "text": "" }
+    ],
+    "details": [
+      {
+        "title": "Perícias da Classe",
+        "items": [
+          { "name": "Luta (For) ou Pontaria (Des)", "text": "" },
+          {
+            "name": "Reflexos (Des) +4",
+            "text": "Escolha entre Atletismo (For), Diplomacia (Car), Enganação (Car), Furtividade (Des), Iniciativa (Des), Intimidação (Car), Ladinagem (Des), Percepção (Sab), Pontaria (Des) e Sobrevivência (Sab)."
+          }
+        ]
+      }
+    ]
   },
+
   {
     "name": "Caçador",
     "description": "Especialista em sobreviver na selva e rastrear presas, preciso e silencioso.",
-    "desc1": "20 Pontos de Vida. 3 Pontos de Mana.",
-    "habilities": {
-      "Percepção (Sab)": "",
-      "Sobrevivência (Sab) +4": "Escolha entre Acrobacia(Des), Atletismo(For), Cavalgar(Des), Furtividade(Des), Iniciativa(Des), Intuição(Sab), Luta(For), Ofício(Int), Pontaria(Des) e Reflexos(Des)."
-    }
+    "highlights": [
+      { "name": "20 Pontos de Vida", "text": "" },
+      { "name": "3 Pontos de Mana", "text": "" }
+    ],
+    "details": [
+      {
+        "title": "Perícias da Classe",
+        "items": [
+          { "name": "Luta (For) ou Pontaria (Des)", "text": "" },
+          {
+            "name": "Sobrevivência (Sab) +6",
+            "text": "Escolha entre Adestramento (Car), Atletismo (For), Cavalgar (Des), Furtividade (Des), Iniciativa (Des), Intuição (Sab), Luta (For), Ofício (Int), Pontaria (Des) e Reflexos (Des)."
+          }
+        ]
+      }
+    ]
   },
+
   {
     "name": "Cavaleiro",
     "description": "Combatente disciplinado que luta montado e serve como protetor leal.",
-    "desc1": "24 Pontos de Vida. 2 Pontos de Mana.",
-    "habilities": {
-      "Fortitude (Con)": "",
-      "Cavalgar (Des) +4": "Escolha entre Atletismo(For), Diplomacia(Car), Iniciativa(Des), Intimidação(Car), Luta(For), Ofício(Int), Percepção(Sab), Pontaria(Des), Sobrevivência(Sab) e Vontade(Sab)."
-    }
+    "highlights": [
+      { "name": "24 Pontos de Vida", "text": "" },
+      { "name": "2 Pontos de Mana", "text": "" }
+    ],
+    "details": [
+      {
+        "title": "Perícias da Classe",
+        "items": [
+          { "name": "Fortitude (Con)", "text": "" },
+          {
+            "name": "Cavalgar (Des) +2",
+            "text": "Escolha entre Atletismo (For), Diplomacia (Car), Iniciativa (Des), Intimidação (Car), Luta (For), Ofício (Int), Percepção (Sab), Pontaria (Des), Sobrevivência (Sab) e Vontade (Sab)."
+          }
+        ]
+      }
+    ]
   },
+
   {
     "name": "Clérigo",
     "description": "Canal do divino, cura e invoca poder sagrado para proteger ou punir.",
-    "desc1": "20 Pontos de Vida. 6 Pontos de Mana.",
-    "habilities": {
-      "Vontade (Sab)": "",
-      "Religião (Sab) +4": "Escolha entre Diplomacia(Car), Iniciativa(Des), Intuição(Sab), Investigação(Int), Luta(For), Ofício(Int), Percepção(Sab), Pontaria(Des), Vontade(Sab) e Cura(Sab)."
-    }
+    "highlights": [
+      { "name": "20 Pontos de Vida", "text": "" },
+      { "name": "6 Pontos de Mana", "text": "" }
+    ],
+    "details": [
+      {
+        "title": "Perícias da Classe",
+        "items": [
+          { "name": "Vontade (Sab)", "text": "" },
+          {
+            "name": "Religião (Sab) +2",
+            "text": "Escolha entre Diplomacia (Car), Iniciativa (Des), Intuição (Sab), Investigação (Int), Luta (For), Ofício (Int), Percepção (Sab), Pontaria (Des), Vontade (Sab) e Cura (Sab)."
+          }
+        ]
+      }
+    ]
   },
+
   {
     "name": "Druida",
     "description": "Guardião da natureza, manipula forças naturais e assume formas bestiais.",
-    "desc1": "20 Pontos de Vida. 6 Pontos de Mana.",
-    "habilities": {
-      "Vontade (Sab)": "",
-      "Natureza (Sab) +4": "Escolha entre Adestramento(Car), Atletismo(For), Cavalgar(Des), Furtividade(Des), Intuição(Sab), Ofício(Int), Percepção(Sab), Sobrevivência(Sab) e Vontade(Sab)."
-    }
+    "highlights": [
+      { "name": "20 Pontos de Vida", "text": "" },
+      { "name": "6 Pontos de Mana", "text": "" }
+    ],
+    "details": [
+      {
+        "title": "Perícias da Classe",
+        "items": [
+          { "name": "Vontade (Sab)", "text": "" },
+          {
+            "name": "Natureza (Sab) +4",
+            "text": "Escolha entre Adestramento (Car), Atletismo (For), Cavalgar (Des), Furtividade (Des), Intuição (Sab), Ofício (Int), Percepção (Sab), Sobrevivência (Sab) e Vontade (Sab)."
+          }
+        ]
+      }
+    ]
   },
+
   {
     "name": "Guerreiro",
     "description": "Mestre das armas e da técnica marcial, versátil em estilos de combate.",
-    "desc1": "24 Pontos de Vida. 2 Pontos de Mana.",
-    "habilities": {
-      "Fortitude (Con)": "",
-      "Luta (For) +4": "Escolha entre Atletismo(For), Cavalgar(Des), Iniciativa(Des), Intimidação(Car), Ladinagem(Des), Ofício(Int), Percepção(Sab), Pontaria(Des) e Reflexos(Des)."
-    }
+    "highlights": [
+      { "name": "24 Pontos de Vida", "text": "" },
+      { "name": "2 Pontos de Mana", "text": "" }
+    ],
+    "details": [
+      {
+        "title": "Perícias da Classe",
+        "items": [
+          { "name": "Fortitude (Con)", "text": "" },
+          {
+            "name": "Luta (For) +2",
+            "text": "Escolha entre Atletismo (For), Cavalgar (Des), Iniciativa (Des), Intimidação (Car), Ladinagem (Des), Ofício (Int), Percepção (Sab), Pontaria (Des) e Reflexos (Des)."
+          }
+        ]
+      }
+    ]
   },
+
   {
     "name": "Inventor",
     "description": "Engenhoqueiro criativo, combina ciência, magia e caos em invenções explosivas.",
-    "desc1": "16 Pontos de Vida. 4 Pontos de Mana.",
-    "habilities": {
-      "Misticismo (Int)": "",
-      "Ofício (Int) +4": "Escolha entre Atletismo(For), Diplomacia(Car), Enganação(Car), Furtividade(Des), Iniciativa(Des), Intuição(Sab), Investigação(Int), Percepção(Sab), Pontaria(Des) e Reflexos(Des)."
-    }
+    "highlights": [
+      { "name": "16 Pontos de Vida", "text": "" },
+      { "name": "4 Pontos de Mana", "text": "" }
+    ],
+    "details": [
+      {
+        "title": "Perícias da Classe",
+        "items": [
+          { "name": "Misticismo (Int)", "text": "" },
+          {
+            "name": "Ofício (Int) +4",
+            "text": "Escolha entre Atletismo (For), Diplomacia (Car), Enganação (Car), Furtividade (Des), Iniciativa (Des), Intuição (Sab), Investigação (Int), Percepção (Sab), Pontaria (Des) e Reflexos (Des)."
+          }
+        ]
+      }
+    ]
   },
+
   {
     "name": "Ladino",
     "description": "Especialista em furtividade, truques e golpes precisos, vence pela astúcia.",
-    "desc1": "16 Pontos de Vida. 2 Pontos de Mana.",
-    "habilities": {
-      "Reflexos (Des)": "",
-      "Ladinagem (Des) +4": "Escolha entre Acrobacia(Des), Atletismo(For), Enganação(Car), Furtividade(Des), Iniciativa(Des), Intimidação(Car), Investigação(Int), Percepção(Sab), Pontaria(Des) e Reflexos(Des)."
-    }
+    "highlights": [
+      { "name": "16 Pontos de Vida", "text": "" },
+      { "name": "2 Pontos de Mana", "text": "" }
+    ],
+    "details": [
+      {
+        "title": "Perícias da Classe",
+        "items": [
+          { "name": "Reflexos (Des)", "text": "" },
+          {
+            "name": "Ladinagem (Des) +8",
+            "text": "Escolha entre Acrobacia (Des), Atletismo (For), Enganação (Car), Furtividade (Des), Iniciativa (Des), Intimidação (Car), Investigação (Int), Percepção (Sab), Pontaria (Des) e Reflexos (Des)."
+          }
+        ]
+      }
+    ]
   },
+
   {
     "name": "Lutador",
     "description": "Especialista em combate corpo a corpo, dominando técnicas marciais.",
-    "desc1": "20 Pontos de Vida. 2 Pontos de Mana.",
-    "habilities": {
-      "Fortitude (Con)": "",
-      "Atletismo (For) +4": "Escolha entre Acrobacia(Des), Cavalgar(Des), Intimidacão(Car), Luta(For), Percepção(Sab), Pontaria(Des), Reflexos(Des) e Sobrevivência(Sab)."
-    }
+    "highlights": [
+      { "name": "20 Pontos de Vida", "text": "" },
+      { "name": "2 Pontos de Mana", "text": "" }
+    ],
+    "details": [
+      {
+        "title": "Perícias da Classe",
+        "items": [
+          { "name": "Fortitude (Con)", "text": "" },
+          {
+            "name": "Atletismo (For) +4",
+            "text": "Escolha entre Acrobacia (Des), Cavalgar (Des), Intimidação (Car), Luta (For), Percepção (Sab), Pontaria (Des), Reflexos (Des) e Sobrevivência (Sab)."
+          }
+        ]
+      }
+    ]
   },
+
   {
     "name": "Nobre",
     "description": "Líder nato, usa influência, diplomacia e presença para comandar e inspirar.",
-    "desc1": "16 Pontos de Vida. 3 Pontos de Mana.",
-    "habilities": {
-      "Vontade (Sab)": "",
-      "Diplomacia (Car) +4": "Escolha entre Cavalgar(Des), Conhecimento(Int), Enganação(Car), Intuição(Sab), Luta(For), Ofício(Int), Percepção(Sab) e Vontade(Sab)."
-    }
+    "highlights": [
+      { "name": "16 Pontos de Vida", "text": "" },
+      { "name": "3 Pontos de Mana", "text": "" }
+    ],
+    "details": [
+      {
+        "title": "Perícias da Classe",
+        "items": [
+          { "name": "Vontade (Sab)", "text": "" },
+          {
+            "name": "Diplomacia (Car) +4",
+            "text": "Escolha entre Cavalgar (Des), Conhecimento (Int), Enganação (Car), Intuição (Sab), Luta (For), Ofício (Int), Percepção (Sab) e Vontade (Sab)."
+          }
+        ]
+      }
+    ]
   },
+
   {
     "name": "Paladino",
     "description": "Guerreiro sagrado que combina fé e arma para proteger inocentes e punir o mal.",
-    "desc1": "24 Pontos de Vida. 5 Pontos de Mana.",
-    "habilities": {
-      "Vontade (Sab)": "",
-      "Religião (Sab) +4": "Escolha entre Atletismo(For), Cavalgar(Des), Diplomacia(Car), Iniciativa(Des), Intuição(Sab), Intimidação(Car), Luta(For), Ofício(Int), Percepção(Sab) e Vontade(Sab)."
-    }
+    "highlights": [
+      { "name": "24 Pontos de Vida", "text": "" },
+      { "name": "5 Pontos de Mana", "text": "" }
+    ],
+    "details": [
+      {
+        "title": "Perícias da Classe",
+        "items": [
+          { "name": "Vontade (Sab)", "text": "" },
+          {
+            "name": "Religião (Sab) +2",
+            "text": "Escolha entre Adestramento (Car), Atletismo (For), Cavalgar (Des), Cura (Sab), Diplomacia (Car), Fortitude (Con), Guerra (Int), Iniciativa (Des), Intuição (Sab), Nobreza (Int), Percepção (Sab) e Religião (Sab)."
+          }
+        ]
+      }
+    ]
   }
 ],
 
 
-"origins": [
-  {
-    "name": "Acadêmico",
-    "description": "Treinado entre livros e mestres, transforma estudo em vantagem prática."
-  },
+
+
+"origins":[
   {
     "name": "Acólito",
-    "description": "Criado entre preces e rituais, carrega fé como guia e fundamento."
+    "description": "Criado entre preces e rituais, carrega fé como guia e fundamento.",
+    "highlights": [
+      { "name": "Membro da Igreja", "text": "Hospedagem confortável e informações em qualquer templo de sua divindade." },
+      { "name": "Vontade de Ferro", "text": "Você recebe +1 PM para cada dois níveis e +2 em Vontade." },
+      { "name": "Medicina", "text": "+2 em Cura para estabilizar ou tratar ferimentos." }
+    ],
+    "details": [
+      {
+        "title": "Perícias da Origem",
+        "items": [
+          { "name": "Cura (Sab)", "text": "" },
+          { "name": "Religião (Sab)", "text": "" },
+          { "name": "Vontade (Sab)", "text": "" }
+        ]
+      }
+    ]
   },
+
   {
-    "name": "Amaldiçoado",
-    "description": "Marcado por forças obscuras, vive entre temor, mistério e poder indomado."
+    "name": "Amigo dos Animais",
+    "description": "Criado entre criaturas selvagens, desenvolveu afinidade natural com elas.",
+    "highlights": [
+      { "name": "Amigo Especial", "text": "Você começa o jogo com um animal aliado simples." }
+    ],
+    "details": [
+      {
+        "title": "Perícias da Origem",
+        "items": [
+          { "name": "Adestramento (Car)", "text": "" },
+          { "name": "Cavalgar (Des)", "text": "" }
+        ]
+      }
+    ]
   },
+
+  {
+    "name": "Amnésico",
+    "description": "Sem memórias claras do passado, mas carregando talentos ocultos.",
+    "highlights": [
+      
+      { "name": "Lembranças Graduais", "text": "Você recupera memórias durante a aventura, ganhando benefícios." }
+    ],
+    "details": [
+      {
+        "title": "Perícias da Origem", 
+        "items": [{ "name": "Escolhas do Mestre", "text": "O mestre escolhe uma perícia treinada e um poder geral para você." }] }
+    ]
+  },
+
+  {
+    "name": "Aristocrata",
+    "description": "Criado entre a nobreza, acostumado à etiqueta, influência e vida confortável.",
+    "highlights": [
+      { "name": "Comandar", "text": "+2 em testes para liderar, coordenar ou motivar aliados." },
+      { "name": "Sangue Azul", "text": "+2 em testes sociais com nobres e autoridades." }
+    ],
+    "details": [
+      {
+        "title": "Perícias da Origem",
+        "items": [
+          { "name": "Diplomacia (Car)", "text": "" },
+          { "name": "Enganação (Car)", "text": "" },
+          { "name": "Nobreza (Int)", "text": "" }
+        ]
+      }
+    ]
+  },
+
   {
     "name": "Artesão",
-    "description": "Mestre de ferramentas e materiais, cria valor com mãos experientes."
+    "description": "Treinado em ofícios manuais e criação de ferramentas, armas ou obras.",
+    "highlights": [
+      { "name": "Frutos do Trabalho", "text": "Você produz itens simples pela metade do tempo." },
+      { "name": "Sortudo", "text": "Uma vez por sessão, role novamente um teste recém-feito." }
+    ],
+    "details": [
+      {
+        "title": "Perícias da Origem",
+        "items": [
+          { "name": "Ofício (Int)", "text": "" },
+          { "name": "Vontade (Sab)", "text": "" }
+        ]
+      }
+    ]
   },
+
   {
     "name": "Artista",
-    "description": "Movido por inspiração, encanta, provoca e emociona com talento nato."
+    "description": "Treinado para encantar plateias com talento nato e presença marcante.",
+    "highlights": [
+      { "name": "Atraente", "text": "+2 em Diplomacia e Enganação com quem possa ser influenciado." },
+      { "name": "Dom Artístico", "text": "+2 em Atuação." },
+      { "name": "Sortudo", "text": "Uma vez por sessão, role novamente um teste recém-feito." },
+      { "name": "Torcida", "text": "Quando faz algo impressionante, aliados recebem +1 em testes." }
+    ],
+    "details": [
+      {
+        "title": "Perícias da Origem",
+        "items": [
+          { "name": "Atuação (Car)", "text": "" },
+          { "name": "Enganação (Car)", "text": "" }
+        ]
+      }
+    ]
   },
+
   {
-    "name": "Assistente",
-    "description": "Acostumado a servir e aprender rápido; flexível e atento ao detalhe."
+    "name": "Assistente de Laboratório",
+    "description": "Acostumado a experimentos, alquimia e substâncias perigosas.",
+    "highlights": [
+      { "name": "Esse Cheiro...", "text": "+2 em testes contra venenos e substâncias químicas." },
+      { "name": "Venefício", "text": "Você sabe manipular venenos simples e aplica-los com segurança." },
+      { "name": "Poder da Tormenta", "text": "Você recebe um poder da Tormenta à escolha." }
+    ],
+    "details": [
+      {
+        "title": "Perícias da Origem",
+        "items": [
+          { "name": "Ofício (alquimista) (Int)", "text": "" },
+          { "name": "Misticismo (Int)", "text": "" }
+        ]
+      }
+    ]
   },
+
   {
-    "name": "Camponês",
-    "description": "Forjado na vida simples e árdua, forte e esperto pela rotina do campo."
+    "name": "Batedor",
+    "description": "Perito em observar, rastrear e sobreviver em território hostil.",
+    "highlights": [
+      { "name": "À Prova de Tudo", "text": "+2 em testes de resistência ambiental." },
+      { "name": "Estilo de Disparo", "text": "Você recebe um estilo de disparo à escolha." },
+      { "name": "Sentidos Aguçados", "text": "+2 em Percepção." }
+    ],
+    "details": [
+      {
+        "title": "Perícias da Origem",
+        "items": [
+          { "name": "Furtividade (Des)", "text": "" },
+          { "name": "Percepção (Sab)", "text": "" },
+          { "name": "Sobrevivência (Sab)", "text": "" }
+        ]
+      }
+    ]
   },
+
+  {
+    "name": "Capanga",
+    "description": "Trabalhou como guarda-costas, cobrador ou intimidador.",
+    "highlights": [
+      { "name": "Confissão", "text": "+2 em testes para intimidar alvos." },
+      { "name": "Poder de Combate", "text": "Você recebe um poder de combate à escolha." }
+    ],
+    "details": [
+      {
+        "title": "Perícias da Origem",
+        "items": [
+          { "name": "Luta (For)", "text": "" },
+          { "name": "Intimidação (Car)", "text": "" }
+        ]
+      }
+    ]
+  },
+
+  {
+    "name": "Charlatão",
+    "description": "Viveu de truques sociais, golpes e manipulação hábil.",
+    "highlights": [
+      { "name": "Alpinista Social", "text": "+2 em testes sociais com ricos e nobres." },
+      { "name": "Aparência Inofensiva", "text": "+2 em Enganação para parecer inocente." },
+      { "name": "Sortudo", "text": "Uma vez por sessão, role novamente um teste recém-feito." }
+    ],
+    "details": [
+      {
+        "title": "Perícias da Origem",
+        "items": [
+          { "name": "Enganação (Car)", "text": "" },
+          { "name": "Jogatina (Car)", "text": "" }
+        ]
+      }
+    ]
+  },
+
+  {
+    "name": "Circense",
+    "description": "Treinado em acrobacias, truques e performances ambulantes.",
+    "highlights": [
+      { "name": "Acrobático", "text": "+2 em Acrobacia." },
+      { "name": "Torcida", "text": "Ao impressionar alguém, aliados recebem +1 em testes." },
+      { "name": "Truque de Mágica", "text": "+2 em testes simples de ilusão e distração." }
+    ],
+    "details": [
+      {
+        "title": "Perícias da Origem",
+        "items": [
+          { "name": "Acrobacia (Des)", "text": "" },
+          { "name": "Atuação (Car)", "text": "" },
+          { "name": "Reflexos (Des)", "text": "" }
+        ]
+      }
+    ]
+  },
+
   {
     "name": "Criminoso",
-    "description": "Habituado às sombras, truques e alianças perigosas — mas sempre escapa."
+    "description": "Viveu à margem da lei, especialista em furtos e truques.",
+    "highlights": [
+      { "name": "Punguista", "text": "+2 em Ladinagem." },
+      { "name": "Venefício", "text": "Permite manipular e aplicar venenos simples." }
+    ],
+    "details": [
+      {
+        "title": "Perícias da Origem",
+        "items": [
+          { "name": "Enganação (Car)", "text": "" },
+          { "name": "Furtividade (Des)", "text": "" },
+          { "name": "Ladinagem (Des)", "text": "" }
+        ]
+      }
+    ]
   },
+
   {
     "name": "Curandeiro",
-    "description": "Devotado a aliviar dor; domina ervas, remédios e as linguagens do corpo."
+    "description": "Treinado em medicina prática e atendimento a feridos.",
+    "highlights": [
+      { "name": "Medicina", "text": "+2 em testes de Cura." },
+      { "name": "Médico de Campo", "text": "+2 para estabilizar aliados em combate." },
+      { "name": "Venefício", "text": "Permite manipular venenos simples." }
+    ],
+    "details": [
+      {
+        "title": "Perícias da Origem",
+        "items": [
+          { "name": "Cura (Sab)", "text": "" },
+          { "name": "Vontade (Sab)", "text": "" }
+        ]
+      }
+    ]
   },
+
   {
-    "name": "Erudito",
-    "description": "Mergulhado no conhecimento, enxerga o mundo como um enigma a decifrar."
+    "name": "Eremita",
+    "description": "Viveu isolado do mundo, em contemplação e sobrevivência.",
+    "highlights": [
+      { "name": "Busca Interior", "text": "+2 em testes de Vontade." },
+      { "name": "Lobo Solitário", "text": "+2 em testes quando age sozinho." }
+    ],
+    "details": [
+      {
+        "title": "Perícias da Origem",
+        "items": [
+          { "name": "Misticismo (Int)", "text": "" },
+          { "name": "Religião (Sab)", "text": "" },
+          { "name": "Sobrevivência (Sab)", "text": "" }
+        ]
+      }
+    ]
   },
+
+  {
+    "name": "Escravo",
+    "description": "Marcado por trabalho forçado e resistência extrema.",
+    "highlights": [
+      { "name": "Desejo de Liberdade", "text": "+2 em testes contra controle mental." },
+      { "name": "Vitalidade", "text": "+2 PV." }
+    ],
+    "details": [
+      {
+        "title": "Perícias da Origem",
+        "items": [
+          { "name": "Atletismo (For)", "text": "" },
+          { "name": "Fortitude (Con)", "text": "" },
+          { "name": "Furtividade (Des)", "text": "" }
+        ]
+      }
+    ]
+  },
+
+  {
+    "name": "Estudioso",
+    "description": "Criado entre livros, teorias e instrução formal.",
+    "highlights": [
+      { "name": "Aparência Inofensiva", "text": "+2 em testes de Enganação para parecer inocente." },
+      { "name": "Palpite Fundamentado", "text": "Uma vez por dia, faça um teste de Conhecimento e ganhe +2 em um teste relacionado." }
+    ],
+    "details": [
+      {
+        "title": "Perícias da Origem",
+        "items": [
+          { "name": "Conhecimento (Int)", "text": "" },
+          { "name": "Guerra (Int)", "text": "" },
+          { "name": "Misticismo (Int)", "text": "" }
+        ]
+      }
+    ]
+  },
+
+  {
+    "name": "Fazendeiro",
+    "description": "Acostumado ao campo, trabalho duro e vida simples.",
+    "highlights": [
+      { "name": "Água no Feijão", "text": "Você reduz o custo de comida e hospedagem em 50%." },
+      { "name": "Ginete", "text": "+2 em Cavalgar." }
+    ],
+    "details": [
+      {
+        "title": "Perícias da Origem",
+        "items": [
+          { "name": "Adestramento (Car)", "text": "" },
+          { "name": "Cavalgar (Des)", "text": "" },
+          { "name": "Ofício (fazendeiro) (Int)", "text": "" },
+          { "name": "Sobrevivência (Sab)", "text": "" }
+        ]
+      }
+    ]
+  },
+
   {
     "name": "Forasteiro",
-    "description": "Vindo de terras distantes, carrega hábitos, histórias e olhar diferente."
+    "description": "Viajante entre culturas, pouco ligado a um único lugar.",
+    "highlights": [
+      { "name": "Cultura Exótica", "text": "Conhece costumes estrangeiros, recebendo +2 em Diplomacia." },
+      { "name": "Lobo Solitário", "text": "+2 em testes quando age sozinho." }
+    ],
+    "details": [
+      {
+        "title": "Perícias da Origem",
+        "items": [
+          { "name": "Cavalgar (Des)", "text": "" },
+          { "name": "Pilotagem (Des)", "text": "" },
+          { "name": "Sobrevivência (Sab)", "text": "" }
+        ]
+      }
+    ]
   },
+
+  {
+    "name": "Gladiador",
+    "description": "Treinado para lutar diante de plateias e viver do espetáculo.",
+    "highlights": [
+      { "name": "Atraente", "text": "+2 em Diplomacia e Enganação." },
+      { "name": "Pão e Circo", "text": "Você recebe +2 em testes sociais com plebeus." },
+      { "name": "Torcida", "text": "+1 em testes sempre que impressiona alguém." },
+      { "name": "Poder de Combate", "text": "Você recebe um poder de combate à escolha." }
+    ],
+    "details": [
+      {
+        "title": "Perícias da Origem",
+        "items": [
+          { "name": "Atuação (Car)", "text": "" },
+          { "name": "Luta (For)", "text": "" }
+        ]
+      }
+    ]
+  },
+
+  {
+    "name": "Guarda",
+    "description": "Treinado em vigiar, investigar e manter a ordem.",
+    "highlights": [
+      { "name": "Detetive", "text": "+2 em Investigação." },
+      { "name": "Investigador", "text": "+2 em testes para reunir pistas." },
+      { "name": "Poder de Combate", "text": "Você recebe um poder de combate à escolha." }
+    ],
+    "details": [
+      {
+        "title": "Perícias da Origem",
+        "items": [
+          { "name": "Investigação (Int)", "text": "" },
+          { "name": "Luta (For)", "text": "" },
+          { "name": "Percepção (Sab)", "text": "" }
+        ]
+      }
+    ]
+  },
+
   {
     "name": "Herdeiro",
-    "description": "Nascido em berço privilegiado, domina etiqueta, influência e ambição."
+    "description": "Recebeu educação refinada e uma herança significativa.",
+    "highlights": [
+      { "name": "Comandar", "text": "+2 em testes para liderar ou coordenar aliados." },
+      { "name": "Herança", "text": "Você começa o jogo com um item valioso definido pelo mestre." }
+    ],
+    "details": [
+      {
+        "title": "Perícias da Origem",
+        "items": [
+          { "name": "Misticismo (Int)", "text": "" },
+          { "name": "Nobreza (Int)", "text": "" },
+          { "name": "Ofício (Int)", "text": "" }
+        ]
+      }
+    ]
   },
+
+  {
+    "name": "Herói Camponês",
+    "description": "Um plebeu que encontrou coragem e propósito além da vida simples.",
+    "highlights": [
+      { "name": "Coração Heroico", "text": "+2 para resistir a medo e efeitos emocionais." },
+      { "name": "Sortudo", "text": "Uma vez por sessão, role novamente um teste recém-feito." },
+      { "name": "Surto Heroico", "text": "Uma vez por dia, execute uma ação extra." },
+      { "name": "Torcida", "text": "+1 em testes quando faz algo impressionante." }
+    ],
+    "details": [
+      {
+        "title": "Perícias da Origem",
+        "items": [
+          { "name": "Adestramento (Car)", "text": "" },
+          { "name": "Ofício (Int)", "text": "" }
+        ]
+      }
+    ]
+  },
+
   {
     "name": "Marujo",
-    "description": "Filho do vento e do sal, acostumado a viver onde o mar dita as regras."
+    "description": "Acostumado à vida no mar, trabalho duro e equilíbrio em navios.",
+    "highlights": [
+      { "name": "Acrobático", "text": "+2 em Acrobacia." },
+      { "name": "Passagem de Navio", "text": "Você sempre consegue carona gratuita em embarcações." }
+    ],
+    "details": [
+      {
+        "title": "Perícias da Origem",
+        "items": [
+          { "name": "Atletismo (For)", "text": "" },
+          { "name": "Jogatina (Car)", "text": "" },
+          { "name": "Pilotagem (Des)", "text": "" }
+        ]
+      }
+    ]
+  },
+
+  {
+    "name": "Mateiro",
+    "description": "Cresceu explorando matas densas e terrenos selvagens.",
+    "highlights": [
+      { "name": "Lobo Solitário", "text": "+2 quando age sozinho." },
+      { "name": "Sentidos Aguçados", "text": "+2 em Percepção." },
+      { "name": "Vendedor de Carcaças", "text": "+2 em Ofício relacionado a caça." }
+    ],
+    "details": [
+      {
+        "title": "Perícias da Origem",
+        "items": [
+          { "name": "Atletismo (For)", "text": "" },
+          { "name": "Furtividade (Des)", "text": "" },
+          { "name": "Sobrevivência (Sab)", "text": "" }
+        ]
+      }
+    ]
+  },
+
+  {
+    "name": "Membro de Guilda",
+    "description": "Faz parte de uma organização formal, com contatos e responsabilidades.",
+    "highlights": [
+      { "name": "Foco em Perícia", "text": "Escolha uma perícia treinada para receber +2." },
+      { "name": "Rede de Contatos", "text": "+2 em Diplomacia para obter informações." }
+    ],
+    "details": [
+      {
+        "title": "Perícias da Origem",
+        "items": [
+          { "name": "Diplomacia (Car)", "text": "" },
+          { "name": "Enganação (Car)", "text": "" },
+          { "name": "Misticismo (Int)", "text": "" },
+          { "name": "Ofício (Int)", "text": "" }
+        ]
+      }
+    ]
+  },
+
+  {
+    "name": "Mercador",
+    "description": "Perito em negociação, barganha e avaliação de itens.",
+    "highlights": [
+      { "name": "Negociação", "text": "+2 em testes de Comércio." },
+      { "name": "Proficiência", "text": "Escolha uma arma simples ou ferramenta." },
+      { "name": "Sortudo", "text": "Uma vez por sessão, role novamente um teste recém-feito." }
+    ],
+    "details": [
+      {
+        "title": "Perícias da Origem",
+        "items": [
+          { "name": "Diplomacia (Car)", "text": "" },
+          { "name": "Intuição (Sab)", "text": "" },
+          { "name": "Ofício (Int)", "text": "" }
+        ]
+      }
+    ]
+  },
+
+  {
+    "name": "Minerador",
+    "description": "Trabalhou escavando túneis, carregando cargas e lidando com riscos.",
+    "highlights": [
+      { "name": "Ataque Poderoso", "text": "Você pode sacrificar precisão por dano extra." },
+      { "name": "Escavador", "text": "+2 em testes relacionados a terreno subterrâneo." },
+      { "name": "Sentidos Aguçados", "text": "+2 em Percepção." }
+    ],
+    "details": [
+      {
+        "title": "Perícias da Origem",
+        "items": [
+          { "name": "Atletismo (For)", "text": "" },
+          { "name": "Fortitude (Con)", "text": "" },
+          { "name": "Ofício (minerador) (Int)", "text": "" }
+        ]
+      }
+    ]
+  },
+
+  {
+    "name": "Nômade",
+    "description": "Sempre em movimento, adaptado a viagens longas e terrenos hostis.",
+    "highlights": [
+      { "name": "Lobo Solitário", "text": "+2 quando age sozinho." },
+      { "name": "Mochileiro", "text": "Você ignora 1 ponto de penalidade por carga." },
+      { "name": "Sentidos Aguçados", "text": "+2 em Percepção." }
+    ],
+    "details": [
+      {
+        "title": "Perícias da Origem",
+        "items": [
+          { "name": "Cavalgar (Des)", "text": "" },
+          { "name": "Pilotagem (Des)", "text": "" },
+          { "name": "Sobrevivência (Sab)", "text": "" }
+        ]
+      }
+    ]
+  },
+
+  {
+    "name": "Pivete",
+    "description": "Cresceu nas ruas, aprendendo truques rápidos para sobreviver.",
+    "highlights": [
+      { "name": "Acrobático", "text": "+2 em Acrobacia." },
+      { "name": "Aparência Inofensiva", "text": "+2 para parecer inocente." },
+      { "name": "Quebra-Galho", "text": "+2 para improvisar ferramentas e soluções rápidas." }
+    ],
+    "details": [
+      {
+        "title": "Perícias da Origem",
+        "items": [
+          { "name": "Furtividade (Des)", "text": "" },
+          { "name": "Iniciativa (Des)", "text": "" },
+          { "name": "Ladinagem (Des)", "text": "" }
+        ]
+      }
+    ]
+  },
+
+  {
+    "name": "Refugiado",
+    "description": "Fugiu de guerra, perseguição ou catástrofe, adquirindo resiliência.",
+    "highlights": [
+      { "name": "Estoico", "text": "+2 em testes contra dor e efeitos emocionais." },
+      { "name": "Vontade de Ferro", "text": "+1 PM a cada dois níveis e +2 em Vontade." }
+    ],
+    "details": [
+      {
+        "title": "Perícias da Origem",
+        "items": [
+          { "name": "Fortitude (Con)", "text": "" },
+          { "name": "Reflexos (Des)", "text": "" },
+          { "name": "Vontade (Sab)", "text": "" }
+        ]
+      }
+    ]
+  },
+
+  {
+    "name": "Seguidor",
+    "description": "Acompanhou um mentor ou grupo, aprendendo por experiência direta.",
+    "highlights": [
+      { "name": "Antigo Mestre", "text": "Você recebe apoio ocasional de seu mentor anterior." },
+      { "name": "Proficiência", "text": "Recebe proficiência em uma arma simples ou ferramenta." },
+      { "name": "Surto Heroico", "text": "Uma vez por dia, execute uma ação extra." }
+    ],
+    "details": [
+      {
+        "title": "Perícias da Origem",
+        "items": [
+          { "name": "Adestramento (Car)", "text": "" },
+          { "name": "Ofício (Int)", "text": "" }
+        ]
+      }
+    ]
+  },
+
+  {
+    "name": "Selvagem",
+    "description": "Criado longe da civilização, dominando instintos e sobrevivência.",
+    "highlights": [
+      { "name": "Lobo Solitário", "text": "+2 quando age sozinho." },
+      { "name": "Vida Rústica", "text": "+2 em Sobrevivência." },
+      { "name": "Vitalidade", "text": "+2 PV." }
+    ],
+    "details": [
+      {
+        "title": "Perícias da Origem",
+        "items": [
+          { "name": "Percepção (Sab)", "text": "" },
+          { "name": "Reflexos (Des)", "text": "" },
+          { "name": "Sobrevivência (Sab)", "text": "" }
+        ]
+      }
+    ]
+  },
+
+  {
+    "name": "Soldado",
+    "description": "Treinado em manobras, disciplina e combate organizado.",
+    "highlights": [
+      { "name": "Influência Militar", "text": "Você tem acesso a recursos militares básicos." },
+      { "name": "Poder de Combate", "text": "Escolha um poder de combate." }
+    ],
+    "details": [
+      {
+        "title": "Perícias da Origem",
+        "items": [
+          { "name": "Fortitude (Con)", "text": "" },
+          { "name": "Guerra (Int)", "text": "" },
+          { "name": "Luta (For)", "text": "" },
+          { "name": "Pontaria (Des)", "text": "" }
+        ]
+      }
+      
+    ]
   }
 ],
 
+
+
 "deities": [
-  {
-    "name": "Allihanna",
-    "description": "Deusa da natureza selvagem; protege vida, paz e harmonia entre seres."
+   {
+    "name": "Aharadak",
+    "description": "Após liderar um culto profano, matou o Deus da Força e ascendeu como o novo Deus da Tormenta. Representa corrupção, sadismo e a expansão lefeu sobre Arton — cultuado apenas pelos mais depravados.",
+    "highlights": [{"name":"Deus da Tormenta", "text":""}],
+    "details": [{
+        "title": "Devotos",
+        "items": [
+          { "name": "Quaisquer. A Tormenta aceita tudo e todos.", "text": "Cultos e religiões tem seus preferidos entre raças e Classes." }
+    ]
+  },
+      {
+        "title": "Poderes Concedidos",
+        "items": [
+          { "name": "Afinidade com a Tormenta", "text": "Você recebe +10 em testes de resistência contra efeitos da Tormenta." },
+          { "name": "Êxtase da Loucura", "text": "recebe 1 PM temporário Sempre que seus alvos falham em testes de Vontade contra suas Mágias" },
+          { "name": "Percepção Temporal", "text": "Você pode gastar 3 PM para somar sua Sabedoria a seus ataques, Defesa e testes de Reflexos " },
+          { "name": "Rejeição Divina", "text": "Você recebe resistência a magia divina +5." }
+        ]
+      },
+      {
+        "title": "Canalizar Energia",
+        "items": [
+          { "name": "Negativa", "text": "Influencia que tipo de Mágia usar" }
+    ]
+  },
+   {
+        "title": "Obrigações & Restrições",
+        "items": [
+          { "name": "Role 1d6 no início de qualquer cena de ação. 1, 3 ou 5, você fica fascinado na primeira rodada", "text": "fascinado: Sofre –5 em Percepção e não pode fazer ações" }
+    ]
+  }
+]
   },
   {
-    "name": "Arsenal",
-    "description": "Senhor da guerra e do sangue; honra força, combate e conquista."
-  },
+  "name": "Allihanna",
+  "description": "Deusa da vida selvagem e da natureza intocada. Protetora de animais, florestas e povos que vivem em harmonia com o mundo natural.",
+  "highlights": [
+    { "name": "Deusa da Natureza", "text": "" }
+  ],
+  "details": [
+    {
+      "title": "Devotos",
+      "items": [
+        { "name": "Barbáros, Druidas, Caçadores, Rangers e povos selvagens.", "text": "Allihanna favorece aqueles que vivem em harmonia com a natureza." }
+      ]
+    },
+    {
+      "title": "Poderes Concedidos",
+      "items": [
+        { "name": "Armadura Natural", "text": "Sua pele se torna mais resistente. Você recebe +2 na Defesa." },
+        { "name": "Caminho Animal", "text": "Por 1 PM, pode falar com animais por uma cena." },
+        { "name": "Crescimento Vegetal", "text": "Você pode gastar 2 PM para imobilizar uma criatura em alcance curto com vinhas." },
+        { "name": "Toque Restaurador", "text": "Você pode gastar 2 PM para curar 1d8 PV de uma criatura tocada." }
+      ]
+    },
+    {
+      "title": "Canalizar Energia",
+      "items": [
+        { "name": "Positiva", "text": "" }
+      ]
+    },
+    {
+      "title": "Obrigações & Restrições",
+      "items": [
+        {
+          "name": "Jamais causar dano desnecessário à natureza ou animais.",
+          "text": "Matar criaturas naturais apenas em defesa própria ou absoluta necessidade."
+        }
+      ]
+    }
+  ]
+},
+
   {
-    "name": "Azgher",
-    "description": "Sol radiante; patrono da luz, ordem e civilização."
-  },
+  "name": "Arsenal",
+  "description": "Deus da guerra e da destruição. Exalta força, violência e o combate eterno. Seus devotos vivem para lutar e morrer gloriosamente.",
+  "highlights": [
+    { "name": "Deus da Guerra", "text": "" }
+  ],
+  "details": [
+    {
+      "title": "Devotos",
+      "items": [
+        { "name": "Barbáros, Guerreiros, Paladinos, Gladiadores e soldados.", "text": "Arsenal favorece os fortes, violentos e disciplinados no combate." }
+      ]
+    },
+    {
+      "title": "Poderes Concedidos",
+      "items": [
+        { "name": "Arma Sagrada", "text": "Escolha uma arma. Você recebe +1 em ataques e rolagens de dano com ela." },
+        { "name": "Fúria da Batalha", "text": "Gaste 2 PM para receber +2 em testes de ataque até o fim da cena." },
+        { "name": "Grito de Guerra", "text": "Por 1 PM, todos os aliados a 9m recebem +1 em ataque na próxima rodada." },
+        { "name": "Pele de Aço", "text": "Você recebe +2 na Defesa enquanto estiver usando armadura pesada." }
+      ]
+    },
+    {
+      "title": "Canalizar Energia",
+      "items": [
+        { "name": "Negativa", "text": "" }
+      ]
+    },
+    {
+      "title": "Obrigações & Restrições",
+      "items": [
+        {
+          "name": "Nunca recusar um duelo ou recuar de um combate contra um oponente digno.",
+          "text": "Arsenal exige coragem e ódio à covardia."
+        }
+      ]
+    }
+  ]
+},
+
   {
-    "name": "Hynnin",
-    "description": "Deus-trapaceiro; celebra sorte, travessuras e esperteza acima da força."
+  "name": "Azgher",
+  "description": "Deus-Sol, símbolo de luz, justiça e civilização. Guia povos do deserto e todos que buscam ordem e iluminação.",
+  "highlights": [
+    { "name": "Deus do Sol", "text": "" }
+  ],
+  "details": [
+    {
+      "title": "Devotos",
+      "items": [
+        { "name": "Clérigos, Paladinos, Cavaleiros, povos do deserto.", "text": "Azgher acolhe defensores da ordem e da luz." }
+      ]
+    },
+    {
+      "title": "Poderes Concedidos",
+      "items": [
+        { "name": "Armadura Solar", "text": "Enquanto à luz do sol, você recebe +1 na Defesa." },
+        { "name": "Chama Sagrada", "text": "Por 1 PM, suas magias que causam dano passam a causar dano de fogo." },
+        { "name": "Escudo Radiante", "text": "Gaste 2 PM para reduzir o dano de uma fonte em 5." },
+        { "name": "Olhar do Sol", "text": "Por 1 PM, você enxerga através de ilusões e escuridão mágica por uma cena." }
+      ]
+    },
+    {
+      "title": "Canalizar Energia",
+      "items": [
+        { "name": "Positiva", "text": "" }
+      ]
+    },
+    {
+      "title": "Obrigações & Restrições",
+      "items": [
+        {
+          "name": "Jamais agir às escondidas ou usar métodos furtivos.",
+          "text": "A luz do sol revela, nunca oculta."
+        }
+      ]
+    }
+  ]
+},
+
+ {
+    "name": "Hyninn",
+    "description": "Deus menor, criador dos hynne, conhecido por ludibriar até mesmo os outros deuses. Representa astúcia, engano e truques divinos.",
+    "highlights": [
+      { "name": "Deus do Engano", "text": "" }
+    ],
+    "details": [
+      {
+        "title": "Devotos",
+        "items": [
+          { "name": "Trapaceiros, ilusionistas, aventureiros astutos.", "text": "Hyninn acolhe aqueles que usam a astúcia e a farsa para alcançar seus objetivos." }
+        ]
+      },
+      {
+        "title": "Poderes Concedidos",
+        "items": [
+          { "name": "Apostar com o Trapaceiro", "text": "Gaste 1 PM para rolar um teste de perícia usando o resultado oculto do mestre." },
+          { "name": "Farsa do Fingidor", "text": "Aprenda e lance Criar Ilusão. Aprender novamente reduz o custo em 1 PM." },
+          { "name": "Forma de Macaco", "text": "Capacidade de assumir forma de macaco para enganar ou escapar." },
+          { "name": "Golpista Divino", "text": "Habilidade de manipular resultados em testes de forma astuta." }
+        ]
+      },
+      {
+        "title": "Canalizar Energia",
+        "items": [
+          { "name": "Qualquer", "text": "" }
+        ]
+      },
+      {
+        "title": "Obrigações & Restrições",
+        "items": [
+          { "name": "Usar enganos apenas para objetivos criativos ou benéficos.", "text": "Devotos não devem enganar inocentes de forma prejudicial." }
+        ]
+      }
+    ]
   },
-  {
+   {
     "name": "Kallyadranoch",
-    "description": "Antigo deus dos dragões; símbolo de poder perdido e glória renascida."
-  },
-  {
-    "name": "Khalmyr",
-    "description": "O Juiz Supremo; defensor da lei, justiça e retidão inabalável."
+    "description": "Dragão ancestral e deus da destruição e dos dragões. Representa poder absoluto, fúria e o ciclo da vida e morte dos dragões.",
+    "highlights": [
+      { "name": "Deus Dragão", "text": "" }
+    ],
+    "details": [
+      {
+        "title": "Devotos",
+        "items": [
+          { "name": "Dragões, draconatos, guerreiros sedentos por poder.", "text": "Kallyadranoch favorece aqueles que buscam força e dominação." }
+        ]
+      },
+      {
+        "title": "Poderes Concedidos",
+        "items": [
+          { "name": "Sopro Devastador", "text": "Causa dano de fogo ou ácido, conforme a vontade do devoto." },
+          { "name": "Escama Protetora", "text": "Receba +1 na Defesa contra ataques físicos." },
+          { "name": "Voo Dracônico", "text": "Gaste 2 PM para voar por 1 rodada." },
+          { "name": "Fúria Ancestral", "text": "Aumenta o dano de ataques corpo a corpo em +2 por 1 turno." }
+        ]
+      },
+      {
+        "title": "Canalizar Energia",
+        "items": [
+          { "name": "Negativa", "text": "" }
+        ]
+      },
+      {
+        "title": "Obrigações & Restrições",
+        "items": [
+          { "name": "Não demonstrar fraqueza ou piedade perante inimigos.", "text": "Devotos devem agir com força e assertividade." }
+        ]
+      }
+    ]
   },
   {
     "name": "Lena",
-    "description": "Senhora da cura, bondade e compaixão; luz suave entre feridas."
+    "description": "Deusa do conhecimento, sabedoria e das artes. Inspiradora de estudiosos, inventores e magos.",
+    "highlights": [
+      { "name": "Deusa da Sabedoria", "text": "" }
+    ],
+    "details": [
+      {
+        "title": "Devotos",
+        "items": [
+          { "name": "Eruditos, inventores, magos e bibliófilos.", "text": "Lena guia aqueles que buscam conhecimento e iluminação intelectual." }
+        ]
+      },
+      {
+        "title": "Poderes Concedidos",
+        "items": [
+          { "name": "Visão do Sábio", "text": "Permite aprender uma perícia adicional sem custo de treino." },
+          { "name": "Inspiração Arcana", "text": "1 PM para aumentar o efeito de uma magia em +1 nível." },
+          { "name": "Luz do Conhecimento", "text": "Revela informações ocultas sobre criaturas ou artefatos mágicos." },
+          { "name": "Mente Afiada", "text": "Bônus +2 em testes de Inteligência por 1 rodada." }
+        ]
+      },
+      {
+        "title": "Canalizar Energia",
+        "items": [
+          { "name": "Positiva", "text": "" }
+        ]
+      },
+      {
+        "title": "Obrigações & Restrições",
+        "items": [
+          { "name": "Nunca distorcer a verdade nem usar conhecimento para enganar inocentes.", "text": "Devotos devem promover sabedoria e aprendizado." }
+        ]
+      }
+    ]
   },
   {
     "name": "Lin-Wu",
-    "description": "Espírito da honra oriental; disciplina, respeito e coragem interior."
+    "description": "Deusa da disciplina, equilíbrio e artes marciais. Honra, autocontrole e perfeição em combate são seus pilares.",
+    "highlights": [
+      { "name": "Deusa da Disciplina", "text": "" }
+    ],
+    "details": [
+      {
+        "title": "Devotos",
+        "items": [
+          { "name": "Lutadores, monges, guerreiros e mestres de artes marciais.", "text": "Lin-Wu ensina o autocontrole e a disciplina em qualquer situação." }
+        ]
+      },
+      {
+        "title": "Poderes Concedidos",
+        "items": [
+          { "name": "Golpe Perfeito", "text": "Gaste 1 PM para rolar ataque com vantagem." },
+          { "name": "Equilíbrio do Corpo", "text": "Bônus +2 em testes de Acrobacia e Defesa." },
+          { "name": "Respiração Serena", "text": "Recupere 1 PM ao permanecer imóvel concentrado por 1 rodada." },
+          { "name": "Meditação Marcial", "text": "Reduz penalidades de ataques por fadiga ou ferimentos." }
+        ]
+      },
+      {
+        "title": "Canalizar Energia",
+        "items": [
+          { "name": "Positiva", "text": "" }
+        ]
+      },
+      {
+        "title": "Obrigações & Restrições",
+        "items": [
+          { "name": "Nunca agir por impulso ou sem propósito claro.", "text": "Devotos devem seguir o caminho da disciplina e honra." }
+        ]
+      }
+    ]
   },
   {
     "name": "Marah",
-    "description": "Deusa do amor, paz e beleza; inspira união e harmonia."
+    "description": "Deusa da cura, da proteção e da vida. Reverenciada por clérigos e curandeiros, simboliza compaixão e benevolência.",
+    "highlights": [
+      { "name": "Deusa da Cura", "text": "" }
+    ],
+    "details": [
+      {
+        "title": "Devotos",
+        "items": [
+          { "name": "Clérigos, curandeiros, paladinos e enfermeiros.", "text": "Marah protege e orienta aqueles que cuidam da vida alheia." }
+        ]
+      },
+      {
+        "title": "Poderes Concedidos",
+        "items": [
+          { "name": "Cura Divina", "text": "Gaste 1 PM para curar 1d8 + modificador de Sabedoria PV de um aliado." },
+          { "name": "Proteção Vital", "text": "Aumenta a Defesa de um aliado em +1 por 1 turno." },
+          { "name": "Aura de Vida", "text": "Gasta 2 PM para remover efeitos negativos de uma criatura aliada." },
+          { "name": "Benção de Vitalidade", "text": "Recupera PM extras durante descanso curto." }
+        ]
+      },
+      {
+        "title": "Canalizar Energia",
+        "items": [
+          { "name": "Positiva", "text": "" }
+        ]
+      },
+      {
+        "title": "Obrigações & Restrições",
+        "items": [
+          { "name": "Não infligir sofrimento desnecessário.", "text": "Devotos devem preservar a vida e promover bem-estar." }
+        ]
+      }
+    ]
   },
   {
     "name": "Megalokk",
-    "description": "Senhor dos monstros; exalta força bruta, selvageria e domínio."
+    "description": "Deus da força, destruição e guerras. Favorece guerreiros brutais e qualquer um que busque poder pelo combate.",
+    "highlights": [
+      { "name": "Deus da Guerra", "text": "" }
+    ],
+    "details": [
+      {
+        "title": "Devotos",
+        "items": [
+          { "name": "Guerreiros, bárbaros, mercenários e chefes de guerra.", "text": "Megalokk inspira coragem e ferocidade em batalha." }
+        ]
+      },
+      {
+        "title": "Poderes Concedidos",
+        "items": [
+          { "name": "Fúria do Conquistador", "text": "Aumenta dano de ataque em +2 por 1 rodada." },
+          { "name": "Armadura do Berserker", "text": "Receba +1 na Defesa enquanto estiver em combate." },
+          { "name": "Golpe Imparável", "text": "Gaste 1 PM para ignorar redução de dano de inimigos." },
+          { "name": "Inspiração de Guerra", "text": "Bônus +1 em testes de Intimidação ou Liderança durante combate." }
+        ]
+      },
+      {
+        "title": "Canalizar Energia",
+        "items": [
+          { "name": "Negativa", "text": "" }
+        ]
+      },
+      {
+        "title": "Obrigações & Restrições",
+        "items": [
+          { "name": "Não recuar ou fugir de combates importantes.", "text": "Devotos devem buscar a vitória a qualquer custo." }
+        ]
+      }
+    ]
   },
   {
     "name": "Nimb",
-    "description": "O Deus Louco; caos vivo, imprevisível e absurdamente criativo."
+    "description": "Deusa da natureza, animais e clima. Guias druidas, exploradores e todos que reverenciam a vida selvagem.",
+    "highlights": [
+      { "name": "Deusa da Natureza", "text": "" }
+    ],
+    "details": [
+      {
+        "title": "Devotos",
+        "items": [
+          { "name": "Druidas, rangers, guardiões de florestas e biólogos.", "text": "Nimb protege os ciclos naturais e seus seguidores." }
+        ]
+      },
+      {
+        "title": "Poderes Concedidos",
+        "items": [
+          { "name": "Comunhão Natural", "text": "Permite conversar com animais e criaturas da natureza." },
+          { "name": "Chamada do Vento", "text": "Gaste 1 PM para alterar clima local levemente." },
+          { "name": "Escudo Verde", "text": "Receba +1 em Defesa quando estiver em ambientes naturais." },
+          { "name": "Cura da Terra", "text": "Gaste 2 PM para curar 1d6 PV de aliados próximos." }
+        ]
+      },
+      {
+        "title": "Canalizar Energia",
+        "items": [
+          { "name": "Positiva", "text": "" }
+        ]
+      },
+      {
+        "title": "Obrigações & Restrições",
+        "items": [
+          { "name": "Não destruir a natureza sem necessidade.", "text": "Devotos devem proteger a flora e fauna." }
+        ]
+      }
+    ]
   },
   {
     "name": "Oceano",
-    "description": "Guardião das marés profundas; vasto, tempestuoso e insondável."
+    "description": "Deus dos mares, tempestades e navegação. Reverenciado por marinheiros, pescadores e exploradores.",
+    "highlights": [
+      { "name": "Deus dos Mares", "text": "" }
+    ],
+    "details": [
+      {
+        "title": "Devotos",
+        "items": [
+          { "name": "Marinheiros, pescadores, aventureiros costeiros.", "text": "Oceano protege e orienta todos que navegam pelos mares." }
+        ]
+      },
+      {
+        "title": "Poderes Concedidos",
+        "items": [
+          { "name": "Fúria das Ondas", "text": "Controle temporariamente correntes ou marés pequenas." },
+          { "name": "Respiração Aquática", "text": "Permite respirar debaixo d’água por 1 hora." },
+          { "name": "Bênção Náutica", "text": "Bônus +2 em testes de Navegação e Pilotagem aquática." },
+          { "name": "Tempestade Divina", "text": "Gaste 2 PM para causar efeitos climáticos em área costeira." }
+        ]
+      },
+      {
+        "title": "Canalizar Energia",
+        "items": [
+          { "name": "Qualquer", "text": "" }
+        ]
+      },
+      {
+        "title": "Obrigações & Restrições",
+        "items": [
+          { "name": "Nunca poluir ou profanar águas sagradas.", "text": "Devotos devem respeitar mares e rios." }
+        ]
+      }
+    ]
   },
   {
-    "name": "Ragnar",
-    "description": "Deus da força e do combate direto; honra valentia sobre astúcia."
+    "name": "Sszzaas",
+    "description": "Deus da tirania e manipulação, adorado por cultistas e tiranos. Representa crueldade, poder absoluto e dominação.",
+    "highlights": [
+      { "name": "Deus da Tirania", "text": "" }
+    ],
+    "details": [
+      {
+        "title": "Devotos",
+        "items": [
+          { "name": "Tiranos, nobres opressores, cultistas do mal.", "text": "Sszzaas favorece aqueles que buscam dominar e subjugar." }
+        ]
+      },
+      {
+        "title": "Poderes Concedidos",
+        "items": [
+          { "name": "Controle Mental", "text": "Gaste 1 PM para tentar dominar temporariamente uma criatura fraca." },
+          { "name": "Intimidação Sagrada", "text": "Bônus +2 em testes de intimidação." },
+          { "name": "Aura de Medo", "text": "Criaturas inimigas sofrem penalidade –1 em ataque enquanto estiverem próximas." },
+          { "name": "Punho de Ferro", "text": "Aumenta dano físico de ataques corpo a corpo em +2." }
+        ]
+      },
+      {
+        "title": "Canalizar Energia",
+        "items": [
+          { "name": "Negativa", "text": "" }
+        ]
+      },
+      {
+        "title": "Obrigações & Restrições",
+        "items": [
+          { "name": "Não proteger ou ajudar inocentes.", "text": "Devotos devem agir em prol da dominação e crueldade." }
+        ]
+      }
+    ]
   },
   {
-    "name": "Sallim",
-    "description": "Patrono da magia arcana; busca conhecimento, mistério e poder."
-  },
-  {
-    "name": "Tannah-Toh",
-    "description": "Deusa da sabedoria e do conhecimento; valoriza ordem e aprendizado."
+    "name": "Tanna-Toh",
+    "description": "Deusa da natureza, fertilidade e bondade. Reverenciada por druidas, agricultores e guardiões da vida.",
+    "highlights": [
+      { "name": "Deusa da Fertilidade", "text": "" }
+    ],
+    "details": [
+      {
+        "title": "Devotos",
+        "items": [
+          { "name": "Druidas, agricultores, curandeiros da natureza.", "text": "Tanna-Toh guia aqueles que cuidam da terra e da vida." }
+        ]
+      },
+      {
+        "title": "Poderes Concedidos",
+        "items": [
+          { "name": "Crescimento Natural", "text": "Permite acelerar crescimento de plantas em 1 rodada." },
+          { "name": "Cura da Terra", "text": "Gaste 1 PM para curar 1d6 PV de criaturas aliadas." },
+          { "name": "Bênção Verde", "text": "Bônus +2 em testes de Sobrevivência e Adestramento de animais." },
+          { "name": "Proteção Natural", "text": "Reduz dano de ataques naturais em 1 ponto por rodada." }
+        ]
+      },
+      {
+        "title": "Canalizar Energia",
+        "items": [
+          { "name": "Positiva", "text": "" }
+        ]
+      },
+      {
+        "title": "Obrigações & Restrições",
+        "items": [
+          { "name": "Não destruir florestas nem prejudicar seres vivos.", "text": "Devotos devem proteger a vida natural." }
+        ]
+      }
+    ]
   },
   {
     "name": "Tenebra",
-    "description": "Senhora da noite e dos mortos; enigmática, silenciosa e inevitável."
+    "description": "Deusa da escuridão, morte e segredos. Adorada por necromantes e assassinos, simboliza medo, mistério e manipulação.",
+    "highlights": [
+      { "name": "Deusa da Escuridão", "text": "" }
+    ],
+    "details": [
+      {
+        "title": "Devotos",
+        "items": [
+          { "name": "Necromantes, assassinos, cultistas do segredo.", "text": "Tenebra favorece aqueles que operam nas sombras e no segredo." }
+        ]
+      },
+      {
+        "title": "Poderes Concedidos",
+        "items": [
+          { "name": "Sombra Oculta", "text": "Permite ficar invisível por 1 rodada enquanto não atacar." },
+          { "name": "Toque da Morte", "text": "Gaste 2 PM para causar 1d6 de dano negativo a uma criatura viva." },
+          { "name": "Manipular Medo", "text": "Crie 1 rodada de medo em inimigos próximos." },
+          { "name": "Véu da Escuridão", "text": "Reduz detecção mágica e física de aliados em –2 por 1 turno." }
+        ]
+      },
+      {
+        "title": "Canalizar Energia",
+        "items": [
+          { "name": "Negativa", "text": "" }
+        ]
+      },
+      {
+        "title": "Obrigações & Restrições",
+        "items": [
+          { "name": "Nunca revelar segredos que possam salvar inimigos.", "text": "Devotos devem manter segredos e manipular sombras." }
+        ]
+      }
+    ]
   },
+
   {
     "name": "Thwor",
-    "description": "Deus dos minotauros; honra força, disciplina e orgulho tribal."
+    "description": "Deus da força militar, da guerra e da conquista. Inspirador de líderes, soldados e comandantes.",
+    "highlights": [
+      { "name": "Deus da Conquista", "text": "" }
+    ],
+    "details": [
+      {
+        "title": "Devotos",
+        "items": [
+          { "name": "Guerreiros, generais, paladinos de guerra.", "text": "Thwor concede disciplina militar e força estratégica." }
+        ]
+      },
+      {
+        "title": "Poderes Concedidos",
+        "items": [
+          { "name": "Bênção Marcial", "text": "Bônus +2 em ataques e Defesa durante combate em grupo." },
+          { "name": "Comando Inspirador", "text": "Gaste 1 PM para aumentar moral de aliados, dando +1 em testes de ataque." },
+          { "name": "Golpe de Liderança", "text": "Bônus +1 em dano ao atacar inimigos enfraquecidos." },
+          { "name": "Resistência Militar", "text": "Reduz dano de área em 1 ponto por turno." }
+        ]
+      },
+      {
+        "title": "Canalizar Energia",
+        "items": [
+          { "name": "Qualquer", "text": "" }
+        ]
+      },
+      {
+        "title": "Obrigações & Restrições",
+        "items": [
+          { "name": "Nunca fugir de batalha ou trair seus aliados.", "text": "Devotos devem agir com coragem e disciplina militar." }
+        ]
+      }
+    ]
   },
   {
     "name": "Thyatis",
-    "description": "Deusa da vitória; guia campeões, glória e força disciplinada."
+    "description": "Deusa da justiça, ordem e leis. Patronessa de juízes, magistrados e guardiões da lei.",
+    "highlights": [
+      { "name": "Deusa da Justiça", "text": "" }
+    ],
+    "details": [
+      {
+        "title": "Devotos",
+        "items": [
+          { "name": "Juízes, magistrados, paladinos, guardas e advogados.", "text": "Thyatis inspira equidade, justiça e disciplina moral." }
+        ]
+      },
+      {
+        "title": "Poderes Concedidos",
+        "items": [
+          { "name": "Olhar da Justiça", "text": "Permite detectar mentiras ou intenções ocultas por 1 turno." },
+          { "name": "Bênção Legal", "text": "Bônus +2 em testes de Diplomacia ou Intimidação para manter ordem." },
+          { "name": "Autoridade Divina", "text": "Gaste 1 PM para fazer com que inimigos obedecam uma ordem simples por 1 rodada." },
+          { "name": "Equilíbrio Moral", "text": "Reduz efeitos negativos em aliados próximos, equilibrando resultados de magia ou efeitos." }
+        ]
+      },
+      {
+        "title": "Canalizar Energia",
+        "items": [
+          { "name": "Positiva", "text": "" }
+        ]
+      },
+      {
+        "title": "Obrigações & Restrições",
+        "items": [
+          { "name": "Nunca agir de forma injusta ou favorecer criminosos.", "text": "Devotos devem defender a lei e a ordem acima de tudo." }
+        ]
+      }
+    ]
   },
   {
     "name": "Valkaria",
-    "description": "Deusa da humanidade e ambição; inspira ascensão, mudança e desafio."
+    "description": "Deusa da ambição, coragem e liderança. Inspiradora de humanos e aventureiros que buscam conquistar grandes feitos.",
+    "highlights": [
+      { "name": "Deusa da Ambição", "text": "" }
+    ],
+    "details": [
+      {
+        "title": "Devotos",
+        "items": [
+          { "name": "Humanos, líderes, aventureiros e exploradores.", "text": "Valkaria incentiva a superação e a busca por glória." }
+        ]
+      },
+      {
+        "title": "Poderes Concedidos",
+        "items": [
+          { "name": "Chama da Ambição", "text": "Bônus +1 em testes de Força, Destreza ou Carisma uma vez por dia." },
+          { "name": "Inspiração de Líder", "text": "Gaste 1 PM para conceder +2 em um teste de liderança ou combate a um aliado." },
+          { "name": "Coragem Implacável", "text": "Resiste a efeitos de medo e intimidação por 1 turno." },
+          { "name": "Determinação Divina", "text": "Permite rolar novamente um teste falho por 1 PM." }
+        ]
+      },
+      {
+        "title": "Canalizar Energia",
+        "items": [
+          { "name": "Positiva", "text": "" }
+        ]
+      },
+      {
+        "title": "Obrigações & Restrições",
+        "items": [
+          { "name": "Nunca desistir ou desmotivar seus aliados.", "text": "Devotos devem buscar a glória com coragem e determinação." }
+        ]
+      }
+    ]
   },
-  {
+
+ {
     "name": "Wynna",
-    "description": "Deusa da magia pura; livre, fluida e presente em todas as coisas."
+    "description": "Deusa da Magia, louvada por fadas, qareen, gênios e todos os arcanistas. Concede magia generosamente, independente do uso, e promove bondade e generosidade.",
+    "highlights": [
+      { "name": "Deusa da Magia", "text": "" }
+    ],
+    "details": [
+      {
+        "title": "Devotos",
+        "items": [
+          { "name": "Elfos, golens, qareen, sílfides, arcanistas, bardos.", "text": "Wynna acolhe todos que buscam o estudo e a prática da magia." }
+        ]
+      },
+      {
+        "title": "Poderes Concedidos",
+        "items": [
+          { "name": "Bênção do Mana", "text": "Receba +1 PM a cada nível ímpar." },
+          { "name": "Centelha Mágica", "text": "Escolha uma magia arcana ou divina de 1º círculo. Aprenda e lance essa magia." },
+          { "name": "Escudo Mágico", "text": "Quando lançar uma magia, receba bônus na Defesa igual ao círculo da magia até o próximo turno." },
+          { "name": "Teurgista Místico", "text": "Aprimora habilidades de conjuração mágica de qualquer classe que use magias." }
+        ]
+      },
+      {
+        "title": "Canalizar Energia",
+        "items": [
+          { "name": "Qualquer", "text": "" }
+        ]
+      },
+      {
+        "title": "Obrigações & Restrições",
+        "items": [
+          { "name": "Nunca negar ajuda a inocentes e não matar seres mágicos ou conjuradores arcanos.", "text": "Devotos devem praticar a bondade e generosidade de Wynna." }
+        ]
+      }
+    ]
   }
 ]
 }

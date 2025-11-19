@@ -220,7 +220,7 @@ top: -6%;
   position: absolute;
   top: 100%; /* será ajustado pelo JS */
   left: 103%; /* default = direita */
-  width: 300px; /* limite de largura */
+  width: 350px; /* limite de largura */
   z-index: 40;
 }
 .description {
@@ -236,14 +236,19 @@ top: -6%;
   margin-bottom: 8px;
 }
 
-.desc1 {
+.highlights {
   color: #b62a2a;
-  font-weight: bold;
+  font-weight: bolder;
   font-family:'Tormenta.ttf' ;
+  font-size: larger;
 }
-
+.detail-title{
+  font-family: 'tormenta.ttf';
+  font-weight: bold;
+  color: #b62a2a;
+  font-size: large;
+}
 .desc2 {
-  color:  #833421;
   font-weight: bold;
   cursor: pointer;
   font-family:'Tormenta.ttf' ;

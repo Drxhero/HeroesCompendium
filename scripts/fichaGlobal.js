@@ -311,12 +311,20 @@ function createAutocomplete(inputId, list) {
 
         function formatRaceDescription(el) {
           let html = "";
-          // atributos em vermelho
-          if (el.desc1) {
-            html += `<p class="race-desc-attr"><span class="desc1">${el.desc1}</span></p>`;
-          }
+ // atributos em vermelho
+              if (el.highlights) {
+        html += `
+          <h3 class="race-desc-attr">
+            ${
+              el.highlights
+                .map(h => `<span class="highlights" title="${h.text || ""}">${h.name}</span>`)
+                .join(" <span class='divider'>|</span> ")
+            }
+          </h3>
+        `;
+      }
 
-          // frase principal
+// frase principal
           if (el.description) {
             html += `<p class="race-desc-main">${el.description}</p>`;
           }
@@ -324,21 +332,35 @@ function createAutocomplete(inputId, list) {
         
 
           // habilidades
-                    if (el.habilities) {
-            html += `<ul class="race-desc-habs">`;
+        if (el.details && el.details.length > 0) {
+  html += `<div class="race-desc-habs">`;
 
-            for (const [habName, habText] of Object.entries(el.habilities)) {
-              html += `
-                <li>
-                  <span class="desc2" title="${habText}">
-                    ${habName}
-                  </span>
-                </li>
-              `;
-            }
+  el.details.forEach(detailSection => {
+    // Título da categoria (ex.: "Traços Raciais")
+    if (detailSection.title) {
+      html += `<h4 class="detail-title">${detailSection.title}</h4>`;
+    }
 
-            html += `</ul>`;
-          }
+    // Lista dos itens
+      if (detailSection.items && detailSection.items.length > 0) {
+        html += `<ul class="detail-list">`;
+
+        detailSection.items.forEach(item => {
+          html += `
+            <li>
+              <span class="desc2" title="${item.text}">
+                ${item.name}
+              </span>
+            </li>
+          `;
+        });
+
+        html += `</ul>`;
+      }
+    });
+
+    html += `</div>`;
+  }
 
           return html;
         }
